@@ -2,6 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 
+void sketch(int n){
+    switch (n) {
+    case 9: printf("\n\n     _\n    / \\\n   |  ()\n   |\\\n  /|\n -----\n \\---/\n  \\-/\n   -\n"); break;
+    case 8: printf("\n    ()\n     |\n    /\n   | \n   |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n"); break;
+    case 7: printf("\n    ()\n     |\n    /\n   | \n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n"); break;
+    case 6: printf("\n    ()\n     |\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n"); break;
+    case 5: printf("  (@)\n    ()\n     |\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n"); break;
+    case 4: printf("  (@)\n (@)()\n     |\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n"); break;
+    case 3: printf("  (@)\n (@)()\n  (@)\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n"); break;    
+    case 2: printf("  (@)\n (@)()\n  (@)(@)\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n"); break;
+    case 1: printf("  (@)\n (@)()(@)\n  (@)(@)\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n"); break;
+    case 0: printf("  (@)(@)\n (@)()(@)\n  (@)(@)\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n"); break;
+    }
+}
+
 int main(){
     
     char word[] = "hangman"; //загаданное слово
@@ -23,7 +38,7 @@ int main(){
     
     puts(entered_word);
         
-    while(word_size != 0 && error < 10 && stop < word_size){
+    while(word_size != 0 && error < 9 && stop < word_size){
         puts("Введите букву: ");        
         scanf("%c%*c", &letter);
         //printf("%c\n", letter);
@@ -68,13 +83,15 @@ int main(){
                 
         printf("Ошибок: %d\n", error);
         printf("\n");
-        printf("----------------\n");
+        sketch(error);
+        printf("\n");
+        printf("________________\n");
     }
     
     printf("****************\n");
     printf("Ошибок всего: %d\n", error); 
     
-    if (error < 10 && stop == word_size){
+    if (error < 9 && stop == word_size){
         puts("Победа!");
     }
     else
