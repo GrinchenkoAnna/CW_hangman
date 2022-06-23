@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 void sketch(int n){
     switch (n) {
@@ -19,19 +20,55 @@ void sketch(int n){
 
 int main(){
     
-    char word[] = "hangman"; //загаданное слово
-    int word_size = strlen(word); //размер загаданного слова
+    //для выбора слова из файла 
+    char word[10] = {0}; //загаданное слово + вспомогательный массив
+    
+    int word_size = 0; //размер загаданного слова
+    FILE* words;
+    int number_of_words = 0; //количество строк в файле
+    //char hidden_words[10] = {0}; //вспомогательный массив
+    int word_choice = 0; //номер строки с загаданным словом
+    
+    //для процесса игры 
     char letter; //вводимая буква
     int error = 0; //счетчик ошибок
     int guessed = 0; //счетчик угаданных букв
     //int different = 0; //счетчик неугаданных букв
-    int stop = 0; //для остановки
-    int flag = 0;
+    int stop = 0; //для остановки, считает количество угаданных букв
+    int flag = 0; //вспомогательный маркер
     int repeat = 0; //счетчик повтора букв
     
+    //---------------подключение файла----------------------------------------
+    //проверка успешного открытия файла
+    if (!(words = fopen("words_en", "r"))){ 
+        printf("Ошибка открытия файла!\n");
+        return 1;
+    }
     
-    //puts(word); 
-    //printf("%d\n", word_size);
+    //количество строк  
+    while (fscanf(words, "%s", word) != EOF){
+        number_of_words++;
+    }
+        
+    //printf("Строк: %d\n", number_of_words);
+    
+    srand(time(NULL));
+    word_choice = rand()%number_of_words; //выбор номера строки со словом
+    printf("Выбрано слово номер: %d\n", word_choice);
+        
+    fseek(words, 0, SEEK_SET); //указатель на начало файла
+    for (int i = 0; i < word_choice; i++){
+        fscanf(words, "%s", word); //запись в массив выбранного слова
+        //puts(word);
+    }
+    
+    fclose(words);
+    //---------------подключение файла----------------------------------------    
+    
+    word_size = strlen(word); 
+            
+    puts(word); 
+    printf("%d\n", word_size); 
     
     char *entered_word = (char*)calloc(word_size, sizeof(char));
     memset(entered_word, '_', word_size);
@@ -53,7 +90,8 @@ int main(){
                 puts("Такая буква уже есть!\n");
                 break;
             }
-            flag++;
+            flag++; /*маркер: были в цикле и проверили, что введенная буква ни новая угаданная,
+            ни старая угаданная и надо отметить, что такой буквы нет*/
             if (word[i] == letter){
                 entered_word[i] = word[i];
                 guessed++;                
@@ -63,15 +101,17 @@ int main(){
             }        
         }
         
+        //guessed == 0 && - было в if ниже
+        
         //если буква не совпадает с элементом массива, счетчик неугаданных букв увеличивается
         //если вводимая буква не находится в слове, увеличивается счетчик ошибок
-        if (guessed == 0 && flag != 0 && repeat == 0){
+        if (flag != 0 && repeat == 0){
             error++;
             puts("Такой буквы нет!");
             printf("\n");
         } 
         
-        stop += guessed;
+        stop += guessed; //считает количество угаданных букв
         //printf("Стоп: %d\n", stop);
         guessed = 0;
         repeat = 0;
