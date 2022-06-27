@@ -22,8 +22,8 @@ int main(){
     
     //для выбора слова из файла 
     char word[10] = {0}; //загаданное слово + вспомогательный массив
-    
     int word_size = 0; //размер загаданного слова
+    
     FILE* words;
     int number_of_words = 0; //количество строк в файле
     //char hidden_words[10] = {0}; //вспомогательный массив
@@ -70,8 +70,8 @@ int main(){
     puts(word); 
     printf("%d\n", word_size); 
     
-    char *entered_word = (char*)calloc(word_size, sizeof(char));
-    memset(entered_word, '_', word_size);
+    char *entered_word = (char*)calloc(word_size, sizeof(char)); /*выделение памяти для массива для вводимых букв*/
+    memset(entered_word, '_', word_size); //заполнение массивва для вводимых букв символами "_"
     
     puts(entered_word);
         
