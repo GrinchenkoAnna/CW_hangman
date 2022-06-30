@@ -75,7 +75,7 @@ int main(){
     puts(word); 
     printf("%d\n", word_size); 
     
-    char *entered_word = (char*)calloc(word_size, sizeof(char)); /*выделение памяти для массива для вводимых букв*/
+    char *entered_word = (char*)malloc(word_size*sizeof(char)); /*выделение памяти для массива для вводимых букв*/
     memset(entered_word, '_', word_size); //заполнение массивва для вводимых букв символами "_"
     
     puts(entered_word);
