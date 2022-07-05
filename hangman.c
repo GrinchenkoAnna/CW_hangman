@@ -11,11 +11,11 @@ int main(){
     
     //для выбора слова из файла 
     char word[15] = {0}; //загаданное слово + вспомогательный массив
-    int word_size = 0; //размер загаданного слова
+    unsigned int word_size = 0; //размер загаданного слова
     
     FILE* words;
     //number_of_words - количество строк в файле, word_choise - номер строки с загаданным словом
-    int number_of_words = 0, word_choise = 0; //количество строк в файле    
+    unsigned int number_of_words = 0, word_choise = 0; //количество строк в файле    
         
     //для процесса игры 
     char abc[53] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'}; //разрешенные для ввода символы 
@@ -24,13 +24,12 @@ int main(){
     /*error - для ошибок; guessed - для угаданных букв; 
     stop - для остановки, считает количество угаданных букв; flag - вспомогательный маркер;
     repeat - счетчик повтора букв*/
-    int error = 0, guessed = 0, stop = 0, flag = 0, repeat = 0;
+    unsigned int error = 0, guessed = 0, stop = 0, flag = 0, repeat = 0;
 
     //подключение файла   
     hidden_word(word);   
     word_size = strlen(word); 
-    printf("%d\n", word_size); 
-    
+        
     char *entered_word = (char*)calloc(word_size, sizeof(char)); /*выделение памяти для массива для вводимых букв*/
     memset(entered_word, '_', word_size); //заполнение массивва для вводимых букв символами "_"
     puts(entered_word);
@@ -63,6 +62,7 @@ int main(){
                 }                   
             }
         }
+        //если введен запрещенный символ, засчитывается ошибка
         else {
             error++;            
         }
@@ -76,32 +76,35 @@ int main(){
         
         stop += guessed; //считает количество угаданных букв
                
+        //обнуление маркеров для следующего ввода символа
         if (guessed > 0){
-                puts("Правильно!"); 
+                puts("Такая буква есть!"); 
                 guessed = 0;
         }         
         repeat = 0;
         if (flag != 0)
             flag = 0;       
         
-        puts(entered_word); //результат ввода на массиве для вводимых букв
+        //результат ввода на массиве для вводимых букв
+        puts(entered_word); 
         printf("\n");                
-        printf("Ошибок: %d\n\n", error);        
+        printf("Ошибок: %u\n\n", error);        
         sketch(error);
         printf("\n");
         printf("________________\n");        
     }
     
     printf("****************\n\n");
-    printf("Ошибок всего: %d\n", error); 
+    printf("Ошибок всего: %u\n", error); 
     
+    //результат игрока
     if (error < 9 && stop == word_size){
         puts("Победа!");
     }
     else
         puts("Поражение...");
       
-    free(entered_word); 
+    free(entered_word); //освобождение памяти, выделенной для массива для ввода
        
     return 0;
 }

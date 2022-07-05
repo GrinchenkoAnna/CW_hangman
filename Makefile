@@ -1,7 +1,7 @@
 TARGET = main
 INSTALLATION_PATH = /home/user/Документы/Programs/install
 
-.PHONY: all clean install uninstall
+.PHONY: all clean
 
 all: $(TARGET) 
 
@@ -22,9 +22,3 @@ input_control.o:
 	
 $(TARGET): sketch.o hidden_word.o input_control.o hangman.o
 	gcc sketch.o hidden_word.o hangman.o input_control.o -Wall -o $(TARGET)
-	
-install:
-	install main.o $(INSTALLATION_PATH) 
-	
-uninstall:
-	rm -rf $(INSTALLATION_PATH)
