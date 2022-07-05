@@ -7,8 +7,8 @@ int hidden_word(char *choice){
 
     FILE* words;    
     
-    int number_of_words = 0; //количество строк в файле
-    int word_choice = 0; //номер строки с загаданным словом
+    unsigned int number_of_words = 0; //количество строк в файле
+    unsigned int word_choice = 0; //номер строки с загаданным словом
     
     //проверка успешного открытия файла
     if (!(words = fopen("words_en", "r"))){ 

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void sketch(int n){
+void sketch(unsigned int n){
     switch (n) {
     case 9: printf("\n\n     _\n    / \\\n   |  ()\n   |\\\n  /|\n -----\n \\---/\n  \\-/\n   -\n"); break;
     case 8: printf("\n    ()\n     |\n    /\n   | \n   |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n"); break;
