@@ -1,5 +1,4 @@
 TARGET = main
-INSTALLATION_PATH = /home/user/Документы/Programs/install
 
 .PHONY: all clean
 
