@@ -7,9 +7,7 @@ char input_control(){
     char abc[53] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'}; //разрешенные для ввода символы 
     char symbol; //вводимая буква    
     
-    //unsigned int empty_input = 0; //для ввода символа \n вместо буквы
-    unsigned int wrong_symbol = 0; //для ввода неверных символов
-    
+    unsigned int wrong_symbol = 0; //для ввода неверных символов    
     
     //ограничения на ввод количества символов
     while (fgets(player_input, 99, stdin)){
