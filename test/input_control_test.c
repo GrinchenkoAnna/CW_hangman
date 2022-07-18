@@ -1,12 +1,13 @@
 #include <stdio.h>
+#include <wchar.h>
 #include "../thirdparty/ctest.h"
 #include "../src/input_control.h"
 
-//
+//Ввод на латинице и Кириллице: строчная и прописная буквы
 CTEST(one_symbol_suite, lat1){
 
     // Given
-    freopen("test/one_symbol_lat", "r", stdin);
+    freopen("test/one_symbol_lat", "r", stdin);   
     const char s1 = input_control();
     // When
     const int result = (int)s1;
@@ -16,10 +17,10 @@ CTEST(one_symbol_suite, lat1){
     ASSERT_EQUAL(expected, result);
 }
 
-CTEST(one_symbol_suite, lat1_upper_case){
+CTEST(one_symbol_suite, lat2){
 
     // Given
-    freopen("test/one_symbol_lat_upper_case", "r", stdin);
+    fseek(stdin, sizeof(char), SEEK_SET);
     const char s2 = input_control();
     // When
     const int result = (int)s2;
@@ -29,11 +30,10 @@ CTEST(one_symbol_suite, lat1_upper_case){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, kir1){
 
     // Given
-    freopen("test/one_symbol_kir", "r", stdin);
+    freopen("test/one_symbol_kir", "r", stdin);    
     const char s3 = input_control();
     // When
     const int result = (int)s3;
@@ -43,11 +43,10 @@ CTEST(one_symbol_suite, kir1){
     ASSERT_EQUAL(expected, result);
 }
 
-//
-CTEST(one_symbol_suite, kir1_upper_case){
+CTEST(one_symbol_suite, kir2){
 
     // Given
-    freopen("test/one_symbol_kir_upper_case", "r", stdin);
+    fseek(stdin, sizeof(wchar_t), SEEK_SET);
     const char s4 = input_control();
     // When
     const int result = (int)s4;
@@ -57,11 +56,11 @@ CTEST(one_symbol_suite, kir1_upper_case){
     ASSERT_EQUAL(expected, result);
 }
 
-//
+//Ввод символов: пробел, табуляция, перенос на новую строку
 CTEST(one_symbol_suite, space){
 
     // Given
-    freopen("test/one_symbol_space", "r", stdin);
+    freopen("test/one_symbol_control_symbols", "r", stdin);
     const char s5 = input_control();
     // When
     const int result = (int)s5;
@@ -71,11 +70,10 @@ CTEST(one_symbol_suite, space){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, tab){
 
     // Given
-    freopen("test/one_symbol_tab", "r", stdin);
+    fseek(stdin, sizeof(char), SEEK_SET);
     const char s6 = input_control();
     // When
     const int result = (int)s6;
@@ -85,11 +83,10 @@ CTEST(one_symbol_suite, tab){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, enter){
 
     // Given
-    freopen("test/one_symbol_enter", "r", stdin);
+    fseek(stdin, 2*sizeof(char), SEEK_SET);
     const char s7 = input_control();
     // When
     const int result = (int)s7;
@@ -99,11 +96,11 @@ CTEST(one_symbol_suite, enter){
     ASSERT_EQUAL(expected, result);
 }
 
-//
+//Ввод цифры и символов ~!@#$%^&*()_+`-={}|[]\/:";'<>?,.
 CTEST(one_symbol_suite, number){
 
     // Given
-    freopen("test/one_symbol_number", "r", stdin);
+    freopen("test/one_symbol_number_and_punctuation_marks", "r", stdin);
     const char s8 = input_control();
     // When
     const int result = (int)s8;
@@ -113,11 +110,10 @@ CTEST(one_symbol_suite, number){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, tilde){
 
     // Given
-    freopen("test/one_symbol_tilde", "r", stdin);
+    fseek(stdin, sizeof(char), SEEK_SET);
     const char s9 = input_control();
     // When
     const int result = (int)s9;
@@ -127,11 +123,10 @@ CTEST(one_symbol_suite, tilde){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, exclamation_mark){
 
     // Given
-    freopen("test/one_symbol_exclamation_mark", "r", stdin);
+    fseek(stdin, 2*sizeof(char), SEEK_SET);
     const char s10 = input_control();
     // When
     const int result = (int)s10;
@@ -141,11 +136,10 @@ CTEST(one_symbol_suite, exclamation_mark){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, at){
 
     // Given
-    freopen("test/one_symbol_at", "r", stdin);
+    fseek(stdin, 3*sizeof(char), SEEK_SET);
     const char s11 = input_control();
     // When
     const int result = (int)s11;
@@ -155,11 +149,10 @@ CTEST(one_symbol_suite, at){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, hash){
 
     // Given
-    freopen("test/one_symbol_hash", "r", stdin);
+    fseek(stdin, 4*sizeof(char), SEEK_SET);
     const char s12 = input_control();
     // When
     const int result = (int)s12;
@@ -169,11 +162,10 @@ CTEST(one_symbol_suite, hash){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, dollar){
 
     // Given
-    freopen("test/one_symbol_dollar", "r", stdin);
+    fseek(stdin, 5*sizeof(char), SEEK_SET);
     const char s13 = input_control();
     // When
     const int result = (int)s13;
@@ -183,11 +175,10 @@ CTEST(one_symbol_suite, dollar){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, percent){
 
     // Given
-    freopen("test/one_symbol_percent", "r", stdin);
+    fseek(stdin, 6*sizeof(char), SEEK_SET);
     const char s14 = input_control();
     // When
     const int result = (int)s14;
@@ -197,11 +188,10 @@ CTEST(one_symbol_suite, percent){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, caret){
 
     // Given
-    freopen("test/one_symbol_caret", "r", stdin);
+    fseek(stdin, 7*sizeof(char), SEEK_SET);
     const char s15 = input_control();
     // When
     const int result = (int)s15;
@@ -211,11 +201,10 @@ CTEST(one_symbol_suite, caret){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, ampersand){
 
     // Given
-    freopen("test/one_symbol_ampersand", "r", stdin);
+    fseek(stdin, 8*sizeof(char), SEEK_SET);
     const char s16 = input_control();
     // When
     const int result = (int)s16;
@@ -225,11 +214,10 @@ CTEST(one_symbol_suite, ampersand){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, asterisk){
 
     // Given
-    freopen("test/one_symbol_asterisk", "r", stdin);
+    fseek(stdin, 9*sizeof(char), SEEK_SET);
     const char s17 = input_control();
     // When
     const int result = (int)s17;
@@ -239,11 +227,10 @@ CTEST(one_symbol_suite, asterisk){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, left_parenthesis){
 
     // Given
-    freopen("test/one_symbol_left_parenthesis", "r", stdin);
+    fseek(stdin, 10*sizeof(char), SEEK_SET);
     const char s18 = input_control();
     // When
     const int result = (int)s18;
@@ -253,11 +240,10 @@ CTEST(one_symbol_suite, left_parenthesis){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, right_parenthesis){
 
     // Given
-    freopen("test/one_symbol_right_parenthesis", "r", stdin);
+    fseek(stdin, 11*sizeof(char), SEEK_SET);
     const char s19 = input_control();
     // When
     const int result = (int)s19;
@@ -267,11 +253,10 @@ CTEST(one_symbol_suite, right_parenthesis){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, underscore){
 
     // Given
-    freopen("test/one_symbol_underscore", "r", stdin);
+    fseek(stdin, 12*sizeof(char), SEEK_SET);
     const char s20 = input_control();
     // When
     const int result = (int)s20;
@@ -281,11 +266,10 @@ CTEST(one_symbol_suite, underscore){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, plus){
 
     // Given
-    freopen("test/one_symbol_plus", "r", stdin);
+    fseek(stdin, 13*sizeof(char), SEEK_SET);
     const char s21 = input_control();
     // When
     const int result = (int)s21;
@@ -295,11 +279,10 @@ CTEST(one_symbol_suite, plus){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, acute){
 
     // Given
-    freopen("test/one_symbol_acute", "r", stdin);
+    fseek(stdin, 14*sizeof(char), SEEK_SET);
     const char s22 = input_control();
     // When
     const int result = (int)s22;
@@ -309,11 +292,10 @@ CTEST(one_symbol_suite, acute){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, dash){
 
     // Given
-    freopen("test/one_symbol_dash", "r", stdin);
+    fseek(stdin, 15*sizeof(char), SEEK_SET);
     const char s23 = input_control();
     // When
     const int result = (int)s23;
@@ -323,11 +305,10 @@ CTEST(one_symbol_suite, dash){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, equals){
 
     // Given
-    freopen("test/one_symbol_equals", "r", stdin);
+    fseek(stdin, 16*sizeof(char), SEEK_SET);
     const char s24 = input_control();
     // When
     const int result = (int)s24;
@@ -337,11 +318,10 @@ CTEST(one_symbol_suite, equals){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, left_curly_brace){
 
     // Given
-    freopen("test/one_symbol_left_curly_brace", "r", stdin);
+    fseek(stdin, 17*sizeof(char), SEEK_SET);
     const char s25 = input_control();
     // When
     const int result = (int)s25;
@@ -351,11 +331,10 @@ CTEST(one_symbol_suite, left_curly_brace){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, right_curly_brace){
 
     // Given
-    freopen("test/one_symbol_right_curly_brace", "r", stdin);
+    fseek(stdin, 18*sizeof(char), SEEK_SET);
     const char s26 = input_control();
     // When
     const int result = (int)s26;
@@ -365,11 +344,10 @@ CTEST(one_symbol_suite, right_curly_brace){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, vertical_bar){
 
     // Given
-    freopen("test/one_symbol_vertical_bar", "r", stdin);
+    fseek(stdin, 19*sizeof(char), SEEK_SET);
     const char s27 = input_control();
     // When
     const int result = (int)s27;
@@ -379,11 +357,10 @@ CTEST(one_symbol_suite, vertical_bar){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, left_square_bracket){
 
     // Given
-    freopen("test/one_symbol_left_square_bracket", "r", stdin);
+    fseek(stdin, 20*sizeof(char), SEEK_SET);
     const char s28 = input_control();
     // When
     const int result = (int)s28;
@@ -393,11 +370,10 @@ CTEST(one_symbol_suite, left_square_bracket){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, right_square_bracket){
 
     // Given
-    freopen("test/one_symbol_right_square_bracket", "r", stdin);
+    fseek(stdin, 21*sizeof(char), SEEK_SET);
     const char s29 = input_control();
     // When
     const int result = (int)s29;
@@ -407,11 +383,10 @@ CTEST(one_symbol_suite, right_square_bracket){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, backslash){
 
     // Given
-    freopen("test/one_symbol_backslash", "r", stdin);
+    fseek(stdin, 22*sizeof(char), SEEK_SET);
     const char s30 = input_control();
     // When
     const int result = (int)s30;
@@ -421,11 +396,10 @@ CTEST(one_symbol_suite, backslash){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, forward_slash){
 
     // Given
-    freopen("test/one_symbol_forward_slash", "r", stdin);
+    fseek(stdin, 23*sizeof(char), SEEK_SET);
     const char s31 = input_control();
     // When
     const int result = (int)s31;
@@ -435,11 +409,10 @@ CTEST(one_symbol_suite, forward_slash){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, colon){
 
     // Given
-    freopen("test/one_symbol_colon", "r", stdin);
+    fseek(stdin, 24*sizeof(char), SEEK_SET);
     const char s32 = input_control();
     // When
     const int result = (int)s32;
@@ -449,11 +422,10 @@ CTEST(one_symbol_suite, colon){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, quote){
 
     // Given
-    freopen("test/one_symbol_quote", "r", stdin);
+    fseek(stdin, 25*sizeof(char), SEEK_SET);
     const char s33 = input_control();
     // When
     const int result = (int)s33;
@@ -463,11 +435,10 @@ CTEST(one_symbol_suite, quote){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, semi_colon){
 
     // Given
-    freopen("test/one_symbol_semi_colon", "r", stdin);
+    fseek(stdin, 26*sizeof(char), SEEK_SET);
     const char s34 = input_control();
     // When
     const int result = (int)s34;
@@ -477,11 +448,10 @@ CTEST(one_symbol_suite, semi_colon){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, apostrophe){
 
     // Given
-    freopen("test/one_symbol_apostrophe", "r", stdin);
+    fseek(stdin, 27*sizeof(char), SEEK_SET);
     const char s35 = input_control();
     // When
     const int result = (int)s35;
@@ -491,11 +461,10 @@ CTEST(one_symbol_suite, apostrophe){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, less_than){
 
     // Given
-    freopen("test/one_symbol_less_than", "r", stdin);
+    fseek(stdin, 28*sizeof(char), SEEK_SET);
     const char s36 = input_control();
     // When
     const int result = (int)s36;
@@ -505,11 +474,10 @@ CTEST(one_symbol_suite, less_than){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, greather_than){
 
     // Given
-    freopen("test/one_symbol_greather_than", "r", stdin);
+    fseek(stdin, 29*sizeof(char), SEEK_SET);
     const char s37 = input_control();
     // When
     const int result = (int)s37;
@@ -519,11 +487,10 @@ CTEST(one_symbol_suite, greather_than){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, question_mark){
 
     // Given
-    freopen("test/one_symbol_question_mark", "r", stdin);
+    fseek(stdin, 30*sizeof(char), SEEK_SET);
     const char s38 = input_control();
     // When
     const int result = (int)s38;
@@ -533,11 +500,10 @@ CTEST(one_symbol_suite, question_mark){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, comma){
 
     // Given
-    freopen("test/one_symbol_comma", "r", stdin);
+    fseek(stdin, 31*sizeof(char), SEEK_SET);
     const char s39 = input_control();
     // When
     const int result = (int)s39;
@@ -547,11 +513,10 @@ CTEST(one_symbol_suite, comma){
     ASSERT_EQUAL(expected, result);
 }
 
-//
 CTEST(one_symbol_suite, dot){
 
     // Given
-    freopen("test/one_symbol_dot", "r", stdin);
+    fseek(stdin, 32*sizeof(char), SEEK_SET);
     const char s40 = input_control();
     // When
     const int result = (int)s40;
