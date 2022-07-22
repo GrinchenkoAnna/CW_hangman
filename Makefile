@@ -14,7 +14,7 @@ DIR_CTEST = ./thirdparty/
 all: $(TARGET) 
 
 clean:
-	rm -rf $(TARGET) test_sketch $(DIR_OBJ)*.o $(DIR_TEST_OBJ)*.o
+	rm -rf $(TARGET) test_hidden_word $(DIR_OBJ)*.o $(DIR_TEST_OBJ)*.o
 
 #$(DIR_OBJ)%.o: $(DIR_SRC)%.c
 #	gcc $< -Wall -Werror -o $@
@@ -38,11 +38,11 @@ $(TARGET): $(DIR_OBJ)hangman.o $(DIR_OBJ)hidden_word.o $(DIR_OBJ)sketch.o $(DIR_
 $(DIR_TEST_OBJ)main.o: $(DIR_TEST_SCR)main.c $(DIR_CTEST)ctest.h
 	gcc -I thirdparty -I test $(DIR_TEST_SCR)main.c -c -Wall -Werror -o $(DIR_TEST_OBJ)main.o
 	
-$(DIR_TEST_OBJ)sketch.o: $(DIR_SRC)sketch.c
-	gcc $(DIR_SRC)sketch.c -c -Wall -Werror -o $(DIR_TEST_OBJ)sketch.o 
+$(DIR_TEST_OBJ)hidden_word.o: $(DIR_SRC)hidden_word.c
+	gcc $(DIR_SRC)hidden_word.c -c -Wall -Werror -o $(DIR_TEST_OBJ)hidden_word.o 
 
-$(DIR_TEST_OBJ)sketch_test.o: $(DIR_TEST_SCR)sketch_test.c $(DIR_CTEST)ctest.h 
-	gcc -I thirdparty -I test $(DIR_TEST_SCR)sketch_test.c -c -Wall -Werror -o $(DIR_TEST_OBJ)sketch_test.o
+$(DIR_TEST_OBJ)hidden_word_test.o: $(DIR_TEST_SCR)hidden_word_test.c $(DIR_CTEST)ctest.h 
+	gcc -I thirdparty -I test $(DIR_TEST_SCR)hidden_word_test.c -c -Wall -Werror -o $(DIR_TEST_OBJ)hidden_word_test.o
 	
-test: $(DIR_TEST_OBJ)sketch_test.o $(DIR_TEST_OBJ)sketch.o $(DIR_TEST_OBJ)main.o
-	gcc $(DIR_TEST_OBJ)sketch_test.o $(DIR_TEST_OBJ)sketch.o $(DIR_TEST_OBJ)main.o -Wall -Werror -o test_sketch
+test: $(DIR_TEST_OBJ)hidden_word_test.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_TEST_OBJ)main.o
+	gcc $(DIR_TEST_OBJ)hidden_word_test.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_TEST_OBJ)main.o -Wall -Werror -o test_hidden_word
