@@ -23,11 +23,13 @@ int main(){
     //счетчики:
     /*error - для ошибок; guessed - для угаданных букв; 
     stop - для остановки, считает количество угаданных букв; flag - вспомогательный маркер;
-    repeat - счетчик повтора букв*/
-    unsigned int error = 0, guessed = 0, stop = 0, flag = 0, repeat = 0;
+    repeat - счетчик повтора букв; file_reading_error - для ошибок чтения файла со словами (файл пустой или не существует)*/
+    unsigned int error = 0, guessed = 0, stop = 0, flag = 0, repeat = 0, file_reading_error = 0;   
 
     //подключение файла   
-    hidden_word(word);   
+    if (hidden_word(word) == 1){
+        file_reading_error++;
+    }   
     word_size = strlen(word); 
         
     char *entered_word = (char*)calloc(word_size, sizeof(char)); /*выделение памяти для массива для вводимых букв*/
@@ -93,18 +95,19 @@ int main(){
         printf("\n");
         printf("________________\n");        
     }
-    
-    printf("****************\n\n");
-    printf("Ошибок всего: %u\n", error); 
-    
-    //результат игрока
-    if (error < 9 && stop == word_size){
-        puts("Победа!");
-    }
-    else
-        puts("Поражение...");
-      
     free(entered_word); //освобождение памяти, выделенной для массива для ввода
+    
+    if (file_reading_error == 0){    
+        printf("****************\n\n");
+        printf("Ошибок всего: %u\n", error); 
+        
+        //результат игрока
+        if (error < 9 && stop == word_size){
+            puts("Победа!");
+        }
+        else
+            puts("Поражение...");  
+    }
        
     return 0;
 }

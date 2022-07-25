@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 #include <time.h>
 
 int hidden_word(char *choice){
@@ -23,13 +24,13 @@ int hidden_word(char *choice){
     char filename10[35] = "src/words/words_berries_en"; 
     char filename11[35] = "src/words/words_all_topics_en";  
     
-    int topic_choise = -1;
-    int flag = 0;
+    unsigned int topic_choise = UINT_MAX;
+    unsigned int flag = 0;
     
     char ch = 0;
     
     //Выбор файла (темы)
-    while (topic_choise < 0){
+    while (topic_choise == UINT_MAX){
         printf("Выберите тему игры и введите соответствующую цифру:\n 1. Природа\n 2. Погода\n 3. Животные\n 4. Домашние животные\n 5. Птицы\n 6. Рептилии\n 7. Морские обитатели\n 8. Деревья\n 9. Фрукты\n10. Ягоды\n11. Все подряд\n12. Выход\n");
         scanf("%d[\n]", &topic_choise); 
         while ( (ch = getchar()) != EOF && ch != '\n'){}; //очистка буфера после scanf 
@@ -46,17 +47,17 @@ int hidden_word(char *choice){
             case 9: strcpy(filename, filename9); break;
             case 10: strcpy(filename, filename10); break;
             case 11: strcpy(filename, filename11); break; 
-            case 12: exit(0);       
-            default: printf("Необходимо ввести букву из списка!\n"); flag++; break;
+            case 12: return 1;       
+            default: printf("Необходимо ввести цифру из списка!\n"); flag++; break;
         }
     }
     
     words = fopen(filename, "r");
         
     //проверка успешного открытия файла
-    if (!(words) && flag==0){ 
+    if (!(words) && flag!=0){ 
         printf("Ошибка открытия файла!\n");
-        exit(0);
+        return 1;
     }
     
     //количество строк  
@@ -64,9 +65,9 @@ int hidden_word(char *choice){
         number_of_words++;
     }
     
-    if (number_of_words == 0){
+    if (number_of_words == 0 && flag == 0){
         printf("Открыт пустой файл!\n");
-        exit(0);
+        return 1;
     }
     
     srand(time(NULL));

@@ -1,3 +1,6 @@
 # Object files
 *.o
 test_input_control
+test_sketch
+test_hidden_word
+main
