@@ -24,7 +24,7 @@ void game_process(unsigned int size, unsigned int game_exit, char *player_word, 
      
     sketch(0); 
             
-    while(size != 0 && errors < 9 && stop_game < size){
+    while(size != 0 && errors < 9 && stop_game < size && game_exit == 0){
         puts("Введите букву. Разрешены символы: "); 
         puts(abc);
         printf("\n");
@@ -83,9 +83,11 @@ void game_process(unsigned int size, unsigned int game_exit, char *player_word, 
         printf("________________\n");           
     }
     //результат игрока
-    if (errors < 9 && stop_game == size && game_exit == 0){
-        puts("Победа!");
+    if(game_exit == 0){
+        if (errors < 9 && stop_game == size){
+            puts("Победа!");
+        }
+        else
+           puts("Поражение..."); 
     }
-    else
-       puts("Поражение..."); 
 }
