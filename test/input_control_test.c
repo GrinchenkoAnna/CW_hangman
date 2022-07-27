@@ -8,7 +8,7 @@
 CTEST(one_symbol_suite, lat1){
 
     // Given
-    freopen("test/one_symbol_lat", "r", stdin);   
+    freopen("test/input_control/one_symbol_lat", "r", stdin);   
     const char s1 = input_control();
     // When
     const int result = (int)s1;
@@ -36,7 +36,7 @@ CTEST(one_symbol_suite, lat2){
 CTEST(one_symbol_suite, kir1){
 
     // Given
-    freopen("test/one_symbol_kir", "r", stdin);    
+    freopen("test/input_control/one_symbol_kir", "r", stdin);    
     const char s3 = input_control();
     // When
     const int result = (int)s3;
@@ -65,7 +65,7 @@ CTEST(one_symbol_suite, kir2){
 CTEST(one_symbol_suite, space){
 
     // Given
-    freopen("test/one_symbol_control_symbols", "r", stdin);
+    freopen("test/input_control/one_symbol_control_symbols", "r", stdin);
     const char s5 = input_control();
     // When
     const int result = (int)s5;
@@ -108,7 +108,7 @@ CTEST(one_symbol_suite, enter){
 CTEST(one_symbol_suite, number){
 
     // Given
-    freopen("test/one_symbol_number_and_punctuation_marks", "r", stdin);
+    freopen("test/input_control/one_symbol_number_and_punctuation_marks", "r", stdin);
     const char s8 = input_control();
     // When
     const int result = (int)s8;
@@ -574,7 +574,7 @@ CTEST(one_symbol_suite, dot){
 CTEST(several_symbols_suite, lat_kir1){
 
     // Given
-    freopen("test/several_symbols", "r", stdin); 
+    freopen("test/input_control/several_symbols", "r", stdin); 
     const char str1 = input_control();
     // When
     const int result = (int)str1;

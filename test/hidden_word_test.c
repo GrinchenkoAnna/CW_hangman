@@ -7,7 +7,7 @@
 CTEST(reading_word_from_list, read_error1){
 
     // Given 
-    freopen("test/file_selection", "r", stdin);   
+    freopen("test/hidden_word/file_selection", "r", stdin);   
     char word[15] = {0};
     // When
     const int result = hidden_word(word);
