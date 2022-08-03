@@ -13,12 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Install compiler
-      uses: rlalik/setup-cpp-compiler@v1
-      with:
-        compiler: latest
     - name: make
       run: make
+    - name: game
+      run: ./main
     - name: make test
       run: make test
     - name: test
