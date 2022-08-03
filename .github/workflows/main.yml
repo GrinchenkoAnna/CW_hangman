@@ -1,8 +1,8 @@
-name: C/C++ CI
+name: CI
 
 on:
   push:
-    branches: ["main", "CI"]
+    branches: ["main", "CI", "CI_draft"]
   pull_request:
     branches: ["main"]
 
@@ -17,3 +17,5 @@ jobs:
       run: make
     - name: make test
       run: make test
+    - name: test
+      run: ./unit_tests
