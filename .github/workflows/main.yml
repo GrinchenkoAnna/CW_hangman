@@ -13,12 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: eWaterCycle/setup-grpc@v5
-      with:
-        grpc-version: 1.30.2
     - name: make
       run: make    
     - name: make test
       run: make test
+    - name: run test
+    - uses: parasoft/run-cpptest-action@1.0.1
     - name: test
       run: ./unit_tests
