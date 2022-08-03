@@ -14,9 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: make
-      run: make
-    - name: game
-      run: ./main
+      run: make    
     - name: make test
       run: make test
     - name: test
