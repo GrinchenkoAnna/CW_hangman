@@ -18,5 +18,4 @@ jobs:
     - name: make test
       run: make test    
     - name: test
-      uses: parasoft/run-cpptest-action@1.0.1
-    - run: ./unit_tests
+      run: ./unit_tests
