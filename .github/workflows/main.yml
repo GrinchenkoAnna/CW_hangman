@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v3
@@ -17,5 +17,5 @@ jobs:
       run: make    
     - name: unit tests
       run: make test
-    - name: run unit test
+    - name: run unit tests
       run: ./unit_tests
