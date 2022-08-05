@@ -18,7 +18,7 @@ CTEST(blackcurrant, null_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant0", "r", stdin); 
-    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
+    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, 00007);
     
     int stdout_fileno = dup(1);    
     dup2(record, 1);
@@ -63,7 +63,7 @@ CTEST(blackcurrant, one_error){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant1", "r", stdin); 
-    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
+    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, 00007);
     
     int stdout_fileno = dup(1);    
     dup2(record, 1);
@@ -108,7 +108,7 @@ CTEST(blackcurrant, two_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant2", "r", stdin); 
-    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
+    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, 00007);
     
     int stdout_fileno = dup(1);    
     dup2(record, 1);
@@ -153,7 +153,7 @@ CTEST(blackcurrant, three_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant3", "r", stdin); 
-    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
+    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, 00007);
     
     int stdout_fileno = dup(1);    
     dup2(record, 1);
@@ -198,7 +198,7 @@ CTEST(blackcurrant, four_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant4", "r", stdin); 
-    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
+    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, 00007);
     
     int stdout_fileno = dup(1);    
     dup2(record, 1);
@@ -243,7 +243,7 @@ CTEST(blackcurrant, five_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant5", "r", stdin); 
-    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
+    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, 00007);
     
     int stdout_fileno = dup(1);    
     dup2(record, 1);
@@ -288,7 +288,7 @@ CTEST(blackcurrant, six_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant6", "r", stdin); 
-    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
+    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, 00007);
     
     int stdout_fileno = dup(1);    
     dup2(record, 1);
@@ -333,7 +333,7 @@ CTEST(blackcurrant, seven_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant7", "r", stdin); 
-    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
+    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, 00007);
     
     int stdout_fileno = dup(1);    
     dup2(record, 1);
@@ -378,7 +378,7 @@ CTEST(blackcurrant, eight_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant8", "r", stdin); 
-    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
+    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, 00007);
     
     int stdout_fileno = dup(1);    
     dup2(record, 1);
@@ -423,7 +423,7 @@ CTEST(blackcurrant, nine_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant9", "r", stdin); 
-    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
+    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, 00007);
     
     int stdout_fileno = dup(1);    
     dup2(record, 1);
@@ -468,7 +468,7 @@ CTEST(blackcurrant, game_exit){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant0", "r", stdin); 
-    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
+    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, 00007);
     
     int stdout_fileno = dup(1);    
     dup2(record, 1);
