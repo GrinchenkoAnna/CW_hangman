@@ -1,4 +1,8 @@
 #include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include "../thirdparty/ctest.h"
 #include "../src/game_process.h"
 #include "../src/input_control.h"
@@ -14,12 +18,19 @@ CTEST(blackcurrant, null_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant0", "r", stdin); 
-    FILE* recordfile = freopen("test/game_process/game_process_record", "w", stdout); 
-    game_process(12, 0, test_player_word, test_word_to_guess);
-    fclose (inputfile);
-    fclose (recordfile);    
+    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
     
-    recordfile = fopen("test/game_process/game_process_record", "r"); 
+    int stdout_fileno = dup(1);    
+    dup2(record, 1);
+    close(record);
+        
+    game_process(12, 0, test_player_word, test_word_to_guess);
+    
+    fclose(inputfile);    
+    dup2(stdout_fileno, 1); 
+    close(stdout_fileno);   
+       
+    FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant0", "r"); 
  
     while (!feof(recordfile) && !feof(patternfile)){
@@ -52,12 +63,19 @@ CTEST(blackcurrant, one_error){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant1", "r", stdin); 
-    FILE* recordfile = freopen("test/game_process/game_process_record", "w", stdout); 
-    game_process(12, 0, test_player_word, test_word_to_guess);
-    fclose (inputfile);
-    fclose (recordfile);
+    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
     
-    recordfile = fopen("test/game_process/game_process_record", "r"); 
+    int stdout_fileno = dup(1);    
+    dup2(record, 1);
+    close(record);
+        
+    game_process(12, 0, test_player_word, test_word_to_guess);
+    
+    fclose(inputfile);    
+    dup2(stdout_fileno, 1); 
+    close(stdout_fileno);
+    
+    FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant1", "r"); 
  
     while (!feof(recordfile) && !feof(patternfile)){
@@ -90,12 +108,19 @@ CTEST(blackcurrant, two_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant2", "r", stdin); 
-    FILE* recordfile = freopen("test/game_process/game_process_record", "w", stdout); 
-    game_process(12, 0, test_player_word, test_word_to_guess);
-    fclose (inputfile);
-    fclose (recordfile);
+    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
     
-    recordfile = fopen("test/game_process/game_process_record", "r"); 
+    int stdout_fileno = dup(1);    
+    dup2(record, 1);
+    close(record);
+        
+    game_process(12, 0, test_player_word, test_word_to_guess);
+    
+    fclose(inputfile);    
+    dup2(stdout_fileno, 1); 
+    close(stdout_fileno);
+    
+    FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant2", "r"); 
  
     while (!feof(recordfile) && !feof(patternfile)){
@@ -128,12 +153,19 @@ CTEST(blackcurrant, three_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant3", "r", stdin); 
-    FILE* recordfile = freopen("test/game_process/game_process_record", "w", stdout); 
-    game_process(12, 0, test_player_word, test_word_to_guess);
-    fclose (inputfile);
-    fclose (recordfile);
+    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
     
-    recordfile = fopen("test/game_process/game_process_record", "r"); 
+    int stdout_fileno = dup(1);    
+    dup2(record, 1);
+    close(record);
+        
+    game_process(12, 0, test_player_word, test_word_to_guess);
+    
+    fclose(inputfile);    
+    dup2(stdout_fileno, 1); 
+    close(stdout_fileno);
+    
+    FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant3", "r"); 
  
     while (!feof(recordfile) && !feof(patternfile)){
@@ -166,12 +198,19 @@ CTEST(blackcurrant, four_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant4", "r", stdin); 
-    FILE* recordfile = freopen("test/game_process/game_process_record", "w", stdout); 
-    game_process(12, 0, test_player_word, test_word_to_guess);
-    fclose (inputfile);
-    fclose (recordfile);
+    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
     
-    recordfile = fopen("test/game_process/game_process_record", "r"); 
+    int stdout_fileno = dup(1);    
+    dup2(record, 1);
+    close(record);
+        
+    game_process(12, 0, test_player_word, test_word_to_guess);
+    
+    fclose(inputfile);    
+    dup2(stdout_fileno, 1); 
+    close(stdout_fileno);
+    
+    FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant4", "r"); 
  
     while (!feof(recordfile) && !feof(patternfile)){
@@ -204,12 +243,19 @@ CTEST(blackcurrant, five_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant5", "r", stdin); 
-    FILE* recordfile = freopen("test/game_process/game_process_record", "w", stdout); 
-    game_process(12, 0, test_player_word, test_word_to_guess);
-    fclose (inputfile);
-    fclose (recordfile);
+    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
     
-    recordfile = fopen("test/game_process/game_process_record", "r"); 
+    int stdout_fileno = dup(1);    
+    dup2(record, 1);
+    close(record);
+        
+    game_process(12, 0, test_player_word, test_word_to_guess);
+    
+    fclose(inputfile);    
+    dup2(stdout_fileno, 1); 
+    close(stdout_fileno);
+    
+    FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant5", "r"); 
  
     while (!feof(recordfile) && !feof(patternfile)){
@@ -242,12 +288,19 @@ CTEST(blackcurrant, six_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant6", "r", stdin); 
-    FILE* recordfile = freopen("test/game_process/game_process_record", "w", stdout); 
-    game_process(12, 0, test_player_word, test_word_to_guess);
-    fclose (inputfile);
-    fclose (recordfile);
+    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
     
-    recordfile = fopen("test/game_process/game_process_record", "r"); 
+    int stdout_fileno = dup(1);    
+    dup2(record, 1);
+    close(record);
+        
+    game_process(12, 0, test_player_word, test_word_to_guess);
+    
+    fclose(inputfile);    
+    dup2(stdout_fileno, 1); 
+    close(stdout_fileno);
+    
+    FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant6", "r"); 
  
     while (!feof(recordfile) && !feof(patternfile)){
@@ -280,12 +333,19 @@ CTEST(blackcurrant, seven_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant7", "r", stdin); 
-    FILE* recordfile = freopen("test/game_process/game_process_record", "w", stdout); 
-    game_process(12, 0, test_player_word, test_word_to_guess);
-    fclose (inputfile);
-    fclose (recordfile);
+    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
     
-    recordfile = fopen("test/game_process/game_process_record", "r"); 
+    int stdout_fileno = dup(1);    
+    dup2(record, 1);
+    close(record);
+        
+    game_process(12, 0, test_player_word, test_word_to_guess);
+    
+    fclose(inputfile);    
+    dup2(stdout_fileno, 1); 
+    close(stdout_fileno);
+    
+    FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant7", "r"); 
  
     while (!feof(recordfile) && !feof(patternfile)){
@@ -318,12 +378,19 @@ CTEST(blackcurrant, eight_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant8", "r", stdin); 
-    FILE* recordfile = freopen("test/game_process/game_process_record", "w", stdout); 
-    game_process(12, 0, test_player_word, test_word_to_guess);
-    fclose (inputfile);
-    fclose (recordfile);
+    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
     
-    recordfile = fopen("test/game_process/game_process_record", "r"); 
+    int stdout_fileno = dup(1);    
+    dup2(record, 1);
+    close(record);
+        
+    game_process(12, 0, test_player_word, test_word_to_guess);
+    
+    fclose(inputfile);    
+    dup2(stdout_fileno, 1); 
+    close(stdout_fileno);
+    
+    FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant8", "r"); 
  
     while (!feof(recordfile) && !feof(patternfile)){
@@ -356,12 +423,19 @@ CTEST(blackcurrant, nine_errors){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant9", "r", stdin); 
-    FILE* recordfile = freopen("test/game_process/game_process_record", "w", stdout); 
-    game_process(12, 0, test_player_word, test_word_to_guess);
-    fclose (inputfile);
-    fclose (recordfile);
+    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
     
-    recordfile = fopen("test/game_process/game_process_record", "r"); 
+    int stdout_fileno = dup(1);    
+    dup2(record, 1);
+    close(record);
+        
+    game_process(12, 0, test_player_word, test_word_to_guess);
+    
+    fclose(inputfile);    
+    dup2(stdout_fileno, 1); 
+    close(stdout_fileno);
+    
+    FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant9", "r"); 
  
     while (!feof(recordfile) && !feof(patternfile)){
@@ -394,12 +468,19 @@ CTEST(blackcurrant, game_exit){
     char test_player_word[12] = "____________";
     
     FILE* inputfile = freopen("test/game_process/game_process_blackcurrant0", "r", stdin); 
-    FILE* recordfile = freopen("test/game_process/game_process_record", "w", stdout); 
-    game_process(12, 1, test_player_word, test_word_to_guess);
-    fclose (inputfile);
-    fclose (recordfile);
+    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY);
     
-    recordfile = fopen("test/game_process/game_process_record", "r"); 
+    int stdout_fileno = dup(1);    
+    dup2(record, 1);
+    close(record);
+        
+    game_process(12, 1, test_player_word, test_word_to_guess);
+    
+    fclose(inputfile);    
+    dup2(stdout_fileno, 1); 
+    close(stdout_fileno);
+    
+    FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_exit", "r"); 
  
     while (!feof(recordfile) && !feof(patternfile)){
