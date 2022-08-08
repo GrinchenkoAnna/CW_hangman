@@ -18,7 +18,7 @@ CTEST(blackcurrant, null_errors){
     char test_player_word[12] = "____________";
     
     int input = open("test/game_process/game_process_blackcurrant0", O_RDONLY, S_IREAD);
-    int record = open("test/game_process/game_process_record", O_TRUNC | O_WRONLY, S_IWRITE);
+    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, S_IWRITE);
     
     int stdout_fileno = dup(1); 
     int stdin_fileno = dup(0); 
@@ -34,7 +34,7 @@ CTEST(blackcurrant, null_errors){
     dup2(stdin_fileno, 0);  
     close(stdin_fileno);
        
-    FILE* recordfile = fopen("test/game_process/game_process_record1", "r"); 
+    FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant0", "r"); 
  
     while (!feof(recordfile) || !feof(patternfile)){
