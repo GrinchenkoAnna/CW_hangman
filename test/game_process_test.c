@@ -18,7 +18,7 @@ CTEST(blackcurrant, null_errors){
     char test_player_word[12] = "____________";
     
     int input = open("test/game_process/game_process_blackcurrant0", O_RDONLY, S_IREAD);
-    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, S_IWRITE);
+    int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_RDWR, S_IWRITE);
     
     int stdout_fileno = dup(1); 
     int stdin_fileno = dup(0); 
