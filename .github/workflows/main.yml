@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+          repo-token: ${{ secrets.TOKEN }}
     - name: main
       run: make    
     - name: unit tests
