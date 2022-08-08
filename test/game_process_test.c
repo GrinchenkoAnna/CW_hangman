@@ -13,8 +13,7 @@
 CTEST(blackcurrant, null_errors){
 
     // Given
-    int error = 0;
-    //char ch1, ch2;
+    int error = 0;    
     char test_word_to_guess[12] = "blackcurrant";
     char test_player_word[12] = "____________";
     char str1[100] = {0};
@@ -39,9 +38,8 @@ CTEST(blackcurrant, null_errors){
        
     FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant0", "r"); 
-    fseek (recordfile, 0, SEEK_SET);
- 
-    while (!feof(recordfile) || !feof(patternfile)){
+     
+    while (!feof(patternfile) || !feof(recordfile)){
         fgets(str1, 100, recordfile);
 		fgets(str2, 100, patternfile);
         
