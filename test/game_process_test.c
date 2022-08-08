@@ -39,10 +39,9 @@ CTEST(blackcurrant, null_errors){
        
     FILE* recordfile = fopen("test/game_process/game_process_record", "r"); 
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant0", "r"); 
+    fseek (recordfile, 0, SEEK_SET);
  
     while (!feof(recordfile) || !feof(patternfile)){
-        //ch1 = fgetc(recordfile);
-        //ch2 = fgetc(patternfile);
         fgets(str1, 100, recordfile);
 		fgets(str2, 100, patternfile);
         
