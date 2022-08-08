@@ -12,9 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-          repo-token: ${{ secrets.TOKEN }}
+    - uses: actions/checkout@v3      
     - name: main
       run: make    
     - name: unit tests
