@@ -30,8 +30,8 @@ CTEST(blackcurrant, null_errors){
     dup2(stdout_fileno, 1); 
     close(stdout_fileno);   
        
-    FILE* recordfile = fopen("test/game_process/game_process_record", "rb"); 
-    FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant0", "rb"); 
+    FILE* recordfile = fopen("test/game_process/game_process_record", "rt"); 
+    FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant0", "rt"); 
  
     while (!feof(recordfile) && !feof(patternfile)){
         ch1 = fgetc(recordfile);
