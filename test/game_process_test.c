@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -13,9 +14,11 @@ CTEST(blackcurrant, null_errors){
 
     // Given
     int error = 0;
-    char ch1, ch2;
+    //char ch1, ch2;
     char test_word_to_guess[12] = "blackcurrant";
     char test_player_word[12] = "____________";
+    char str1[100] = {0};
+    char str2[100] = {0};
     
     int input = open("test/game_process/game_process_blackcurrant0", O_RDONLY, S_IREAD);
     int record = open("test/game_process/game_process_record", O_CREAT | O_TRUNC | O_WRONLY, S_IWRITE);
@@ -38,10 +41,12 @@ CTEST(blackcurrant, null_errors){
     FILE* patternfile = fopen("test/game_process/game_process_pattern_blackcurrant0", "r"); 
  
     while (!feof(recordfile) || !feof(patternfile)){
-        ch1 = fgetc(recordfile);
-        ch2 = fgetc(patternfile);
+        //ch1 = fgetc(recordfile);
+        //ch2 = fgetc(patternfile);
+        fgets(str1, 100, recordfile);
+		fgets(str2, 100, patternfile);
         
-        if (ch1 != ch2){
+        if (strcmp(str1, str2)){
             error++;
         }   
     }
