@@ -27,7 +27,7 @@ CTEST(blackcurrant, null_errors){
     dup2(input, 0);
     close(input);
     dup2(record, 1);    
-    close(record);
+    //close(record);
         
     game_process(12, 0, test_player_word, test_word_to_guess);
     
