@@ -36,8 +36,8 @@ CTEST(blackcurrant, null_errors){
     dup2(stdin_fileno, 0);  
     close(stdin_fileno);
        
-    FILE* recordfile = fopen("./test/game_process/game_process_record0", "r"); 
-    FILE* patternfile = fopen("./test/game_process/game_process_pattern_blackcurrant0", "r"); 
+    FILE* recordfile = fopen("./test/game_process/game_process_record0", "rb"); 
+    FILE* patternfile = fopen("./test/game_process/game_process_pattern_blackcurrant0", "rb"); 
      
     while (!feof(patternfile) || !feof(recordfile)){
         fgets(str1, 100, recordfile);
