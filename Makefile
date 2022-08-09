@@ -5,6 +5,7 @@ DIR_OBJ = ./build/o_src/
 DIR_TEST_SCR = ./test/
 DIR_TEST_OBJ = ./build/o_test/
 DIR_CTEST = ./thirdparty/
+DIR_TEST_TEXT = ./test/game_process/
 
 #SRC = $(wildcard $(DIR_SRC)*.c)
 #OBJ = $(patsubst $(DIR_SRC)%.c, $(DIR_OBJ)%.o, $(SRC))
@@ -14,7 +15,7 @@ DIR_CTEST = ./thirdparty/
 all: $(TARGET) 
 
 clean:
-	rm -rf $(TARGET) unit_tests $(DIR_OBJ)*.o $(DIR_TEST_OBJ)*.o
+	rm -rf $(TARGET) unit_tests $(DIR_OBJ)*.o $(DIR_TEST_OBJ)*.o $(DIR_TEST_TEXT)game_process_record*
 
 #$(DIR_OBJ)%.o: $(DIR_SRC)%.c
 #	gcc $< -Wall -Werror -o $@
