@@ -14,8 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3      
     - name: main
-      run: make    
+      run: make        
     - name: unit tests
       run: make test
+    - name: chmod
+      run: chmod 777 test/game_process
     - name: run unit tests
       run: ./unit_tests
