@@ -22,21 +22,21 @@ CTEST(blackcurrant, null_errors){
     char str2[100] = {0};
     
     int input = open("./test/game_process/game_process_blackcurrant0", O_RDONLY, S_IREAD);
-    int record = open("./test/game_process/game_process_record0", O_CREAT | O_RDWR, S_IREAD | S_IWRITE);
-    
-    int stdout_fileno = dup(1); 
     int stdin_fileno = dup(0); 
     dup2(input, 0);
     close(input);
+    
+    int record = open("./test/game_process/game_process_record0", O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
+    int stdout_fileno = dup(1); 
     dup2(record, 1);    
     close(record);
         
     game_process(12, 0, test_player_word, test_word_to_guess);
     
-    dup2(stdout_fileno, 1); 
-    close(stdout_fileno);  
     dup2(stdin_fileno, 0);  
     close(stdin_fileno);
+    dup2(stdout_fileno, 1); 
+    close(stdout_fileno);      
        
     FILE* recordfile = fopen("./test/game_process/game_process_record0", "rb"); 
     FILE* patternfile = fopen("./test/game_process/game_process_pattern_blackcurrant0", "rb"); 
