@@ -26,7 +26,8 @@ CTEST(blackcurrant, null_errors){
     dup2(input, 0);
     close(input);
     
-    int record = open("./test/game_process/game_process_record0", O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
+    //int record = open("./test/game_process/game_process_record0", O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
+    int record = creat("./test/game_process/game_process_record0", S_IRUSR | S_IWUSR);
     int stdout_fileno = dup(1); 
     dup2(record, 1);    
     close(record);
