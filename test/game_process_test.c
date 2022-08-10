@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
 #include <sys/types.h>
@@ -8,6 +9,7 @@
 #include "../src/game_process.h"
 #include "../src/input_control.h"
 #include "../src/sketch.h"
+
 
 //test1
 CTEST(blackcurrant, null_errors){
