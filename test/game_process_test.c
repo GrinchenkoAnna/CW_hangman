@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 #include "../thirdparty/ctest.h"
 #include "../src/game_process.h"
 #include "../src/input_control.h"
@@ -15,43 +11,30 @@
 CTEST(blackcurrant, null_errors){
 
     // Given
-    int error = 0;    
+    int error = 0;
     char test_word_to_guess[12] = "blackcurrant";
-    char test_player_word[12] = "____________";
-    char str1[100] = {0};
-    char str2[100] = {0};
+    char test_player_word[12] = "____________";  
+    char ch1 = 0;
+    char ch2 = 0;
+            
+    freopen("test/game_process/blackcurrant0", "r", stdin); 
+    game_process(12, test_player_word, test_word_to_guess);
     
-    int input = open("./test/game_process/game_process_blackcurrant0", O_RDONLY, S_IREAD);
-    int stdin_fileno = dup(0); 
-    dup2(input, 0);
-    close(input);
+    FILE* statfile = fopen("src/temp/statistics", "r"); 
+    FILE* patternfile = fopen("test/game_process/pattern0", "r"); 
     
-    //int record = open("./test/game_process/game_process_record0", O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
-    int record = creat("./test/game_process/game_process_record0", S_IRUSR | S_IWUSR);
-    int stdout_fileno = dup(1); 
-    dup2(record, 1);    
-    close(record);
-        
-    game_process(12, 0, test_player_word, test_word_to_guess);
-    
-    dup2(stdin_fileno, 0);  
-    close(stdin_fileno);
-    dup2(stdout_fileno, 1); 
-    close(stdout_fileno);      
-       
-    FILE* recordfile = fopen("./test/game_process/game_process_record0", "rb"); 
-    FILE* patternfile = fopen("./test/game_process/game_process_pattern_blackcurrant0", "rb"); 
-     
-    while (!feof(patternfile) || !feof(recordfile)){
-        fgets(str1, 100, recordfile);
-		fgets(str2, 100, patternfile);
-        
-        if (strcmp(str1, str2)){
+    while(!feof(statfile) && !feof(patternfile)){
+        ch1 = fgetc(statfile);
+		ch2 = fgetc(patternfile);
+        if (ch1 == '\n' || ch2 == '\n'){
+            break;
+        } 
+        if (ch1 != ch2){
             error++;
-        }   
+        } 
     }
        
-    fclose(recordfile);  
+    fclose(statfile);  
     fclose(patternfile);
     
     // When

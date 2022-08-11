@@ -11,23 +11,19 @@ int main(){
     //для выбора слова из файла 
     char word[15] = {0}; //загаданное слово
     unsigned int word_size = 0; //размер загаданного слова
-    
-    //file_reading_error - для ошибок чтения файла со словами (файл пустой или не существует)
-    unsigned int file_reading_error = 0;   
-
-    //подключение файла   
-    if (hidden_word(word) == 1){
-        file_reading_error++;
-    }   
-    word_size = strlen(word); 
         
-    char *entered_word = (char*)calloc(word_size, sizeof(char)); /*выделение памяти для массива для вводимых букв*/
-    memset(entered_word, '_', word_size); //заполнение массивва для вводимых букв символами "_"
-    puts(entered_word);
+    //подключение файла   
+    if (hidden_word(word) == 0){
+        word_size = strlen(word); 
+        
+        char *entered_word = (char*)calloc(word_size, sizeof(char)); /*выделение памяти для массива для вводимых букв*/
+        memset(entered_word, '_', word_size); //заполнение массивва для вводимых букв символами "_"
+        puts(entered_word);
     
-    game_process(word_size, file_reading_error, entered_word, word);
+        game_process(word_size, entered_word, word); 
     
-    free(entered_word); //освобождение памяти, выделенной для массива для ввода
+        free(entered_word); //освобождение памяти, выделенной для массива для ввода
+    }
          
     return 0;
 }
