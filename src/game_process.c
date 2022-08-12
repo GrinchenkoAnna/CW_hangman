@@ -10,21 +10,24 @@ size - размер загаданного слова
 letter - для вводимого символа
 массив player_word - вводится из внешней функции, хранит угаданные игроком буквы и символы "_" для неугаданных букв
 массив word_to guess - вводится из внешней функции, хранит загаданное слово
+массив abc - разрешенные для ввода символы 
+массив stat - для записи статистики игрока
 game_exit - маркер выбора опции "Выход"*/
 
 //счетчики:
 /*errors - для ошибок; guessed - для угаданных букв; 
 stop_game - для остановки, считает количество угаданных букв; flag - вспомогательный маркер;
-repeat - счетчик повтора букв;*/
+repeat - счетчик повтора букв; attempt_flag - маркер ошибки; try - (номер попытки игрока)-1*/
 
 void game_process(unsigned int size, char *player_word, char *word_to_guess){
     
-    unsigned int errors = 0, guessed = 0, stop_game = 0, flag = 0, repeat = 0;
-    unsigned int attempt_flag = 0; //+
-    unsigned int try = 0; //+
-    char abc[53] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'}; //разрешенные для ввода символы 
-    char stat[25] = {'0'}; //+
-    FILE *statistics = fopen("src/temp/statistics", "w"); //+ для записи статистики игрока
+    unsigned int errors = 0, guessed = 0, stop_game = 0, flag = 0, repeat = 0, attempt_flag = 0, try = 0;
+   char abc[53] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'}; 
+    //char stat[25] = {'0'}; 
+    char *stat = (char*)calloc(25, sizeof(char)); 
+    memset(stat, '0', 25); 
+    
+    FILE *statistics = fopen("src/temp/statistics", "w"); //файл для записи статистики игрока
      
     sketch(0);
                 
@@ -80,7 +83,8 @@ void game_process(unsigned int size, char *player_word, char *word_to_guess){
         repeat = 0;
         if (flag != 0)
             flag = 0;  
-            
+        
+        //записьстатистики    
         if (attempt_flag > 0){
             stat[try] = '-';
             attempt_flag = 0;
@@ -88,7 +92,6 @@ void game_process(unsigned int size, char *player_word, char *word_to_guess){
         else {
             stat[try] = '+';
         }
-        fprintf(statistics, "%c", stat[try]);
         try++;
                
         //результат ввода на массиве для вводимых букв
@@ -97,10 +100,11 @@ void game_process(unsigned int size, char *player_word, char *word_to_guess){
         printf("Ошибок: %u\n\n", errors);        
         sketch(errors);
         printf("\n");        
-        printf("________________\n");         
-        //puts(stat);                
-    }    
+        printf("________________\n"); 
+    }
+    fputs(stat, statistics); //запись статистики в файл
     fclose(statistics);
+    free(stat);
     
     //результат игрока
     if (errors < 9 && stop_game == size){
