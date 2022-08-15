@@ -32,7 +32,7 @@ void game_process(unsigned int size, char *player_word, char *word_to_guess){
     sketch(0);
                 
     while(size != 0 && errors < 9 && stop_game < size){
-        puts("Введите букву. Разрешены символы: "); 
+        printf("Введите букву. Разрешены символы: \n"); 
         puts(abc);
         printf("\n");
         
@@ -48,7 +48,7 @@ void game_process(unsigned int size, char *player_word, char *word_to_guess){
                     errors++;
                     attempt_flag++; //+
                     repeat++;
-                    puts("Ошибка! Такая буква уже есть\n"); break;
+                    printf("Ошибка! Такая буква уже есть\n"); break;
                 }
                 flag++; /*маркер: были в цикле и проверили, что введенная буква  уже угаданная и надо отметить, что еще одной такой буквы нет*/
             
@@ -69,8 +69,7 @@ void game_process(unsigned int size, char *player_word, char *word_to_guess){
         if (guessed == 0 && flag != 0 && repeat == 0){
             errors++;
             attempt_flag++; //+
-            puts("Ошибка!");
-            printf("\n");
+            printf("Ошибка!\n");
         } 
         
         stop_game += guessed; //считает количество угаданных букв

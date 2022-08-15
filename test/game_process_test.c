@@ -13,6 +13,7 @@ CTEST(blackcurrant, null_errors){
     // Given
     int error = 0;
     char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
+    printf("\n");
             
     freopen("test/game_process/blackcurrant0", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -45,6 +46,7 @@ CTEST(blackcurrant, one_error){
     // Given
     int error = 0;
     char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
+    printf("\n");
     
     freopen("test/game_process/blackcurrant1", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -77,6 +79,7 @@ CTEST(blackcurrant, two_errors){
     // Given
     int error = 0;
     char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
+    printf("\n");
     
     freopen("test/game_process/blackcurrant2", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -109,6 +112,7 @@ CTEST(blackcurrant, three_errors){
     // Given
     int error = 0;
     char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
+    printf("\n");
     
     freopen("test/game_process/blackcurrant3", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -141,6 +145,7 @@ CTEST(blackcurrant, four_errors){
     // Given
     int error = 0;
     char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
+    printf("\n");
     
     freopen("test/game_process/blackcurrant4", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -173,6 +178,7 @@ CTEST(blackcurrant, five_errors){
     // Given
     int error = 0;
     char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
+    printf("\n");
     
     freopen("test/game_process/blackcurrant5", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -205,6 +211,7 @@ CTEST(blackcurrant, six_errors){
     // Given
     int error = 0;
     char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
+    printf("\n");
     
     freopen("test/game_process/blackcurrant6", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -237,6 +244,7 @@ CTEST(blackcurrant, seven_errors){
     // Given
     int error = 0;
     char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
+    printf("\n");
     
     freopen("test/game_process/blackcurrant7", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -269,6 +277,7 @@ CTEST(blackcurrant, eight_errors){
     // Given
     int error = 0;
     char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
+    printf("\n");
     
     freopen("test/game_process/blackcurrant8", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -301,6 +310,7 @@ CTEST(blackcurrant, nine_errors){
     // Given
     int error = 0;
     char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
+    printf("\n");
     
     freopen("test/game_process/blackcurrant9", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);

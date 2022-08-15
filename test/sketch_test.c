@@ -6,27 +6,25 @@
 CTEST(null_nine, null){
 
     // Given    
+    int error = 0;
+    char ch1 = 0, ch2 = 0;
+    printf("\n");
     
-    freopen("test/sketch/sketch_record", "w", stdout);   
     sketch(0);
-    freopen ("/dev/tty", "a", stdout);
-    
-    char buffer[99] = {0};    
-    char output[99] = "  (@)(@)\n (@)()(@)\n  (@)(@)\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n";
-    
-    FILE *recordfile = fopen("test/sketch/sketch_record", "r");
-    int read = fread(buffer, 1, 99, recordfile);   
-    fclose(recordfile);  
-       
-    int error = 0; 
         
-    if (read != 0){
-        for (int i = 0; i < 99; i++){
-            if (buffer[i] != output[i]){
-                error++;                
-            }
-        }
-    }   
+    FILE* picfile = fopen("src/temp/picture", "r"); 
+    FILE* patternfile = fopen("test/sketch/0_errors", "r"); 
+    
+    ch1 = fgetc(picfile);
+    ch2 = fgetc(patternfile);
+    while(ch1 != '\n' && ch2 != '\n'){
+        if (ch1 != ch2){ error++; } 
+        ch1 = fgetc(picfile);
+		ch2 = fgetc(patternfile);
+    }
+            
+    fclose(picfile);  
+    fclose(patternfile);
     
     // When
     const int result = error;
@@ -40,26 +38,25 @@ CTEST(null_nine, null){
 CTEST(null_nine, one){
 
     // Given    
+    int error = 0;
+    char ch1 = 0, ch2 = 0;
+    printf("\n");
     
-    freopen("test/sketch/sketch_record", "w", stdout);   
     sketch(1);
-    freopen ("/dev/tty", "a", stdout);
+        
+    FILE* picfile = fopen("src/temp/picture", "r"); 
+    FILE* patternfile = fopen("test/sketch/1_error", "r"); 
     
-    FILE *recordfile = fopen("test/sketch/sketch_record", "r");
-    
-    char buffer[99] = {0};    
-    char output[99] = "  (@)\n (@)()(@)\n  (@)(@)\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n";
-    
-    int read = fread(buffer, 1, 99, recordfile);    
-    int error = 0; 
-    
-    if (read != 0){
-        for (int i = 0; i < 99; i++){
-            if (buffer[i] != output[i]){
-                error++;                
-            }
-        }
-    }   
+    ch1 = fgetc(picfile);
+    ch2 = fgetc(patternfile);
+    while(ch1 != '\n' && ch2 != '\n'){
+        if (ch1 != ch2){ error++; } 
+        ch1 = fgetc(picfile);
+		ch2 = fgetc(patternfile);
+    }
+            
+    fclose(picfile);  
+    fclose(patternfile);
     
     // When
     const int result = error;
@@ -73,26 +70,25 @@ CTEST(null_nine, one){
 CTEST(null_nine, two){
 
     // Given    
+    int error = 0;
+    char ch1 = 0, ch2 = 0;
+    printf("\n");
     
-    freopen("test/sketch/sketch_record", "w", stdout);   
     sketch(2);
-    freopen ("/dev/tty", "a", stdout);
+        
+    FILE* picfile = fopen("src/temp/picture", "r"); 
+    FILE* patternfile = fopen("test/sketch/2_errors", "r"); 
     
-    FILE *recordfile = fopen("test/sketch/sketch_record", "r");
-    
-    char buffer[99] = {0};    
-    char output[99] = "  (@)\n (@)()\n  (@)(@)\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n";
-    
-    int read = fread(buffer, 1, 99, recordfile);    
-    int error = 0; 
-    
-    if (read != 0){
-        for (int i = 0; i < 99; i++){
-            if (buffer[i] != output[i]){
-                error++;                
-            }
-        }
-    }   
+    ch1 = fgetc(picfile);
+    ch2 = fgetc(patternfile);
+    while(ch1 != '\n' && ch2 != '\n'){
+        if (ch1 != ch2){ error++; } 
+        ch1 = fgetc(picfile);
+		ch2 = fgetc(patternfile);
+    }
+            
+    fclose(picfile);  
+    fclose(patternfile);
     
     // When
     const int result = error;
@@ -106,26 +102,25 @@ CTEST(null_nine, two){
 CTEST(null_nine, three){
 
     // Given    
+    int error = 0;
+    char ch1 = 0, ch2 = 0;
+    printf("\n");
     
-    freopen("test/sketch/sketch_record", "w", stdout);   
     sketch(3);
-    freopen ("/dev/tty", "a", stdout);
+        
+    FILE* picfile = fopen("src/temp/picture", "r"); 
+    FILE* patternfile = fopen("test/sketch/3_errors", "r"); 
     
-    FILE *recordfile = fopen("test/sketch/sketch_record", "r");
-    
-    char buffer[99] = {0};    
-    char output[99] = "  (@)\n (@)()\n  (@)\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n";
-    
-    int read = fread(buffer, 1, 99, recordfile);    
-    int error = 0; 
-    
-    if (read != 0){
-        for (int i = 0; i < 99; i++){
-            if (buffer[i] != output[i]){
-                error++;                
-            }
-        }
-    }   
+    ch1 = fgetc(picfile);
+    ch2 = fgetc(patternfile);
+    while(ch1 != '\n' && ch2 != '\n'){
+        if (ch1 != ch2){ error++; } 
+        ch1 = fgetc(picfile);
+		ch2 = fgetc(patternfile);
+    }
+            
+    fclose(picfile);  
+    fclose(patternfile);
     
     // When
     const int result = error;
@@ -139,26 +134,25 @@ CTEST(null_nine, three){
 CTEST(null_nine, four){
 
     // Given    
+    int error = 0;
+    char ch1 = 0, ch2 = 0;
+    printf("\n");
     
-    freopen("test/sketch/sketch_record", "w", stdout);   
     sketch(4);
-    freopen ("/dev/tty", "a", stdout);
+        
+    FILE* picfile = fopen("src/temp/picture", "r"); 
+    FILE* patternfile = fopen("test/sketch/4_errors", "r"); 
     
-    FILE *recordfile = fopen("test/sketch/sketch_record", "r");
-    
-    char buffer[99] = {0};    
-    char output[99] = "  (@)\n (@)()\n     |\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n";
-    
-    int read = fread(buffer, 1, 99, recordfile);    
-    int error = 0; 
-    
-    if (read != 0){
-        for (int i = 0; i < 99; i++){
-            if (buffer[i] != output[i]){
-                error++;                
-            }
-        }
-    }   
+    ch1 = fgetc(picfile);
+    ch2 = fgetc(patternfile);
+    while(ch1 != '\n' && ch2 != '\n'){
+        if (ch1 != ch2){ error++; } 
+        ch1 = fgetc(picfile);
+		ch2 = fgetc(patternfile);
+    }
+            
+    fclose(picfile);  
+    fclose(patternfile);
     
     // When
     const int result = error;
@@ -172,26 +166,25 @@ CTEST(null_nine, four){
 CTEST(null_nine, five){
 
     // Given    
+    int error = 0;
+    char ch1 = 0, ch2 = 0;
+    printf("\n");
     
-    freopen("test/sketch/sketch_record", "w", stdout);   
     sketch(5);
-    freopen ("/dev/tty", "a", stdout);
+        
+    FILE* picfile = fopen("src/temp/picture", "r"); 
+    FILE* patternfile = fopen("test/sketch/5_errors", "r"); 
     
-    FILE *recordfile = fopen("test/sketch/sketch_record", "r");
-    
-    char buffer[99] = {0};    
-    char output[99] = "  (@)\n    ()\n     |\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n";
-    
-    int read = fread(buffer, 1, 99, recordfile);    
-    int error = 0; 
-    
-    if (read != 0){
-        for (int i = 0; i < 99; i++){
-            if (buffer[i] != output[i]){
-                error++;                
-            }
-        }
-    }   
+    ch1 = fgetc(picfile);
+    ch2 = fgetc(patternfile);
+    while(ch1 != '\n' && ch2 != '\n'){
+        if (ch1 != ch2){ error++; } 
+        ch1 = fgetc(picfile);
+		ch2 = fgetc(patternfile);
+    }
+            
+    fclose(picfile);  
+    fclose(patternfile);
     
     // When
     const int result = error;
@@ -205,26 +198,25 @@ CTEST(null_nine, five){
 CTEST(null_nine, six){
 
     // Given    
+    int error = 0;
+    char ch1 = 0, ch2 = 0;
+    printf("\n");
     
-    freopen("test/sketch/sketch_record", "w", stdout);   
     sketch(6);
-    freopen ("/dev/tty", "a", stdout);
+        
+    FILE* picfile = fopen("src/temp/picture", "r"); 
+    FILE* patternfile = fopen("test/sketch/6_errors", "r"); 
     
-    FILE *recordfile = fopen("test/sketch/sketch_record", "r");
-    
-    char buffer[99] = {0};    
-    char output[99] = "\n    ()\n     |\n    /\n   | @\n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n";
-    
-    int read = fread(buffer, 1, 99, recordfile);    
-    int error = 0; 
-    
-    if (read != 0){
-        for (int i = 0; i < 99; i++){
-            if (buffer[i] != output[i]){
-                error++;                
-            }
-        }
-    }   
+    ch1 = fgetc(picfile);
+    ch2 = fgetc(patternfile);
+    while(ch1 != '\n' && ch2 != '\n'){
+        if (ch1 != ch2){ error++; } 
+        ch1 = fgetc(picfile);
+		ch2 = fgetc(patternfile);
+    }
+            
+    fclose(picfile);  
+    fclose(patternfile);
     
     // When
     const int result = error;
@@ -238,26 +230,25 @@ CTEST(null_nine, six){
 CTEST(null_nine, seven){
 
     // Given    
+    int error = 0;
+    char ch1 = 0, ch2 = 0;
+    printf("\n");
     
-    freopen("test/sketch/sketch_record", "w", stdout);   
     sketch(7);
-    freopen ("/dev/tty", "a", stdout);
+        
+    FILE* picfile = fopen("src/temp/picture", "r"); 
+    FILE* patternfile = fopen("test/sketch/7_errors", "r"); 
     
-    FILE *recordfile = fopen("test/sketch/sketch_record", "r");
-    
-    char buffer[99] = {0};    
-    char output[99] = "\n    ()\n     |\n    /\n   | \n @ |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n";
-    
-    int read = fread(buffer, 1, 99, recordfile);    
-    int error = 0; 
-    
-    if (read != 0){
-        for (int i = 0; i < 99; i++){
-            if (buffer[i] != output[i]){
-                error++;                
-            }
-        }
-    }   
+    ch1 = fgetc(picfile);
+    ch2 = fgetc(patternfile);
+    while(ch1 != '\n' && ch2 != '\n'){
+        if (ch1 != ch2){ error++; } 
+        ch1 = fgetc(picfile);
+		ch2 = fgetc(patternfile);
+    }
+            
+    fclose(picfile);  
+    fclose(patternfile);
     
     // When
     const int result = error;
@@ -271,26 +262,25 @@ CTEST(null_nine, seven){
 CTEST(null_nine, eight){
 
     // Given    
+    int error = 0;
+    char ch1 = 0, ch2 = 0;
+    printf("\n");
     
-    freopen("test/sketch/sketch_record", "w", stdout);   
     sketch(8);
-    freopen ("/dev/tty", "a", stdout);
+        
+    FILE* picfile = fopen("src/temp/picture", "r"); 
+    FILE* patternfile = fopen("test/sketch/8_errors", "r"); 
     
-    FILE *recordfile = fopen("test/sketch/sketch_record", "r");
-    
-    char buffer[99] = {0};    
-    char output[99] = "\n    ()\n     |\n    /\n   | \n   |/\n  \\|\n -----\n \\---/\n  \\-/\n   -\n";
-    
-    int read = fread(buffer, 1, 99, recordfile);    
-    int error = 0; 
-    
-    if (read != 0){
-        for (int i = 0; i < 99; i++){
-            if (buffer[i] != output[i]){
-                error++;                
-            }
-        }
-    }   
+    ch1 = fgetc(picfile);
+    ch2 = fgetc(patternfile);
+    while(ch1 != '\n' && ch2 != '\n'){
+        if (ch1 != ch2){ error++; } 
+        ch1 = fgetc(picfile);
+		ch2 = fgetc(patternfile);
+    }
+            
+    fclose(picfile);  
+    fclose(patternfile);
     
     // When
     const int result = error;
@@ -304,26 +294,25 @@ CTEST(null_nine, eight){
 CTEST(null_nine, nine){
 
     // Given    
+    int error = 0;
+    char ch1 = 0, ch2 = 0;
+    printf("\n");
     
-    freopen("test/sketch/sketch_record", "w", stdout);   
     sketch(9);
-    freopen ("/dev/tty", "a", stdout);
+        
+    FILE* picfile = fopen("src/temp/picture", "r"); 
+    FILE* patternfile = fopen("test/sketch/9_errors", "r"); 
     
-    FILE *recordfile = fopen("test/sketch/sketch_record", "r");
-    
-    char buffer[99] = {0};    
-    char output[99] = "\n\n     _\n    / \\\n   |  ()\n   |\\\n  /|\n -----\n \\---/\n  \\-/\n   -\n";
-    
-    int read = fread(buffer, 1, 99, recordfile);    
-    int error = 0; 
-    
-    if (read != 0){
-        for (int i = 0; i < 99; i++){
-            if (buffer[i] != output[i]){
-                error++;                
-            }
-        }
-    }   
+    ch1 = fgetc(picfile);
+    ch2 = fgetc(patternfile);
+    while(ch1 != '\n' && ch2 != '\n'){
+        if (ch1 != ch2){ error++; } 
+        ch1 = fgetc(picfile);
+		ch2 = fgetc(patternfile);
+    }
+            
+    fclose(picfile);  
+    fclose(patternfile);
     
     // When
     const int result = error;
@@ -333,63 +322,29 @@ CTEST(null_nine, nine){
     ASSERT_EQUAL(expected, result);
 }
 
-//test10
-CTEST(negative, minus_two){
+//test11
+CTEST(overflow, default_error){
 
     // Given    
+    int error = 0;
+    char ch1 = 0, ch2 = 0;
+    printf("\n");
     
-    freopen("test/sketch/sketch_record", "w", stdout);   
-    sketch(-2);
-    freopen ("/dev/tty", "a", stdout);
-    
-    FILE *recordfile = fopen("test/sketch/sketch_record", "r");
-    
-    char buffer[99] = {0};    
-    char output[99] = " ___________\n|           |\n|   ERROR   |\n|    X_X    |\n|___________|\n";
-    
-    int read = fread(buffer, 1, 99, recordfile);    
-    int error = 0; 
-    
-    if (read != 0){
-        for (int i = 0; i < 99; i++){
-            if (buffer[i] != output[i]){
-                error++;                
-            }
-        }
-    }   
-    
-    // When
-    const int result = error;
-    // Then
-    const int expected = 0;
-    
-    ASSERT_EQUAL(expected, result);
-}
-
-//test10
-CTEST(overflow, ten){
-
-    // Given    
-    
-    freopen("test/sketch/sketch_record", "w", stdout);   
     sketch(10);
-    freopen ("/dev/tty", "a", stdout);
+        
+    FILE* picfile = fopen("src/temp/picture", "r"); 
+    FILE* patternfile = fopen("test/sketch/default_error", "r"); 
     
-    FILE *recordfile = fopen("test/sketch/sketch_record", "r");
-    
-    char buffer[99] = {0};    
-    char output[99] = " ___________\n|           |\n|   ERROR   |\n|    X_X    |\n|___________|\n";
-    
-    int read = fread(buffer, 1, 99, recordfile);    
-    int error = 0; 
-    
-    if (read != 0){
-        for (int i = 0; i < 99; i++){
-            if (buffer[i] != output[i]){
-                error++;                
-            }
-        }
-    }   
+    ch1 = fgetc(picfile);
+    ch2 = fgetc(patternfile);
+    while(ch1 != '\n' && ch2 != '\n'){
+        if (ch1 != ch2){ error++; } 
+        ch1 = fgetc(picfile);
+		ch2 = fgetc(patternfile);
+    }
+            
+    fclose(picfile);  
+    fclose(patternfile);
     
     // When
     const int result = error;
