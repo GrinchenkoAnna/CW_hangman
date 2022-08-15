@@ -70,5 +70,5 @@ $(DIR_TEST_OBJ)input_control_test.o: $(DIR_TEST_SCR)input_control_test.c $(DIR_C
 #test: $(DIR_TEST_OBJ)game_process_test.o $(DIR_TEST_OBJ)game_process.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_OBJ)input_control.o $(DIR_OBJ)sketch.o $(DIR_TEST_OBJ)hidden_word_test.o $(DIR_TEST_OBJ)sketch_test.o $(DIR_TEST_OBJ)input_control_test.o $(DIR_TEST_OBJ)main.o
 	#gcc $(DIR_TEST_OBJ)game_process_test.o $(DIR_TEST_OBJ)game_process.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_OBJ)input_control.o $(DIR_OBJ)sketch.o $(DIR_TEST_OBJ)hidden_word_test.o $(DIR_TEST_OBJ)sketch_test.o $(DIR_TEST_OBJ)input_control_test.o $(DIR_TEST_OBJ)main.o -Wall -Werror -o unit_tests
 	
-test: $(DIR_TEST_OBJ)game_process_test.o $(DIR_TEST_OBJ)game_process.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_OBJ)input_control.o $(DIR_OBJ)sketch.o $(DIR_TEST_OBJ)main.o
-	gcc $(DIR_TEST_OBJ)game_process_test.o $(DIR_TEST_OBJ)game_process.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_OBJ)input_control.o $(DIR_OBJ)sketch.o $(DIR_TEST_OBJ)main.o -Wall -Werror -o unit_tests
+test: $(DIR_TEST_OBJ)game_process_test.o $(DIR_TEST_OBJ)game_process.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_OBJ)input_control.o $(DIR_OBJ)sketch.o $(DIR_TEST_OBJ)hidden_word_test.o $(DIR_TEST_OBJ)sketch_test.o $(DIR_TEST_OBJ)main.o
+	gcc $(DIR_TEST_OBJ)game_process_test.o $(DIR_TEST_OBJ)game_process.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_OBJ)input_control.o $(DIR_OBJ)sketch.o $(DIR_TEST_OBJ)hidden_word_test.o $(DIR_TEST_OBJ)sketch_test.o $(DIR_TEST_OBJ)main.o -Wall -Werror -o unit_tests
