@@ -5,7 +5,7 @@ DIR_OBJ = ./build/o_src/
 DIR_TEST_SCR = ./test/
 DIR_TEST_OBJ = ./build/o_test/
 DIR_CTEST = ./thirdparty/
-DIR_STAT = ./src/temp/
+DIR_TEMP = ./src/temp/
 
 #SRC = $(wildcard $(DIR_SRC)*.c)
 #OBJ = $(patsubst $(DIR_SRC)%.c, $(DIR_OBJ)%.o, $(SRC))
@@ -15,7 +15,7 @@ DIR_STAT = ./src/temp/
 all: $(TARGET) 
 
 clean:
-	rm -rf $(TARGET) unit_tests $(DIR_OBJ)*.o $(DIR_TEST_OBJ)*.o $(DIR_STAT)statistics
+	rm -rf $(TARGET) unit_tests $(DIR_OBJ)*.o $(DIR_TEST_OBJ)*.o $(DIR_TEMP)statistics $(DIR_TEMP)picture
 
 #$(DIR_OBJ)%.o: $(DIR_SRC)%.c
 #	gcc $< -Wall -Werror -o $@
@@ -67,8 +67,5 @@ $(DIR_TEST_OBJ)input_control.o: $(DIR_SRC)input_control.c
 $(DIR_TEST_OBJ)input_control_test.o: $(DIR_TEST_SCR)input_control_test.c $(DIR_CTEST)ctest.h 
 	gcc -I thirdparty -I test $(DIR_TEST_SCR)input_control_test.c -c -Wall -Werror -o $(DIR_TEST_OBJ)input_control_test.o
 	
-#test: $(DIR_TEST_OBJ)game_process_test.o $(DIR_TEST_OBJ)game_process.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_OBJ)input_control.o $(DIR_OBJ)sketch.o $(DIR_TEST_OBJ)hidden_word_test.o $(DIR_TEST_OBJ)sketch_test.o $(DIR_TEST_OBJ)input_control_test.o $(DIR_TEST_OBJ)main.o
-	#gcc $(DIR_TEST_OBJ)game_process_test.o $(DIR_TEST_OBJ)game_process.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_OBJ)input_control.o $(DIR_OBJ)sketch.o $(DIR_TEST_OBJ)hidden_word_test.o $(DIR_TEST_OBJ)sketch_test.o $(DIR_TEST_OBJ)input_control_test.o $(DIR_TEST_OBJ)main.o -Wall -Werror -o unit_tests
-	
-test: $(DIR_TEST_OBJ)game_process_test.o $(DIR_TEST_OBJ)game_process.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_OBJ)input_control.o $(DIR_OBJ)sketch.o $(DIR_TEST_OBJ)hidden_word_test.o $(DIR_TEST_OBJ)sketch_test.o $(DIR_TEST_OBJ)main.o
-	gcc $(DIR_TEST_OBJ)game_process_test.o $(DIR_TEST_OBJ)game_process.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_OBJ)input_control.o $(DIR_OBJ)sketch.o $(DIR_TEST_OBJ)hidden_word_test.o $(DIR_TEST_OBJ)sketch_test.o $(DIR_TEST_OBJ)main.o -Wall -Werror -o unit_tests
+test: $(DIR_TEST_OBJ)game_process_test.o $(DIR_TEST_OBJ)game_process.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_OBJ)input_control.o $(DIR_OBJ)sketch.o $(DIR_TEST_OBJ)hidden_word_test.o $(DIR_TEST_OBJ)sketch_test.o $(DIR_TEST_OBJ)input_control_test.o $(DIR_TEST_OBJ)main.o
+	gcc $(DIR_TEST_OBJ)game_process_test.o $(DIR_TEST_OBJ)game_process.o $(DIR_TEST_OBJ)hidden_word.o $(DIR_OBJ)input_control.o $(DIR_OBJ)sketch.o $(DIR_TEST_OBJ)hidden_word_test.o $(DIR_TEST_OBJ)sketch_test.o $(DIR_TEST_OBJ)input_control_test.o $(DIR_TEST_OBJ)main.o -Wall -Werror -o unit_tests
