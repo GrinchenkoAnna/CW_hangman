@@ -1,16 +1,18 @@
 #include <stdio.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <locale.h>
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
 #include <time.h>
 
-int hidden_word(char *choice){
-
-    FILE* words;    
-    
+int hidden_word(wchar_t *choice){
+    setlocale(LC_CTYPE, "");    
+        
     unsigned int number_of_words = 0; //количество строк в файле
     unsigned int word_choice = 0; //номер строки с загаданным словом
-    char filename[35] = {0};
+    /*char filename[35] = {0};
     char filename0[35] = "src/words/words_empty"; 
     char filename1[35] = "src/words/words_nature_en"; 
     char filename2[35] = "src/words/words_weather_en"; 
@@ -25,11 +27,11 @@ int hidden_word(char *choice){
     char filename11[35] = "src/words/words_all_topics_en";  
     
     unsigned int topic_choise = UINT_MAX;
-    unsigned int flag = 0;
+    unsigned int flag = 0;*/
     
-    char ch = 0;
+    //char ch = 0;
     
-    //Выбор файла (темы)
+    /*//Выбор файла (темы)
     while (topic_choise == UINT_MAX){
         printf("Выберите тему игры и введите соответствующую цифру:\n 1. Природа\n 2. Погода\n 3. Животные\n 4. Домашние животные\n 5. Птицы\n 6. Рептилии\n 7. Морские обитатели\n 8. Деревья\n 9. Фрукты\n10. Ягоды\n11. Все подряд\n12. Выход\n");
         scanf("%d[\n]", &topic_choise); 
@@ -50,38 +52,48 @@ int hidden_word(char *choice){
             case 12: return 1;       
             default: printf("Необходимо ввести цифру из списка!\n"); flag++; break;
         }
-    }
+    }*/
     
-    words = fopen(filename, "r");
-        
+    //пока один файл     
+    FILE* words = fopen("src/russian/words/all_topics_rus", "rt, css = UTF-8"); 
+    
     //проверка успешного открытия файла
-    if (!(words) && flag!=0){ 
-        printf("Ошибка открытия файла!\n");
+    if (words == 0){ 
+        wprintf(L"Ошибка открытия файла!\n");
         return 1;
     }
     
     //количество строк  
-    while (fscanf(words, "%s", choice) != EOF){
-        number_of_words++;
-    }
+   while(!(feof(words))){
+         if (fgetwc(words) == '\n'){
+             number_of_words++;
+         }
+    } 
+    wprintf(L"Всего слов: %d\n", number_of_words);    
     
-    if (number_of_words == 0 && flag == 0){
+    /*if (number_of_words == 0 && flag == 0){
         printf("Открыт пустой файл!\n");
+        return 1;
+    }*/
+    
+    if (number_of_words == 0){
+        wprintf(L"Открыт пустой файл!\n");
         return 1;
     }
     
     srand(time(NULL));
     word_choice = rand()%number_of_words; //выбор номера строки со словом
-    printf("Выбрано слово номер: %d из темы номер %d\n", word_choice, topic_choise);
+    //printf("Выбрано слово номер: %d из темы номер %d\n", word_choice, topic_choise);
+    wprintf(L"Выбрано слово номер: %d\n", word_choice);
         
     fseek(words, 0, SEEK_SET); //указатель на начало файла
     for (int i = 0; i < word_choice; i++){
-        fscanf(words, "%s", choice); //запись в массив выбранного слова        
+        fwscanf(words, L"%ls", choice); //запись в массив выбранного слова        
     }
     
     fclose(words);   
     
-    puts(choice);
+    wprintf(L"%ls\n", choice); 
     
     return 0;
 }

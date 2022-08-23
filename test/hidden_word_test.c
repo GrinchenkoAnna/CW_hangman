@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "../thirdparty/ctest.h"
-#include "../src/hidden_word.h"
+#include "../src/english/hidden_word.h"
 
 //test1: 0
 CTEST(reading_word_from_list, read_error1){

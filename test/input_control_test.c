@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <wchar.h>
 #include "../thirdparty/ctest.h"
-#include "../src/input_control.h"
+#include "../src/english/input_control.h"
 
 /*Ввод на латинице и Кириллице: строчная и прописная буквы, по одному символу*/
 //test1

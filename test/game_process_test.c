@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../thirdparty/ctest.h"
-#include "../src/game_process.h"
-#include "../src/input_control.h"
-#include "../src/sketch.h"
+#include "../src/english/game_process.h"
+#include "../src/english/input_control.h"
+#include "../src/english/sketch.h"
 
 
 //test1
