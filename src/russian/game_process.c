@@ -24,7 +24,7 @@ repeat - счетчик повтора букв; attempt_flag - маркер о�
 
 void game_process(unsigned int size, wchar_t *player_word, wchar_t *word_to_guess){
     
-    setlocale(LC_CTYPE, "ru_RU.UTF-8");
+    setlocale(LC_ALL, "");
     unsigned int errors = 0, guessed = 0, stop_game = 0, flag = 0, repeat = 0, attempt_flag = 0, try = 0;
     wchar_t abc[33] = {L'а', L'б', L'в', L'г', L'д', L'е', L'ж', L'з', L'и', L'й', L'к', L'л', L'м', L'н', L'о', L'п', L'р', L'с', L'т', L'у', L'ф', L'х', L'ц', L'ч', L'ш', L'щ', L'ъ', L'ы', L'ь', L'э', L'ю', L'я'}; 
     wchar_t *stat = (wchar_t*)calloc(25, sizeof(wchar_t)); 
@@ -40,7 +40,9 @@ void game_process(unsigned int size, wchar_t *player_word, wchar_t *word_to_gues
         
         //проверка ввода  
         wchar_t letter = input_control();
-        wprintf(L"Считана буква: %lc\n", letter);
+        
+        //wprintf(L"Считана буква: %lc, код %ld\n", letter, letter);         
+              
         if (letter != '\0'){
                 
             //проверка наличия такой буквы в загаданном слове

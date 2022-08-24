@@ -6,3 +6,7 @@ test_hidden_word
 test_game_process
 unit_tests
 main
+
+# Temp. files
+picture
+statistics

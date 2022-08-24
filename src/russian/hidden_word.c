@@ -8,7 +8,7 @@
 #include <time.h>
 
 int hidden_word(wchar_t *choice){
-    setlocale(LC_CTYPE, "");    
+    setlocale(LC_ALL, "");    
         
     unsigned int number_of_words = 0; //количество строк в файле
     unsigned int word_choice = 0; //номер строки с загаданным словом
@@ -83,6 +83,9 @@ int hidden_word(wchar_t *choice){
     
     srand(time(NULL));
     word_choice = rand()%number_of_words; //выбор номера строки со словом
+    if (word_choice == 0){
+        word_choice = 3;
+    }
     //printf("Выбрано слово номер: %d из темы номер %d\n", word_choice, topic_choise);
     wprintf(L"Выбрано слово номер: %d\n", word_choice);
         

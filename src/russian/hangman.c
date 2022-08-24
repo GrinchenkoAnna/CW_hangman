@@ -9,7 +9,7 @@
 #include "game_process.h"
 
 int main(){
-    setlocale(LC_CTYPE, "");
+    setlocale(LC_ALL, "");
     
     //для выбора слова из файла 
     wchar_t word[15] = {0}; //загаданное слово
