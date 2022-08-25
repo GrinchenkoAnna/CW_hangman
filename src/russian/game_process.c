@@ -4,6 +4,7 @@
 #include <locale.h>
 #include <string.h>
 #include <stdlib.h>
+//#include <ctype.h>
 
 #include "input_control.h"
 #include "sketch.h"
@@ -20,13 +21,13 @@ game_exit - маркер выбора опции "Выход"*/
 //счетчики:
 /*errors - для ошибок; guessed - для угаданных букв; 
 stop_game - для остановки, считает количество угаданных букв; flag - вспомогательный маркер;
-repeat - счетчик повтора букв; attempt_flag - маркер ошибки; try - (номер попытки игрока)-1*/
+repeat - счетчик повтора букв; attempt_flag - маркер ошибки игрока; try - (номер попытки игрока)-1*/
 
 void game_process(unsigned int size, wchar_t *player_word, wchar_t *word_to_guess){
     
     setlocale(LC_ALL, "");
     unsigned int errors = 0, guessed = 0, stop_game = 0, flag = 0, repeat = 0, attempt_flag = 0, try = 0;
-    wchar_t abc[33] = {L'а', L'б', L'в', L'г', L'д', L'е', L'ж', L'з', L'и', L'й', L'к', L'л', L'м', L'н', L'о', L'п', L'р', L'с', L'т', L'у', L'ф', L'х', L'ц', L'ч', L'ш', L'щ', L'ъ', L'ы', L'ь', L'э', L'ю', L'я'}; 
+    wchar_t abc[65] = {L'а', L'б', L'в', L'г', L'д', L'е', L'ж', L'з', L'и', L'й', L'к', L'л', L'м', L'н', L'о', L'п', L'р', L'с', L'т', L'у', L'ф', L'х', L'ц', L'ч', L'ш', L'щ', L'ъ', L'ы', L'ь', L'э', L'ю', L'я', L'А', L'Б', L'В', L'Г', L'Д', L'Е', L'Ж', L'З', L'И', L'Й', L'К', L'Л', L'М', L'Н', L'О', L'П', L'Р', L'С', L'Т', L'У', L'Ф', L'Х', L'Ц', L'Ч', L'Ш', L'Щ', L'Ъ', L'Ы', L'Ь', L'Э', L'Ю', L'Я'}; 
     wchar_t *stat = (wchar_t*)calloc(25, sizeof(wchar_t)); 
     wmemset(stat, '0', 25); 
     
@@ -39,9 +40,8 @@ void game_process(unsigned int size, wchar_t *player_word, wchar_t *word_to_gues
         wprintf(L"%ls\n", abc);
         
         //проверка ввода  
-        wchar_t letter = input_control();
-        
-        //wprintf(L"Считана буква: %lc, код %ld\n", letter, letter);         
+        wchar_t letter = input_control(); 
+        wprintf(L"%lc\n", towupper(letter));     
               
         if (letter != '\0'){
                 
@@ -53,12 +53,12 @@ void game_process(unsigned int size, wchar_t *player_word, wchar_t *word_to_gues
                     errors++;
                     attempt_flag++; 
                     repeat++;
-                    printf("Ошибка! Такая буква уже есть\n"); break;
+                    wprintf(L"Ошибка! Такая буква уже есть\n"); break;
                 }
-                flag++; /*маркер: были в цикле и проверили, что введенная буква  уже угаданная и надо отметить, что еще одной такой буквы нет*/
+                flag++; //маркер: буква не совпадает с уже угаданной
             
                 //если такая буква есть в загаданном слове, она отображается в массиве для вводимых букв
-                if (word_to_guess[i] == letter){ //FIXME
+                if (word_to_guess[i] == letter || word_to_guess[i] == towlower(letter)){ //FIXME
                     player_word[i] = word_to_guess[i];
                     guessed++;                               
                 }                   
@@ -78,7 +78,7 @@ void game_process(unsigned int size, wchar_t *player_word, wchar_t *word_to_gues
         } 
         
         stop_game += guessed; //считает количество угаданных букв
-               
+        
         //обнуление маркеров для следующего ввода символа
         if (guessed > 0){
                 wprintf(L"Такая буква есть!\n"); 
@@ -100,7 +100,7 @@ void game_process(unsigned int size, wchar_t *player_word, wchar_t *word_to_gues
                
         //результат ввода на массиве для вводимых букв
         wprintf(L"%ls\n", player_word);
-        wprintf(L"Ошибок: %u\n\n", errors);        
+        wprintf(L"Ошибок: %lu\n\n", errors);        
         sketch(errors);
         wprintf(L"\n");        
         wprintf(L"________________\n"); 
@@ -108,6 +108,7 @@ void game_process(unsigned int size, wchar_t *player_word, wchar_t *word_to_gues
     fwprintf(statistics, stat); //запись статистики в файл
     fclose(statistics);
     free(stat);
+    stat = NULL;
     
     //результат игрока
     if (errors < 9 && stop_game == size){

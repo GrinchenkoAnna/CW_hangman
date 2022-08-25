@@ -84,7 +84,7 @@ int hidden_word(wchar_t *choice){
     srand(time(NULL));
     word_choice = rand()%number_of_words; //выбор номера строки со словом
     if (word_choice == 0){
-        word_choice = 3;
+        word_choice = number_of_words;
     }
     //printf("Выбрано слово номер: %d из темы номер %d\n", word_choice, topic_choise);
     wprintf(L"Выбрано слово номер: %d\n", word_choice);
@@ -94,9 +94,9 @@ int hidden_word(wchar_t *choice){
         fwscanf(words, L"%ls", choice); //запись в массив выбранного слова        
     }
     
-    fclose(words);   
-    
+    fclose(words);     
     wprintf(L"%ls\n", choice); 
+    wprintf(L"Размер выбранного слова: %ld\n", wcslen(choice));
     
     return 0;
 }
