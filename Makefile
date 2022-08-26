@@ -2,6 +2,7 @@ TARGET = main
 
 DIR_SRC_ENG = ./src/english/
 DIR_SRC_RUS = ./src/russian/
+DIR_SRC_MERGED = ./src/merged/
 DIR_OBJ = ./build/o_src/
 DIR_TEST_SCR = ./test/
 DIR_TEST_OBJ = ./build/o_test/
@@ -21,20 +22,20 @@ clean:
 #$(DIR_OBJ)%.o: $(DIR_SRC)%.c
 #	gcc $< -Wall -Werror -o $@
 	
-$(DIR_OBJ)hangman.o: $(DIR_SRC_RUS)hangman.c
-	gcc $(DIR_SRC_RUS)hangman.c -c -Wall -Werror -o $(DIR_OBJ)hangman.o
+$(DIR_OBJ)hangman.o: $(DIR_SRC_MERGED)hangman.c
+	gcc $(DIR_SRC_MERGED)hangman.c -c -Wall -Werror -o $(DIR_OBJ)hangman.o
 		
-$(DIR_OBJ)hidden_word.o: $(DIR_SRC_RUS)hidden_word.c 
-	gcc $(DIR_SRC_RUS)hidden_word.c -c -Wall -Werror -o $(DIR_OBJ)hidden_word.o
+$(DIR_OBJ)hidden_word.o: $(DIR_SRC_MERGED)hidden_word.c 
+	gcc $(DIR_SRC_MERGED)hidden_word.c -c -Wall -Werror -o $(DIR_OBJ)hidden_word.o
 	
-$(DIR_OBJ)sketch.o: $(DIR_SRC_RUS)sketch.c
-	gcc $(DIR_SRC_RUS)sketch.c -c -Wall -Werror -o $(DIR_OBJ)sketch.o
+$(DIR_OBJ)sketch.o: $(DIR_SRC_MERGED)sketch.c
+	gcc $(DIR_SRC_MERGED)sketch.c -c -Wall -Werror -o $(DIR_OBJ)sketch.o
 
-$(DIR_OBJ)input_control.o: $(DIR_SRC_RUS)input_control.c
-	gcc $(DIR_SRC_RUS)input_control.c -c -Wall -Werror -o $(DIR_OBJ)input_control.o 
+$(DIR_OBJ)input_control.o: $(DIR_SRC_MERGED)input_control.c
+	gcc $(DIR_SRC_MERGED)input_control.c -c -Wall -Werror -o $(DIR_OBJ)input_control.o 
 	
-$(DIR_OBJ)game_process.o: $(DIR_SRC_RUS)game_process.c 
-	gcc $(DIR_SRC_RUS)game_process.c -c -Wall -Werror -o $(DIR_OBJ)game_process.o
+$(DIR_OBJ)game_process.o: $(DIR_SRC_MERGED)game_process.c 
+	gcc $(DIR_SRC_MERGED)game_process.c -c -Wall -Werror -o $(DIR_OBJ)game_process.o
 
 $(TARGET): $(DIR_OBJ)hangman.o $(DIR_OBJ)hidden_word.o $(DIR_OBJ)game_process.o $(DIR_OBJ)sketch.o $(DIR_OBJ)input_control.o 
 	gcc $(DIR_OBJ)hangman.o $(DIR_OBJ)hidden_word.o $(DIR_OBJ)game_process.o $(DIR_OBJ)sketch.o $(DIR_OBJ)input_control.o -Wall -Werror -o $(TARGET)
