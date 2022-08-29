@@ -7,19 +7,19 @@
 #include <limits.h>
 #include <time.h>
 
-/*#define RUSSIAN 1
+#define RUSSIAN 1
 #define ENGLISH 2
-#define LANGUAGE RUSSIAN*/
+#define LANGUAGE RUSSIAN
 
 int hidden_word(wchar_t *choice){
     setlocale(LC_ALL, "");    
         
     unsigned int number_of_words = 0; //количество строк в файле
     unsigned int word_choice = 0; //номер строки с загаданным словом
-    //char filename[50] = {0};
+    char filename[50] = {0};
     
-    //#if LANGUAGE == RUSSIAN
-    /*char filename0[50] = "src/merged/words/words_rus/empty"; 
+    #if LANGUAGE == RUSSIAN
+    char filename0[50] = "src/merged/words/words_rus/empty"; 
     char filename1[50] = "src/merged/words/words_rus/nature_rus"; 
     char filename2[50] = "src/merged/words/words_rus/weather_rus"; 
     char filename3[50] = "src/merged/words/words_rus/animals_rus"; 
@@ -30,9 +30,9 @@ int hidden_word(wchar_t *choice){
     char filename8[50] = "src/merged/words/words_rus/trees_rus"; 
     char filename9[50] = "src/merged/words/words_rus/fruits_rus"; 
     char filename10[50] = "src/merged/words/words_rus/berries_rus"; 
-    char filename11[50] = "src/merged/words_rus/all_topics_rus";*/ 
+    char filename11[50] = "src/merged/words_rus/all_topics_rus"; 
     
-    /*#else
+    #else
     char filename0[50] = "src/merged/words/words_en/empty"; 
     char filename1[50] = "src/merged/words/words_en/nature_en"; 
     char filename2[50] = "src/merged/words/words_en/weather_en"; 
@@ -45,7 +45,7 @@ int hidden_word(wchar_t *choice){
     char filename9[50] = "src/merged/words/words_en/fruits_en"; 
     char filename10[50] = "src/merged/words/words_en/berries_en"; 
     char filename11[50] = "src/merged/words/words_en/all_topics_en";
-    #endif*/
+    #endif
     
     unsigned int topic_choice = UINT_MAX;
     unsigned int flag = 0;
@@ -55,13 +55,10 @@ int hidden_word(wchar_t *choice){
     
     //Выбор файла (темы)
     while (topic_choice == UINT_MAX){
-        //wprintf(L"%u\n", topic_choice);
         wprintf(L"Выберите тему игры и введите соответствующую цифру:\n 1. Природа\n 2. Погода\n 3. Животные\n 4. Домашние животные\n 5. Птицы\n 6. Рептилии\n 7. Морские обитатели\n 8. Деревья\n 9. Фрукты\n10. Ягоды\n11. Все подряд\n12. Выход\n");
-        wscanf(L"%u", &topic_choice); 
-        //wprintf(L"%u\n", topic_choice);      
+        wscanf(L"%u", &topic_choice);       
         while ( (ch = getwchar()) != WEOF && ch != L'\n'){}; //очистка буфера после scanf 
-        //wprintf(L"%u\n", topic_choice);
-        /*switch (topic_choice) {
+        switch (topic_choice) {
             case 0: strcpy(filename, filename0); break;
             case 1: strcpy(filename, filename1); break;
             case 2: strcpy(filename, filename2); break;
@@ -76,26 +73,10 @@ int hidden_word(wchar_t *choice){
             case 11: strcpy(filename, filename11); break; 
             case 12: return 1;       
             default: wprintf(L"Необходимо ввести цифру из списка!\n"); flag++; break;
-        }*/
-        switch (topic_choice){
-            case 0: words = fopen("src/merged/words/words_rus/empty", "rt, css = UTF-8"); break;
-            case 1: words = fopen("src/merged/words/words_rus/nature_rus", "rt, css = UTF-8"); break;
-            case 2: words = fopen("src/merged/words/words_rus/weather_rus", "rt, css = UTF-8"); break;
-            case 3: words = fopen("src/merged/words/words_rus/animals_rus", "rt, css = UTF-8"); break;
-            case 4: words = fopen("src/merged/words/words_rus/pets_rus", "rt, css = UTF-8"); break;
-            case 5: words = fopen("src/merged/words/words_rus/birds_rus", "rt, css = UTF-8"); break;
-            case 6: words = fopen("src/merged/words/words_rus/reptiles_rus", "rt, css = UTF-8"); break;    
-            case 7: words = fopen("src/merged/words/words_rus/sea_creatures_rus", "rt, css = UTF-8"); break;
-            case 8: words = fopen("src/merged/words/words_rus/trees_rus", "rt, css = UTF-8"); break;
-            case 9: words = fopen("src/merged/words/words_rus/fruits_rus", "rt, css = UTF-8"); break;
-            case 10: words = fopen("src/merged/words/words_rus/berries_rus", "rt, css = UTF-8"); break;
-            case 11: words = fopen("src/merged/words/words_rus/all_topics_rus", "rt, css = UTF-8"); break; 
-            case 12: return 1;       
-            default: wprintf(L"Необходимо ввести цифру из списка!\n"); flag++; break;
-        }
+        }        
     }    
     
-    //words = fopen(filename, "rt, css = UTF-8");
+    words = fopen(filename, "rt, css = UTF-8");
     
     //проверка успешного открытия файла
     if (!(words) && flag != 0){ 
