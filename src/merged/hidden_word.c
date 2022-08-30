@@ -9,7 +9,7 @@
 
 #define RUSSIAN 1
 #define ENGLISH 2
-#define LANGUAGE RUSSIAN
+#define LANGUAGE ENGLISH
 
 int hidden_word(wchar_t *choice){
     setlocale(LC_ALL, "");    
@@ -32,7 +32,7 @@ int hidden_word(wchar_t *choice){
     char filename10[50] = "src/merged/words/words_rus/berries_rus"; 
     char filename11[50] = "src/merged/words_rus/all_topics_rus"; 
     
-    #else
+    #elif LANGUAGE == ENGLISH
     char filename0[50] = "src/merged/words/words_en/empty"; 
     char filename1[50] = "src/merged/words/words_en/nature_en"; 
     char filename2[50] = "src/merged/words/words_en/weather_en"; 
