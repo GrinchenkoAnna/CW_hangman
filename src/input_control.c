@@ -7,7 +7,7 @@
 
 #define RUSSIAN 1
 #define ENGLISH 2
-#define LANGUAGE RUSSIAN
+#define LANGUAGE ENGLISH
     
 wchar_t input_control(){
     setlocale(LC_ALL, "");
@@ -28,7 +28,7 @@ wchar_t input_control(){
         wprintf(L"Вы ввели больше одной буквы. Будет засчитан первый введенный символ: %lc\n", symbol); 
     }  
      
-    #if LANGUAGE == RUSSIAN  
+    #if LANGUAGE == RUSSIAN
     wchar_t abc_rus[65] = {L'а', L'б', L'в', L'г', L'д', L'е', L'ж', L'з', L'и', L'й', L'к', L'л', L'м', L'н', L'о', L'п', L'р', L'с', L'т', L'у', L'ф', L'х', L'ц', L'ч', L'ш', L'щ', L'ъ', L'ы', L'ь', L'э', L'ю', L'я', L'А', L'Б', L'В', L'Г', L'Д', L'Е', L'Ж', L'З', L'И', L'Й', L'К', L'Л', L'М', L'Н', L'О', L'П', L'Р', L'С', L'Т', L'У', L'Ф', L'Х', L'Ц', L'Ч', L'Ш', L'Щ', L'Ъ', L'Ы', L'Ь', L'Э', L'Ю', L'Я'}; //разрешенные для ввода символы 
        
     //проверка: введенный символ совпадает хотя бы с одним из разрешенных

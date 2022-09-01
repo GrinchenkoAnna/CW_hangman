@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <wchar.h>
+#include <wctype.h>
 #include "../thirdparty/ctest.h"
-#include "../src/english/input_control.h"
+#include "../src/input_control.h"
 
 /*Ввод на латинице и Кириллице: строчная и прописная буквы, по одному символу*/
 //test1
@@ -9,7 +10,7 @@ CTEST(one_symbol_suite, lat1){
 
     // Given
     freopen("test/input_control/one_symbol_lat", "r", stdin);   
-    const char s1 = input_control();
+    const wchar_t s1 = input_control();
     // When
     const int result = (int)s1;
     // Then
@@ -23,7 +24,7 @@ CTEST(one_symbol_suite, lat2){
 
     // Given
     fseek(stdin, 1+1, SEEK_SET);
-    const char s2 = input_control();
+    const wchar_t s2 = input_control();
     // When
     const int result = (int)s2;
     // Then
@@ -37,7 +38,7 @@ CTEST(one_symbol_suite, kir1){
 
     // Given
     freopen("test/input_control/one_symbol_kir", "r", stdin);    
-    const char s3 = input_control();
+    const wchar_t s3 = input_control();
     // When
     const int result = (int)s3;
     // Then
@@ -51,7 +52,7 @@ CTEST(one_symbol_suite, kir2){
 
     // Given
     fseek(stdin, 2+1, SEEK_SET);
-    const char s4 = input_control();
+    const wchar_t s4 = input_control();
     // When
     const int result = (int)s4;
     // Then
@@ -66,7 +67,7 @@ CTEST(one_symbol_suite, space){
 
     // Given
     freopen("test/input_control/one_symbol_control_symbols", "r", stdin);
-    const char s5 = input_control();
+    const wchar_t s5 = input_control();
     // When
     const int result = (int)s5;
     // Then
@@ -79,8 +80,8 @@ CTEST(one_symbol_suite, space){
 CTEST(one_symbol_suite, tab){
 
     // Given
-    fseek(stdin, sizeof(char)+1, SEEK_SET);
-    const char s6 = input_control();
+    fseek(stdin, sizeof(wchar_t)+1, SEEK_SET);
+    const wchar_t s6 = input_control();
     // When
     const int result = (int)s6;
     // Then
@@ -94,7 +95,7 @@ CTEST(one_symbol_suite, enter){
 
     // Given
     fseek(stdin, 2+2, SEEK_SET);
-    const char s7 = input_control();
+    const wchar_t s7 = input_control();
     // When
     const int result = (int)s7;
     // Then
@@ -109,7 +110,7 @@ CTEST(one_symbol_suite, number){
 
     // Given
     freopen("test/input_control/one_symbol_number_and_punctuation_marks", "r", stdin);
-    const char s8 = input_control();
+    const wchar_t s8 = input_control();
     // When
     const int result = (int)s8;
     // Then
@@ -122,8 +123,8 @@ CTEST(one_symbol_suite, number){
 CTEST(one_symbol_suite, tilde){
 
     // Given
-    fseek(stdin, sizeof(char)+1, SEEK_SET);
-    const char s9 = input_control();
+    fseek(stdin, sizeof(wchar_t)+1, SEEK_SET);
+    const wchar_t s9 = input_control();
     // When
     const int result = (int)s9;
     // Then
@@ -137,7 +138,7 @@ CTEST(one_symbol_suite, exclamation_mark){
 
     // Given
     fseek(stdin, 2+2, SEEK_SET);
-    const char s10 = input_control();
+    const wchar_t s10 = input_control();
     // When
     const int result = (int)s10;
     // Then
@@ -151,7 +152,7 @@ CTEST(one_symbol_suite, at){
 
     // Given
     fseek(stdin, 3+3, SEEK_SET);
-    const char s11 = input_control();
+    const wchar_t s11 = input_control();
     // When
     const int result = (int)s11;
     // Then
@@ -165,7 +166,7 @@ CTEST(one_symbol_suite, hash){
 
     // Given
     fseek(stdin, 4+4, SEEK_SET);
-    const char s12 = input_control();
+    const wchar_t s12 = input_control();
     // When
     const int result = (int)s12;
     // Then
@@ -179,7 +180,7 @@ CTEST(one_symbol_suite, dollar){
 
     // Given
     fseek(stdin, 5+5, SEEK_SET);
-    const char s13 = input_control();
+    const wchar_t s13 = input_control();
     // When
     const int result = (int)s13;
     // Then
@@ -193,7 +194,7 @@ CTEST(one_symbol_suite, percent){
 
     // Given
     fseek(stdin, 6+6, SEEK_SET);
-    const char s14 = input_control();
+    const wchar_t s14 = input_control();
     // When
     const int result = (int)s14;
     // Then
@@ -207,7 +208,7 @@ CTEST(one_symbol_suite, caret){
 
     // Given
     fseek(stdin, 7+7, SEEK_SET);
-    const char s15 = input_control();
+    const wchar_t s15 = input_control();
     // When
     const int result = (int)s15;
     // Then
@@ -221,7 +222,7 @@ CTEST(one_symbol_suite, ampersand){
 
     // Given
     fseek(stdin, 8+8, SEEK_SET);
-    const char s16 = input_control();
+    const wchar_t s16 = input_control();
     // When
     const int result = (int)s16;
     // Then
@@ -235,7 +236,7 @@ CTEST(one_symbol_suite, asterisk){
 
     // Given
     fseek(stdin, 9+9, SEEK_SET);
-    const char s17 = input_control();
+    const wchar_t s17 = input_control();
     // When
     const int result = (int)s17;
     // Then
@@ -249,7 +250,7 @@ CTEST(one_symbol_suite, left_parenthesis){
 
     // Given
     fseek(stdin, 10+10, SEEK_SET);
-    const char s18 = input_control();
+    const wchar_t s18 = input_control();
     // When
     const int result = (int)s18;
     // Then
@@ -263,7 +264,7 @@ CTEST(one_symbol_suite, right_parenthesis){
 
     // Given
     fseek(stdin, 11+11, SEEK_SET);
-    const char s19 = input_control();
+    const wchar_t s19 = input_control();
     // When
     const int result = (int)s19;
     // Then
@@ -277,7 +278,7 @@ CTEST(one_symbol_suite, underscore){
 
     // Given
     fseek(stdin, 12+12, SEEK_SET);
-    const char s20 = input_control();
+    const wchar_t s20 = input_control();
     // When
     const int result = (int)s20;
     // Then
@@ -291,7 +292,7 @@ CTEST(one_symbol_suite, plus){
 
     // Given
     fseek(stdin, 13+13, SEEK_SET);
-    const char s21 = input_control();
+    const wchar_t s21 = input_control();
     // When
     const int result = (int)s21;
     // Then
@@ -306,7 +307,7 @@ CTEST(one_symbol_suite, acute){
 
     // Given
     fseek(stdin, 14+14, SEEK_SET);
-    const char s22 = input_control();
+    const wchar_t s22 = input_control();
     // When
     const int result = (int)s22;
     // Then
@@ -320,7 +321,7 @@ CTEST(one_symbol_suite, dash){
 
     // Given
     fseek(stdin, 15+15, SEEK_SET);
-    const char s23 = input_control();
+    const wchar_t s23 = input_control();
     // When
     const int result = (int)s23;
     // Then
@@ -334,7 +335,7 @@ CTEST(one_symbol_suite, equals){
 
     // Given
     fseek(stdin, 16+16, SEEK_SET);
-    const char s24 = input_control();
+    const wchar_t s24 = input_control();
     // When
     const int result = (int)s24;
     // Then
@@ -348,7 +349,7 @@ CTEST(one_symbol_suite, left_curly_brace){
 
     // Given
     fseek(stdin, 17+17, SEEK_SET);
-    const char s25 = input_control();
+    const wchar_t s25 = input_control();
     // When
     const int result = (int)s25;
     // Then
@@ -362,7 +363,7 @@ CTEST(one_symbol_suite, right_curly_brace){
 
     // Given
     fseek(stdin, 18+18, SEEK_SET);
-    const char s26 = input_control();
+    const wchar_t s26 = input_control();
     // When
     const int result = (int)s26;
     // Then
@@ -376,7 +377,7 @@ CTEST(one_symbol_suite, vertical_bar){
 
     // Given
     fseek(stdin, 19+19, SEEK_SET);
-    const char s27 = input_control();
+    const wchar_t s27 = input_control();
     // When
     const int result = (int)s27;
     // Then
@@ -390,7 +391,7 @@ CTEST(one_symbol_suite, left_square_bracket){
 
     // Given
     fseek(stdin, 20+20, SEEK_SET);
-    const char s28 = input_control();
+    const wchar_t s28 = input_control();
     // When
     const int result = (int)s28;
     // Then
@@ -404,7 +405,7 @@ CTEST(one_symbol_suite, right_square_bracket){
 
     // Given
     fseek(stdin, 21+21, SEEK_SET);
-    const char s29 = input_control();
+    const wchar_t s29 = input_control();
     // When
     const int result = (int)s29;
     // Then
@@ -418,7 +419,7 @@ CTEST(one_symbol_suite, backslash){
 
     // Given
     fseek(stdin, 22+22, SEEK_SET);
-    const char s30 = input_control();
+    const wchar_t s30 = input_control();
     // When
     const int result = (int)s30;
     // Then
@@ -432,7 +433,7 @@ CTEST(one_symbol_suite, forward_slash){
 
     // Given
     fseek(stdin, 23+23, SEEK_SET);
-    const char s31 = input_control();
+    const wchar_t s31 = input_control();
     // When
     const int result = (int)s31;
     // Then
@@ -446,7 +447,7 @@ CTEST(one_symbol_suite, colon){
 
     // Given
     fseek(stdin, 24+24, SEEK_SET);
-    const char s32 = input_control();
+    const wchar_t s32 = input_control();
     // When
     const int result = (int)s32;
     // Then
@@ -460,7 +461,7 @@ CTEST(one_symbol_suite, quote){
 
     // Given
     fseek(stdin, 25+25, SEEK_SET);
-    const char s33 = input_control();
+    const wchar_t s33 = input_control();
     // When
     const int result = (int)s33;
     // Then
@@ -474,7 +475,7 @@ CTEST(one_symbol_suite, semi_colon){
 
     // Given
     fseek(stdin, 26+26, SEEK_SET);
-    const char s34 = input_control();
+    const wchar_t s34 = input_control();
     // When
     const int result = (int)s34;
     // Then
@@ -488,7 +489,7 @@ CTEST(one_symbol_suite, apostrophe){
 
     // Given
     fseek(stdin, 27+27, SEEK_SET);
-    const char s35 = input_control();
+    const wchar_t s35 = input_control();
     // When
     const int result = (int)s35;
     // Then
@@ -502,7 +503,7 @@ CTEST(one_symbol_suite, less_than){
 
     // Given
     fseek(stdin, 28+28, SEEK_SET);
-    const char s36 = input_control();
+    const wchar_t s36 = input_control();
     // When
     const int result = (int)s36;
     // Then
@@ -516,7 +517,7 @@ CTEST(one_symbol_suite, greather_than){
 
     // Given
     fseek(stdin, 29+29, SEEK_SET);
-    const char s37 = input_control();
+    const wchar_t s37 = input_control();
     // When
     const int result = (int)s37;
     // Then
@@ -530,7 +531,7 @@ CTEST(one_symbol_suite, question_mark){
 
     // Given
     fseek(stdin, 30+30, SEEK_SET);
-    const char s38 = input_control();
+    const wchar_t s38 = input_control();
     // When
     const int result = (int)s38;
     // Then
@@ -544,7 +545,7 @@ CTEST(one_symbol_suite, comma){
 
     // Given
     fseek(stdin, 31+31, SEEK_SET);
-    const char s39 = input_control();
+    const wchar_t s39 = input_control();
     // When
     const int result = (int)s39;
     // Then
@@ -558,7 +559,7 @@ CTEST(one_symbol_suite, dot){
 
     // Given
     fseek(stdin, 32+32, SEEK_SET);
-    const char s40 = input_control();
+    const wchar_t s40 = input_control();
     // When
     const int result = (int)s40;
     // Then
@@ -575,7 +576,7 @@ CTEST(several_symbols_suite, lat_kir1){
 
     // Given
     freopen("test/input_control/several_symbols", "r", stdin); 
-    const char str1 = input_control();
+    const wchar_t str1 = input_control();
     // When
     const int result = (int)str1;
     // Then
@@ -589,7 +590,7 @@ CTEST(several_symbols_suite, lat_kir2){
 
     // Given
     fseek(stdin, 3+6+1, SEEK_SET);
-    const char str2 = input_control();
+    const wchar_t str2 = input_control();
     // When
     const int result = (int)str2;
     // Then
@@ -603,7 +604,7 @@ CTEST(several_symbols_suite, lat_kir3){
 
     // Given
     fseek(stdin, 10+4+6+1, SEEK_SET);
-    const char str3 = input_control();
+    const wchar_t str3 = input_control();
     // When
     const int result = (int)str3;
     // Then
@@ -617,7 +618,7 @@ CTEST(several_symbols_suite, lat_kir4){
 
     // Given
     fseek(stdin, 21+1+10+1, SEEK_SET);
-    const char str4 = input_control();
+    const wchar_t str4 = input_control();
     // When
     const int result = (int)str4;
     // Then
@@ -631,7 +632,7 @@ CTEST(several_symbols_suite, lat_kir5){
 
     // Given
     fseek(stdin, 33+1+12+1, SEEK_SET);
-    const char str5 = input_control();
+    const wchar_t str5 = input_control();
     // When
     const int result = (int)str5;
     // Then
@@ -645,7 +646,7 @@ CTEST(several_symbols_suite, lat_kir6){
 
     // Given
     fseek(stdin, 47+2+5+1, SEEK_SET);
-    const char str6 = input_control();
+    const wchar_t str6 = input_control();
     // When
     const int result = (int)str6;
     // Then
@@ -659,7 +660,7 @@ CTEST(several_symbols_suite, num_lat){
 
     // Given
     fseek(stdin, 55+2+2+1, SEEK_SET);
-    const char str7 = input_control();
+    const wchar_t str7 = input_control();
     // When
     const int result = (int)str7;
     // Then
@@ -673,7 +674,7 @@ CTEST(several_symbols_suite, lat_num){
 
     // Given
     fseek(stdin, 60+8+1, SEEK_SET);
-    const char str8 = input_control();
+    const wchar_t str8 = input_control();
     // When
     const int result = (int)str8;
     // Then
@@ -687,7 +688,7 @@ CTEST(several_symbols_suite, num_kir){
 
     // Given
     fseek(stdin, 69+6+1, SEEK_SET);
-    const char str9 = input_control();
+    const wchar_t str9 = input_control();
     // When
     const int result = (int)str9;
     // Then
@@ -701,7 +702,7 @@ CTEST(several_symbols_suite, kir_num){
 
     // Given
     fseek(stdin, 76+3+4+1, SEEK_SET);
-    const char str10 = input_control();
+    const wchar_t str10 = input_control();
     // When
     const int result = (int)str10;
     // Then
@@ -715,7 +716,7 @@ CTEST(several_symbols_suite, punct_marks_kir){
 
     // Given
     fseek(stdin, 84+3+6+1, SEEK_SET);
-    const char str11 = input_control();
+    const wchar_t str11 = input_control();
     // When
     const int result = (int)str11;
     // Then
@@ -729,7 +730,7 @@ CTEST(several_symbols_suite, punct_marks_lat){
 
     // Given
     fseek(stdin, 94+4+8+1, SEEK_SET);
-    const char str12 = input_control();
+    const wchar_t str12 = input_control();
     // When
     const int result = (int)str12;
     // Then
@@ -743,7 +744,7 @@ CTEST(several_symbols_suite, kir_punct_marks){
 
     // Given
     fseek(stdin, 107+8+1, SEEK_SET);
-    const char str13 = input_control();
+    const wchar_t str13 = input_control();
     // When
     const int result = (int)str13;
     // Then
@@ -757,7 +758,7 @@ CTEST(several_symbols_suite, lat_punct_marks){
 
     // Given
     fseek(stdin, 116+4+8+1, SEEK_SET);
-    const char str14 = input_control();
+    const wchar_t str14 = input_control();
     // When
     const int result = (int)str14;
     // Then
@@ -771,7 +772,7 @@ CTEST(several_symbols_suite, space_lat){
 
     // Given
     fseek(stdin, 129+9+1, SEEK_SET);
-    const char str15 = input_control();
+    const wchar_t str15 = input_control();
     // When
     const int result = (int)str15;
     // Then
@@ -785,7 +786,7 @@ CTEST(several_symbols_suite, tab_lat){
 
     // Given
     fseek(stdin, 139+2+1, SEEK_SET);
-    const char str16 = input_control();
+    const wchar_t str16 = input_control();
     // When
     const int result = (int)str16;
     // Then
@@ -799,7 +800,7 @@ CTEST(several_symbols_suite, dot_lat){
 
     // Given
     fseek(stdin, 142+2+1, SEEK_SET);
-    const char str17 = input_control();
+    const wchar_t str17 = input_control();
     // When
     const int result = (int)str17;
     // Then
@@ -813,7 +814,7 @@ CTEST(several_symbols_suite, 100symbols){
 
     // Given
     fseek(stdin, 145+2+1, SEEK_SET);
-    const char str18 = input_control();
+    const wchar_t str18 = input_control();
     // When
     const int result = (int)str18;
     // Then

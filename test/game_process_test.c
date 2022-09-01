@@ -1,19 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <wchar.h>
+#include <wctype.h>
 #include "../thirdparty/ctest.h"
-#include "../src/english/game_process.h"
-#include "../src/english/input_control.h"
-#include "../src/english/sketch.h"
+#include "../src/game_process.h"
+#include "../src/input_control.h"
+#include "../src/sketch.h"
 
 
 //test1
 CTEST(blackcurrant, null_errors){
 
     // Given
-    int error = 0;
-    char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
-    printf("\n");
+    unsigned int error = 0;
+    wchar_t test_word_to_guess[12] = L"blackcurrant", test_player_word[12] = L"____________", ch1 = L'0', ch2 = L'0';
+    wprintf(L"\n");
             
     freopen("test/game_process/blackcurrant0", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -21,12 +23,12 @@ CTEST(blackcurrant, null_errors){
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern0", "r"); 
     
-    ch1 = fgetc(statfile);
-    ch2 = fgetc(patternfile);
-    while(ch1 != '\n' && ch2 != '\n'){
+    ch1 = fgetwc(statfile);
+    ch2 = fgetwc(patternfile);
+    while(ch1 != L'\n' && ch2 != L'\n'){
         if (ch1 != ch2){ error++; } 
-        ch1 = fgetc(statfile);
-		ch2 = fgetc(patternfile);
+        ch1 = fgetwc(statfile);
+		ch2 = fgetwc(patternfile);
     }
             
     fclose(statfile);  
@@ -44,9 +46,9 @@ CTEST(blackcurrant, null_errors){
 CTEST(blackcurrant, one_error){
 
     // Given
-    int error = 0;
-    char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
-    printf("\n");
+    unsigned int error = 0;
+    wchar_t test_word_to_guess[12] = L"blackcurrant", test_player_word[12] = L"____________", ch1 = L'0', ch2 = L'0';
+    wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant1", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -54,12 +56,12 @@ CTEST(blackcurrant, one_error){
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern1", "r"); 
     
-    ch1 = fgetc(statfile);
-    ch2 = fgetc(patternfile);
-    while(ch1 != '\n' && ch2 != '\n'){
+    ch1 = fgetwc(statfile);
+    ch2 = fgetwc(patternfile);
+    while(ch1 != L'\n' && ch2 != L'\n'){
         if (ch1 != ch2){ error++; } 
-        ch1 = fgetc(statfile);
-		ch2 = fgetc(patternfile);
+        ch1 = fgetwc(statfile);
+		ch2 = fgetwc(patternfile);
     }
             
     fclose(statfile);  
@@ -77,9 +79,9 @@ CTEST(blackcurrant, one_error){
 CTEST(blackcurrant, two_errors){
 
     // Given
-    int error = 0;
-    char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
-    printf("\n");
+    unsigned int error = 0;
+    wchar_t test_word_to_guess[12] = L"blackcurrant", test_player_word[12] = L"____________", ch1 = L'0', ch2 = L'0';
+    wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant2", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -87,12 +89,12 @@ CTEST(blackcurrant, two_errors){
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern2", "r"); 
     
-    ch1 = fgetc(statfile);
-    ch2 = fgetc(patternfile);
-    while(ch1 != '\n' && ch2 != '\n'){
+    ch1 = fgetwc(statfile);
+    ch2 = fgetwc(patternfile);
+    while(ch1 != L'\n' && ch2 != L'\n'){
         if (ch1 != ch2){ error++; } 
-        ch1 = fgetc(statfile);
-		ch2 = fgetc(patternfile);
+        ch1 = fgetwc(statfile);
+		ch2 = fgetwc(patternfile);
     }
             
     fclose(statfile);  
@@ -110,9 +112,9 @@ CTEST(blackcurrant, two_errors){
 CTEST(blackcurrant, three_errors){
 
     // Given
-    int error = 0;
-    char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
-    printf("\n");
+    unsigned int error = 0;
+    wchar_t test_word_to_guess[12] = L"blackcurrant", test_player_word[12] = L"____________", ch1 = L'0', ch2 = L'0';
+    wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant3", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -120,12 +122,12 @@ CTEST(blackcurrant, three_errors){
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern3", "r"); 
     
-    ch1 = fgetc(statfile);
-    ch2 = fgetc(patternfile);
-    while(ch1 != '\n' && ch2 != '\n'){
+    ch1 = fgetwc(statfile);
+    ch2 = fgetwc(patternfile);
+    while(ch1 != L'\n' && ch2 != L'\n'){
         if (ch1 != ch2){ error++; } 
-        ch1 = fgetc(statfile);
-		ch2 = fgetc(patternfile);
+        ch1 = fgetwc(statfile);
+		ch2 = fgetwc(patternfile);
     }
             
     fclose(statfile);  
@@ -143,9 +145,9 @@ CTEST(blackcurrant, three_errors){
 CTEST(blackcurrant, four_errors){
 
     // Given
-    int error = 0;
-    char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
-    printf("\n");
+    unsigned int error = 0;
+    wchar_t test_word_to_guess[12] = L"blackcurrant", test_player_word[12] = L"____________", ch1 = L'0', ch2 = L'0';
+    wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant4", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -153,12 +155,12 @@ CTEST(blackcurrant, four_errors){
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern4", "r"); 
     
-    ch1 = fgetc(statfile);
-    ch2 = fgetc(patternfile);
-    while(ch1 != '\n' && ch2 != '\n'){
+    ch1 = fgetwc(statfile);
+    ch2 = fgetwc(patternfile);
+    while(ch1 != L'\n' && ch2 != L'\n'){
         if (ch1 != ch2){ error++; } 
-        ch1 = fgetc(statfile);
-		ch2 = fgetc(patternfile);
+        ch1 = fgetwc(statfile);
+		ch2 = fgetwc(patternfile);
     }
             
     fclose(statfile);  
@@ -176,9 +178,9 @@ CTEST(blackcurrant, four_errors){
 CTEST(blackcurrant, five_errors){
 
     // Given
-    int error = 0;
-    char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
-    printf("\n");
+    unsigned int error = 0;
+    wchar_t test_word_to_guess[12] = L"blackcurrant", test_player_word[12] = L"____________", ch1 = L'0', ch2 = L'0';
+    wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant5", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -186,12 +188,12 @@ CTEST(blackcurrant, five_errors){
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern5", "r"); 
     
-    ch1 = fgetc(statfile);
-    ch2 = fgetc(patternfile);
-    while(ch1 != '\n' && ch2 != '\n'){
+    ch1 = fgetwc(statfile);
+    ch2 = fgetwc(patternfile);
+    while(ch1 != L'\n' && ch2 != L'\n'){
         if (ch1 != ch2){ error++; } 
-        ch1 = fgetc(statfile);
-		ch2 = fgetc(patternfile);
+        ch1 = fgetwc(statfile);
+		ch2 = fgetwc(patternfile);
     }
             
     fclose(statfile);  
@@ -209,9 +211,9 @@ CTEST(blackcurrant, five_errors){
 CTEST(blackcurrant, six_errors){
 
     // Given
-    int error = 0;
-    char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
-    printf("\n");
+    unsigned int error = 0;
+    wchar_t test_word_to_guess[12] = L"blackcurrant", test_player_word[12] = L"____________", ch1 = L'0', ch2 = L'0';
+    wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant6", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -219,12 +221,12 @@ CTEST(blackcurrant, six_errors){
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern6", "r"); 
     
-    ch1 = fgetc(statfile);
-    ch2 = fgetc(patternfile);
-    while(ch1 != '\n' && ch2 != '\n'){
+    ch1 = fgetwc(statfile);
+    ch2 = fgetwc(patternfile);
+    while(ch1 != L'\n' && ch2 != L'\n'){
         if (ch1 != ch2){ error++; } 
-        ch1 = fgetc(statfile);
-		ch2 = fgetc(patternfile);
+        ch1 = fgetwc(statfile);
+		ch2 = fgetwc(patternfile);
     }
             
     fclose(statfile);  
@@ -242,9 +244,9 @@ CTEST(blackcurrant, six_errors){
 CTEST(blackcurrant, seven_errors){
 
     // Given
-    int error = 0;
-    char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
-    printf("\n");
+    unsigned int error = 0;
+    wchar_t test_word_to_guess[12] = L"blackcurrant", test_player_word[12] = L"____________", ch1 = L'0', ch2 = L'0';
+    wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant7", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -252,12 +254,12 @@ CTEST(blackcurrant, seven_errors){
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern7", "r"); 
     
-    ch1 = fgetc(statfile);
-    ch2 = fgetc(patternfile);
-    while(ch1 != '\n' && ch2 != '\n'){
+    ch1 = fgetwc(statfile);
+    ch2 = fgetwc(patternfile);
+    while(ch1 != L'\n' && ch2 != L'\n'){
         if (ch1 != ch2){ error++; } 
-        ch1 = fgetc(statfile);
-		ch2 = fgetc(patternfile);
+        ch1 = fgetwc(statfile);
+		ch2 = fgetwc(patternfile);
     }
             
     fclose(statfile);  
@@ -275,9 +277,9 @@ CTEST(blackcurrant, seven_errors){
 CTEST(blackcurrant, eight_errors){
 
     // Given
-    int error = 0;
-    char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
-    printf("\n");
+    unsigned int error = 0;
+    wchar_t test_word_to_guess[12] = L"blackcurrant", test_player_word[12] = L"____________", ch1 = L'0', ch2 = L'0';
+    wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant8", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -285,12 +287,12 @@ CTEST(blackcurrant, eight_errors){
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern8", "r"); 
     
-    ch1 = fgetc(statfile);
-    ch2 = fgetc(patternfile);
-    while(ch1 != '\n' && ch2 != '\n'){
+    ch1 = fgetwc(statfile);
+    ch2 = fgetwc(patternfile);
+    while(ch1 != L'\n' && ch2 != L'\n'){
         if (ch1 != ch2){ error++; } 
-        ch1 = fgetc(statfile);
-		ch2 = fgetc(patternfile);
+        ch1 = fgetwc(statfile);
+		ch2 = fgetwc(patternfile);
     }
             
     fclose(statfile);  
@@ -308,9 +310,9 @@ CTEST(blackcurrant, eight_errors){
 CTEST(blackcurrant, nine_errors){
 
     // Given
-    int error = 0;
-    char test_word_to_guess[12] = "blackcurrant", test_player_word[12] = "____________", ch1 = 0, ch2 = 0;
-    printf("\n");
+    unsigned int error = 0;
+    wchar_t test_word_to_guess[12] = L"blackcurrant", test_player_word[12] = L"____________", ch1 = L'0', ch2 = L'0';
+    wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant9", "r", stdin); 
     game_process(12, test_player_word, test_word_to_guess);
@@ -318,12 +320,12 @@ CTEST(blackcurrant, nine_errors){
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern9", "r"); 
     
-    ch1 = fgetc(statfile);
-    ch2 = fgetc(patternfile);
-    while(ch1 != '\n' && ch2 != '\n'){
+    ch1 = fgetwc(statfile);
+    ch2 = fgetwc(patternfile);
+    while(ch1 != L'\n' && ch2 != L'\n'){
         if (ch1 != ch2){ error++; } 
-        ch1 = fgetc(statfile);
-		ch2 = fgetc(patternfile);
+        ch1 = fgetwc(statfile);
+		ch2 = fgetwc(patternfile);
     }
             
     fclose(statfile);  

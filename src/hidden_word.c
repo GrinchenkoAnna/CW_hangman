@@ -9,7 +9,7 @@
 
 #define RUSSIAN 1
 #define ENGLISH 2
-#define LANGUAGE RUSSIAN
+#define LANGUAGE ENGLISH
 
 int hidden_word(wchar_t *choice){
     setlocale(LC_ALL, "");    
@@ -19,32 +19,32 @@ int hidden_word(wchar_t *choice){
     char filename[50] = {0};
     
     #if LANGUAGE == RUSSIAN
-    char filename0[50] = "src/merged/words/words_rus/empty"; 
-    char filename1[50] = "src/merged/words/words_rus/nature_rus"; 
-    char filename2[50] = "src/merged/words/words_rus/weather_rus"; 
-    char filename3[50] = "src/merged/words/words_rus/animals_rus"; 
-    char filename4[50] = "src/merged/words/words_rus/pets_rus"; 
-    char filename5[50] = "src/merged/words/words_rus/birds_rus"; 
-    char filename6[50] = "src/merged/words/words_rus/reptiles_rus";   
-    char filename7[50] = "src/merged/words/words_rus/sea_creatures_rus"; 
-    char filename8[50] = "src/merged/words/words_rus/trees_rus"; 
-    char filename9[50] = "src/merged/words/words_rus/fruits_rus"; 
-    char filename10[50] = "src/merged/words/words_rus/berries_rus"; 
-    char filename11[50] = "src/merged/words_rus/all_topics_rus"; 
+    char filename0[50] = "src/words/words_rus/empty"; 
+    char filename1[50] = "src/words/words_rus/nature_rus"; 
+    char filename2[50] = "src/words/words_rus/weather_rus"; 
+    char filename3[50] = "src/words/words_rus/animals_rus"; 
+    char filename4[50] = "src/words/words_rus/pets_rus"; 
+    char filename5[50] = "src/words/words_rus/birds_rus"; 
+    char filename6[50] = "src/words/words_rus/reptiles_rus";   
+    char filename7[50] = "src/words/words_rus/sea_creatures_rus"; 
+    char filename8[50] = "src/words/words_rus/trees_rus"; 
+    char filename9[50] = "src/words/words_rus/fruits_rus"; 
+    char filename10[50] = "src/words/words_rus/berries_rus"; 
+    char filename11[50] = "src/words_rus/all_topics_rus"; 
     
     #elif LANGUAGE == ENGLISH
-    char filename0[50] = "src/merged/words/words_en/empty"; 
-    char filename1[50] = "src/merged/words/words_en/nature_en"; 
-    char filename2[50] = "src/merged/words/words_en/weather_en"; 
-    char filename3[50] = "src/merged/words/words_en/animals_en"; 
-    char filename4[50] = "src/merged/words/words_en/pets_en"; 
-    char filename5[50] = "src/merged/words/words_en/birds_en"; 
-    char filename6[50] = "src/merged/words/words_en/reptiles_en";   
-    char filename7[50] = "src/merged/words/words_en/sea_creatures_en"; 
-    char filename8[50] = "src/merged/words/words_en/trees_en"; 
-    char filename9[50] = "src/merged/words/words_en/fruits_en"; 
-    char filename10[50] = "src/merged/words/words_en/berries_en"; 
-    char filename11[50] = "src/merged/words/words_en/all_topics_en";
+    char filename0[50] = "src/words/words_en/empty"; 
+    char filename1[50] = "src/words/words_en/nature_en"; 
+    char filename2[50] = "src/words/words_en/weather_en"; 
+    char filename3[50] = "src/words/words_en/animals_en"; 
+    char filename4[50] = "src/words/words_en/pets_en"; 
+    char filename5[50] = "src/words/words_en/birds_en"; 
+    char filename6[50] = "src/words/words_en/reptiles_en";   
+    char filename7[50] = "src/words/words_en/sea_creatures_en"; 
+    char filename8[50] = "src/words/words_en/trees_en"; 
+    char filename9[50] = "src/words/words_en/fruits_en"; 
+    char filename10[50] = "src/words/words_en/berries_en"; 
+    char filename11[50] = "src/words/words_en/all_topics_en";
     #endif
     
     unsigned int topic_choice = UINT_MAX;
