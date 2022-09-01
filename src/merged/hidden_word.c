@@ -9,7 +9,7 @@
 
 #define RUSSIAN 1
 #define ENGLISH 2
-#define LANGUAGE ENGLISH
+#define LANGUAGE RUSSIAN
 
 int hidden_word(wchar_t *choice){
     setlocale(LC_ALL, "");    

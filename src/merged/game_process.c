@@ -10,7 +10,7 @@
 
 #define RUSSIAN 1
 #define ENGLISH 2
-#define LANGUAGE ENGLISH
+#define LANGUAGE RUSSIAN
 
 /*В функции используются:
 size - размер загаданного слова
