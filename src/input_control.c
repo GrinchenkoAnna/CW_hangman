@@ -21,7 +21,11 @@ wchar_t input_control(){
             
     //ограничения на ввод количества символов
     wscanf(L"%lc", &symbol);
-    while ((ch = getwchar()) != '\n' && ch != WEOF){
+    if (symbol == '\n'){
+        wprintf(L"Введен(ы) запрещенный(е) символ(ы)!\nОшибка! \n");       
+        return '\0'; 
+    }
+    while ((ch = getwchar()) != L'\n' && ch != WEOF){
         extra++;
     }
     if (extra > 0){
