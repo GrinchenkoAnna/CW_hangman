@@ -13,7 +13,7 @@ wchar_t input_control(){
     setlocale(LC_ALL, "");
     
     //wchar_t player_input[10] = {0}; //массив для вводимых игроком символов
-    wchar_t symbol; //вводимая буква 
+    wchar_t symbol = L'0'; //вводимая буква 
     wchar_t ch = L'0';    
     
     unsigned int wrong_symbol = 0; //для ввода неверных символов    
@@ -21,7 +21,7 @@ wchar_t input_control(){
             
     //ограничения на ввод количества символов
     wscanf(L"%lc", &symbol);
-    if (symbol == '\n'){
+    if (symbol == L'\n'){
         wprintf(L"Введен(ы) запрещенный(е) символ(ы)!\nОшибка! \n");       
         return '\0'; 
     }
