@@ -60,7 +60,7 @@ int main(){
         
         wprintf(L"%ls\n", entered_word);
     
-        game_process(word_size, entered_word, word); 
+        game_process(word_size, language_choice, entered_word, word); 
     
         free(entered_word); //освобождение памяти, выделенной для массива для ввода
         

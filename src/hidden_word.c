@@ -12,79 +12,85 @@ int hidden_word(unsigned int language, wchar_t *choice){
         
     unsigned int number_of_words = 0; //количество строк в файле
     unsigned int word_choice = 0; //номер строки с загаданным словом
-    char filename[50] = {0};
-    char *filename0[50] = {0};
-    char *filename1[50] = {0}; 
-    char *filename2[50] = {0}; 
-    char *filename3[50] = {0}; 
-    char *filename4[50] = {0};
-    char *filename5[50] = {0};
-    char *filename6[50] = {0};
-    char *filename7[50] = {0}; 
-    char *filename8[50] = {0};
-    char *filename9[50] = {0}; 
-    char *filename10[50] = {0};
-    char *filename11[50] = {0};
-    
-    if (language == 1){
-        filename0[50] = "src/words/words_rus/empty"; 
-        filename1[50] = "src/words/words_rus/nature_rus"; 
-        filename2[50] = "src/words/words_rus/weather_rus"; 
-        filename3[50] = "src/words/words_rus/animals_rus"; 
-        filename4[50] = "src/words/words_rus/pets_rus"; 
-        filename5[50] = "src/words/words_rus/birds_rus"; 
-        filename6[50] = "src/words/words_rus/reptiles_rus";   
-        filename7[50] = "src/words/words_rus/sea_creatures_rus"; 
-        filename8[50] = "src/words/words_rus/trees_rus"; 
-        filename9[50] = "src/words/words_rus/fruits_rus"; 
-        filename10[50] = "src/words/words_rus/berries_rus"; 
-        filename11[50] = "src/words_rus/all_topics_rus"; 
-    }
-    else {
-        filename0[50] = "src/words/words_en/empty"; 
-        filename1[50] = "src/words/words_en/nature_en"; 
-        filename2[50] = "src/words/words_en/weather_en"; 
-        filename3[50] = "src/words/words_en/animals_en"; 
-        filename4[50] = "src/words/words_en/pets_en"; 
-        filename5[50] = "src/words/words_en/birds_en"; 
-        filename6[50] = "src/words/words_en/reptiles_en";   
-        filename7[50] = "src/words/words_en/sea_creatures_en"; 
-        filename8[50] = "src/words/words_en/trees_en"; 
-        filename9[50] = "src/words/words_en/fruits_en"; 
-        filename10[50] = "src/words/words_en/berries_en"; 
-        filename11[50] = "src/words/words_en/all_topics_en";
-    }
-    
-    unsigned int topic_choice = UINT_MAX;
+    unsigned int topic_choice = UINT_MAX; //номер темы
     unsigned int flag = 0;
-    FILE* words;
+    
+    char filename[50] = {0};
+    char filename0[50] = "src/words/empty"; 
+    char filename1[50] = "src/words/nature_"; 
+    char filename2[50] = "src/words/weather_";
+    char filename3[50] = "src/words/animals_"; 
+    char filename4[50] = "src/words/pets_";
+    char filename5[50] = "src/words/birds_";
+    char filename6[50] = "src/words/reptiles_";
+    char filename7[50] = "src/words/sea_creatures_"; 
+    char filename8[50] = "src/words/trees_";
+    char filename9[50] = "src/words/fruits_"; 
+    char filename10[50] = "src/words/berries_";
+    char filename11[50] = "src/words/all_topics_";
+    char lang1[4] = "rus";
+    char lang2[3] = "en";
     
     wchar_t ch = L'0';
     
-    //Выбор файла (темы)
-    while (topic_choice == UINT_MAX){
-        wprintf(L"Выберите тему игры:\n 1. Природа\n 2. Погода\n 3. Животные\n 4. Домашние животные\n 5. Птицы\n 6. Рептилии\n 7. Морские обитатели\n 8. Деревья\n 9. Фрукты\n10. Ягоды\n11. Все подряд\n12. Выход\n");
-        wscanf(L"%u", &topic_choice);       
-        while ( (ch = getwchar()) != WEOF && ch != L'\n'){}; //очистка буфера после wscanf 
-        switch (topic_choice) {
-            case 0: strcpy(filename, *filename0); break;
-            case 1: strcpy(filename, *filename1); break;
-            case 2: strcpy(filename, *filename2); break;
-            case 3: strcpy(filename, *filename3); break;
-            case 4: strcpy(filename, *filename4); break;
-            case 5: strcpy(filename, *filename5); break;
-            case 6: strcpy(filename, *filename6); break;    
-            case 7: strcpy(filename, *filename7); break;
-            case 8: strcpy(filename, *filename8); break;
-            case 9: strcpy(filename, *filename9); break;
-            case 10: strcpy(filename, *filename10); break;
-            case 11: strcpy(filename, *filename11); break; 
+    FILE* words;    
+    
+    while (topic_choice == UINT_MAX){   
+     
+        if (language == 1){ 
+            strcat(filename1, lang1);
+            strcat(filename2, lang1);
+            strcat(filename3, lang1);
+            strcat(filename4, lang1);
+            strcat(filename5, lang1);
+            strcat(filename6, lang1);
+            strcat(filename7, lang1);
+            strcat(filename8, lang1);
+            strcat(filename9, lang1);
+            strcat(filename10, lang1);      
+            strcat(filename11, lang1);     
+                    
+            wprintf(L"Выберите тему:\n 1. Природа\n 2. Погода\n 3. Животные\n 4. Домашние животные\n 5. Птицы\n 6. Рептилии\n 7. Морские обитатели\n 8. Деревья\n 9. Фрукты\n10. Ягоды\n11. Все подряд\n12. Выход\n");
+            wscanf(L"%u", &topic_choice);       
+            while ( (ch = getwchar()) != WEOF && ch != L'\n'){}; //очистка буфера после wscanf                               
+        }  
+                   
+        if (language == 2){  
+            strcat(filename1, lang2);
+            strcat(filename2, lang2);
+            strcat(filename3, lang2);
+            strcat(filename4, lang2);
+            strcat(filename5, lang2);
+            strcat(filename6, lang2);
+            strcat(filename7, lang2);
+            strcat(filename8, lang2);
+            strcat(filename9, lang2);
+            strcat(filename10, lang2);      
+            strcat(filename11, lang2);   
+                
+            wprintf(L"Choose a topic:\n 1. Nature\n 2. Weather\n 3. Animals\n 4. Pets\n 5. Birds\n 6. Reptiles\n 7. Sea creatures\n 8. Trees\n 9. Fruits\n10. Berries\n11. Mixed\n12. Exit\n");
+            wscanf(L"%u", &topic_choice);       
+            while ( (ch = getwchar()) != WEOF && ch != L'\n'){}; //очистка буфера после wscanf            
+        }
+        
+        switch (topic_choice){
+            case 0: strcpy(filename, filename0); break;
+            case 1: strcpy(filename, filename1); break;
+            case 2: strcpy(filename, filename2); break;
+            case 3: strcpy(filename, filename3); break;
+            case 4: strcpy(filename, filename4); break;
+            case 5: strcpy(filename, filename5); break;
+            case 6: strcpy(filename, filename6); break;    
+            case 7: strcpy(filename, filename7); break;
+            case 8: strcpy(filename, filename8); break;
+            case 9: strcpy(filename, filename9); break;
+            case 10: strcpy(filename, filename10); break;
+            case 11: strcpy(filename, filename11); break; 
             case 12: return 1;       
             default: wprintf(L"Необходимо ввести цифру из списка!\n"); flag++; break;
-        }        
-    }    
-    
-    words = fopen(filename, "rt, css = UTF-8");
+        }
+    }
+    words = fopen(filename, "r, css = UTF-8");
     
     //проверка успешного открытия файла
     if (!(words) && flag != 0){ 
@@ -97,8 +103,7 @@ int hidden_word(unsigned int language, wchar_t *choice){
          if (fgetwc(words) == '\n'){
              number_of_words++;
          }
-    } 
-    wprintf(L"Всего слов: %d\n", number_of_words);    
+    }  
     
     if (number_of_words == 0 && flag == 0){
         wprintf(L"Открыт пустой файл!\n");
@@ -111,7 +116,6 @@ int hidden_word(unsigned int language, wchar_t *choice){
         word_choice = number_of_words;
     }
     wprintf(L"Выбрано слово номер: %d из темы номер %d\n", word_choice, topic_choice);
-    //wprintf(L"Выбрано слово номер: %d\n", word_choice);
         
     fseek(words, 0, SEEK_SET); //указатель на начало файла
     for (int i = 0; i < word_choice; i++){

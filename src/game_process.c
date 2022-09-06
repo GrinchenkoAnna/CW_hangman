@@ -8,10 +8,6 @@
 #include "input_control.h"
 #include "sketch.h"
 
-#define RUSSIAN 1
-#define ENGLISH 2
-#define LANGUAGE ENGLISH
-
 /*В функции используются:
 size - размер загаданного слова
 letter - для вводимого символа
@@ -26,7 +22,7 @@ game_exit - маркер выбора опции "Выход"*/
 stop_game - для остановки, считает количество угаданных букв; flag - вспомогательный маркер;
 repeat - счетчик повтора букв; attempt_flag - маркер ошибки игрока; try - (номер попытки игрока)-1*/
 
-void game_process(unsigned int size, wchar_t *player_word, wchar_t *word_to_guess){
+void game_process(unsigned int size, unsigned int language, wchar_t *player_word, wchar_t *word_to_guess){
     
     setlocale(LC_ALL, "");
     unsigned int errors = 0, guessed = 0, stop_game = 0, flag = 0, repeat = 0, attempt_flag = 0, try = 0;    
@@ -37,23 +33,18 @@ void game_process(unsigned int size, wchar_t *player_word, wchar_t *word_to_gues
      
     sketch(0);
                 
-    while(size != 0 && errors < 9 && stop_game < size){
-    
+    while(size != 0 && errors < 9 && stop_game < size){    
         wprintf(L"Введите букву. Разрешены символы: \n"); 
         
-        #if LANGUAGE == RUSSIAN
-        wchar_t abc_rus[65] = {L'а', L'б', L'в', L'г', L'д', L'е', L'ж', L'з', L'и', L'й', L'к', L'л', L'м', L'н', L'о', L'п', L'р', L'с', L'т', L'у', L'ф', L'х', L'ц', L'ч', L'ш', L'щ', L'ъ', L'ы', L'ь', L'э', L'ю', L'я', L'А', L'Б', L'В', L'Г', L'Д', L'Е', L'Ж', L'З', L'И', L'Й', L'К', L'Л', L'М', L'Н', L'О', L'П', L'Р', L'С', L'Т', L'У', L'Ф', L'Х', L'Ц', L'Ч', L'Ш', L'Щ', L'Ъ', L'Ы', L'Ь', L'Э', L'Ю', L'Я'}; //разрешенные для ввода символы
-        wprintf(L"%ls\n", abc_rus);
-        
-        #elif LANGUAGE == ENGLISH
-        wchar_t abc_eng[53] = {L'a', L'b', L'c', L'd', L'e', L'f', L'g', L'h', L'i', L'j', L'k', L'l', L'm', L'n', L'o', L'p', L'q', L'r', L's', L't', L'u', L'v', L'w', L'x', L'y', L'z', L'A', L'B', L'C', L'D', L'E', L'F', L'G', L'H', L'I', L'J', L'K', L'L', L'M', L'N', L'O', L'P', L'Q', L'R', L'S', L'T', L'U', L'V', L'W', L'X', L'Y', L'Z'}; //разрешенные для ввода символы
-        wprintf(L"%ls\n", abc_eng);
-        #endif
+        if (language == 1){
+            wprintf(L"абвгдежзийклмнопрстуфхцчшщъыьэюя\nАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ\n");
+        }   
+        if (language == 2){
+            wprintf(L"abcdefghijklmnopqrstuvwxyz\nABCDEFGHIJKLMNOPQRSTUVWXYZ\n");
+        }
         
         //проверка ввода  
-        wchar_t letter = input_control(); 
-        //wprintf(L"%lc\n", towupper(letter));     
-              
+        wchar_t letter = input_control(language);              
         if (letter != '\0'){
                 
             //проверка наличия такой буквы в загаданном слове

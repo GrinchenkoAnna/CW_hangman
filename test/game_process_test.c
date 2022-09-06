@@ -18,7 +18,7 @@ CTEST(blackcurrant, null_errors){
     wprintf(L"\n");
             
     freopen("test/game_process/blackcurrant0", "r", stdin); 
-    game_process(12, test_player_word, test_word_to_guess);
+    game_process(12, 2, test_player_word, test_word_to_guess);
        
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern0", "r"); 
@@ -51,7 +51,7 @@ CTEST(blackcurrant, one_error){
     wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant1", "r", stdin); 
-    game_process(12, test_player_word, test_word_to_guess);
+    game_process(12, 2, test_player_word, test_word_to_guess);
        
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern1", "r"); 
@@ -84,7 +84,7 @@ CTEST(blackcurrant, two_errors){
     wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant2", "r", stdin); 
-    game_process(12, test_player_word, test_word_to_guess);
+    game_process(12, 2, test_player_word, test_word_to_guess);
        
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern2", "r"); 
@@ -117,7 +117,7 @@ CTEST(blackcurrant, three_errors){
     wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant3", "r", stdin); 
-    game_process(12, test_player_word, test_word_to_guess);
+    game_process(12, 2, test_player_word, test_word_to_guess);
        
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern3", "r"); 
@@ -150,7 +150,7 @@ CTEST(blackcurrant, four_errors){
     wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant4", "r", stdin); 
-    game_process(12, test_player_word, test_word_to_guess);
+    game_process(12, 2, test_player_word, test_word_to_guess);
        
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern4", "r"); 
@@ -183,7 +183,7 @@ CTEST(blackcurrant, five_errors){
     wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant5", "r", stdin); 
-    game_process(12, test_player_word, test_word_to_guess);
+    game_process(12, 2, test_player_word, test_word_to_guess);
        
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern5", "r"); 
@@ -216,7 +216,7 @@ CTEST(blackcurrant, six_errors){
     wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant6", "r", stdin); 
-    game_process(12, test_player_word, test_word_to_guess);
+    game_process(12, 2, test_player_word, test_word_to_guess);
        
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern6", "r"); 
@@ -249,7 +249,7 @@ CTEST(blackcurrant, seven_errors){
     wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant7", "r", stdin); 
-    game_process(12, test_player_word, test_word_to_guess);
+    game_process(12, 2, test_player_word, test_word_to_guess);
        
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern7", "r"); 
@@ -282,7 +282,7 @@ CTEST(blackcurrant, eight_errors){
     wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant8", "r", stdin); 
-    game_process(12, test_player_word, test_word_to_guess);
+    game_process(12, 2, test_player_word, test_word_to_guess);
        
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern8", "r"); 
@@ -315,7 +315,7 @@ CTEST(blackcurrant, nine_errors){
     wprintf(L"\n");
     
     freopen("test/game_process/blackcurrant9", "r", stdin); 
-    game_process(12, test_player_word, test_word_to_guess);
+    game_process(12, 2, test_player_word, test_word_to_guess);
        
     FILE* statfile = fopen("src/temp/statistics", "r"); 
     FILE* patternfile = fopen("test/game_process/pattern9", "r"); 
