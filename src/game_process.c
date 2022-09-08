@@ -44,7 +44,7 @@ void game_process(unsigned int size, unsigned int language, wchar_t *player_word
         }
         
         //проверка ввода  
-        wchar_t letter = input_control(language);              
+        wchar_t letter = input_control(language);     
         if (letter != '\0'){
                 
             //проверка наличия такой буквы в загаданном слове

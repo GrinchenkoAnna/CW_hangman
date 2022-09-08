@@ -60,6 +60,6 @@ wchar_t input_control(unsigned int language){
             wprintf(L"Введен(ы) запрещенный(е) символ(ы)!\nОшибка! \n");  
             return '\0'; 
         }
-    }    
+    }   
     return(symbol);
 }
