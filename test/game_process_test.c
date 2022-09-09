@@ -10,7 +10,7 @@
 
 //russian
 //test1
-CTEST(GAME_PROCESS_можжевельник, null_errors){
+CTEST(GAME_PROCESS_mozhzhevelnik, null_errors){
 
     // Given
     unsigned int error = 0;
@@ -43,7 +43,7 @@ CTEST(GAME_PROCESS_можжевельник, null_errors){
 }
 
 //test2
-CTEST(GAME_PROCESS_можжевельник, one_error){
+CTEST(GAME_PROCESS_mozhzhevelnik, one_error){
 
     // Given
     unsigned int error = 0;
@@ -76,7 +76,7 @@ CTEST(GAME_PROCESS_можжевельник, one_error){
 }
 
 //test3
-CTEST(GAME_PROCESS_можжевельник, two_errors){
+CTEST(GAME_PROCESS_mozhzhevelnik, two_errors){
 
     // Given
     unsigned int error = 0;
@@ -109,7 +109,7 @@ CTEST(GAME_PROCESS_можжевельник, two_errors){
 }
 
 //test4
-CTEST(GAME_PROCESS_можжевельник, three_errors){
+CTEST(GAME_PROCESS_mozhzhevelnik, three_errors){
 
     // Given
     unsigned int error = 0;
@@ -142,7 +142,7 @@ CTEST(GAME_PROCESS_можжевельник, three_errors){
 }
 
 //test5
-CTEST(GAME_PROCESS_можжевельник, four_errors){
+CTEST(GAME_PROCESS_mozhzhevelnik, four_errors){
 
     // Given
     unsigned int error = 0;
@@ -175,7 +175,7 @@ CTEST(GAME_PROCESS_можжевельник, four_errors){
 }
 
 //test6
-CTEST(GAME_PROCESS_можжевельник, five_errors){
+CTEST(GAME_PROCESS_mozhzhevelnik, five_errors){
 
     // Given
     unsigned int error = 0;
@@ -208,7 +208,7 @@ CTEST(GAME_PROCESS_можжевельник, five_errors){
 }
 
 //test7
-CTEST(GAME_PROCESS_можжевельник, six_errors){
+CTEST(GAME_PROCESS_mozhzhevelnik, six_errors){
 
     // Given
     unsigned int error = 0;
@@ -241,7 +241,7 @@ CTEST(GAME_PROCESS_можжевельник, six_errors){
 }
 
 //test8
-CTEST(GAME_PROCESS_можжевельник, seven_errors){
+CTEST(GAME_PROCESS_mozhzhevelnik, seven_errors){
 
     // Given
     unsigned int error = 0;
@@ -274,7 +274,7 @@ CTEST(GAME_PROCESS_можжевельник, seven_errors){
 }
 
 //test9
-CTEST(GAME_PROCESS_можжевельник, eight_errors){
+CTEST(GAME_PROCESS_mozhzhevelnik, eight_errors){
 
     // Given
     unsigned int error = 0;
@@ -307,7 +307,7 @@ CTEST(GAME_PROCESS_можжевельник, eight_errors){
 }
 
 //test10
-CTEST(GAME_PROCESS_можжевельник, nine_errors){
+CTEST(GAME_PROCESS_mozhzhevelnik, nine_errors){
 
     // Given
     unsigned int error = 0;
