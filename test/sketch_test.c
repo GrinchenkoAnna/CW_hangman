@@ -3,12 +3,11 @@
 #include "../src/sketch.h"
 
 //test1
-CTEST(null_nine, null){
+CTEST(SKETCH_null_nine, null){
 
     // Given    
     int error = 0;
     char ch1 = 0, ch2 = 0;
-    printf("\n");
     
     sketch(0);
         
@@ -35,12 +34,11 @@ CTEST(null_nine, null){
 }
 
 //test2
-CTEST(null_nine, one){
+CTEST(SKETCH_null_nine, one){
 
     // Given    
     int error = 0;
     char ch1 = 0, ch2 = 0;
-    printf("\n");
     
     sketch(1);
         
@@ -67,12 +65,11 @@ CTEST(null_nine, one){
 }
 
 //test3
-CTEST(null_nine, two){
+CTEST(SKETCH_null_nine, two){
 
     // Given    
     int error = 0;
     char ch1 = 0, ch2 = 0;
-    printf("\n");
     
     sketch(2);
         
@@ -99,12 +96,11 @@ CTEST(null_nine, two){
 }
 
 //test4
-CTEST(null_nine, three){
+CTEST(SKETCH_null_nine, three){
 
     // Given    
     int error = 0;
     char ch1 = 0, ch2 = 0;
-    printf("\n");
     
     sketch(3);
         
@@ -131,12 +127,11 @@ CTEST(null_nine, three){
 }
 
 //test5
-CTEST(null_nine, four){
+CTEST(SKETCH_null_nine, four){
 
     // Given    
     int error = 0;
     char ch1 = 0, ch2 = 0;
-    printf("\n");
     
     sketch(4);
         
@@ -163,12 +158,11 @@ CTEST(null_nine, four){
 }
 
 //test6
-CTEST(null_nine, five){
+CTEST(SKETCH_null_nine, five){
 
     // Given    
     int error = 0;
     char ch1 = 0, ch2 = 0;
-    printf("\n");
     
     sketch(5);
         
@@ -195,12 +189,11 @@ CTEST(null_nine, five){
 }
 
 //test7
-CTEST(null_nine, six){
+CTEST(SKETCH_null_nine, six){
 
     // Given    
     int error = 0;
     char ch1 = 0, ch2 = 0;
-    printf("\n");
     
     sketch(6);
         
@@ -227,12 +220,11 @@ CTEST(null_nine, six){
 }
 
 //test8
-CTEST(null_nine, seven){
+CTEST(SKETCH_null_nine, seven){
 
     // Given    
     int error = 0;
     char ch1 = 0, ch2 = 0;
-    printf("\n");
     
     sketch(7);
         
@@ -259,12 +251,11 @@ CTEST(null_nine, seven){
 }
 
 //test9
-CTEST(null_nine, eight){
+CTEST(SKETCH_null_nine, eight){
 
     // Given    
     int error = 0;
     char ch1 = 0, ch2 = 0;
-    printf("\n");
     
     sketch(8);
         
@@ -291,12 +282,11 @@ CTEST(null_nine, eight){
 }
 
 //test10
-CTEST(null_nine, nine){
+CTEST(SKETCH_null_nine, nine){
 
     // Given    
     int error = 0;
     char ch1 = 0, ch2 = 0;
-    printf("\n");
     
     sketch(9);
         
@@ -323,12 +313,11 @@ CTEST(null_nine, nine){
 }
 
 //test11
-CTEST(overflow, default_error){
+CTEST(SKETCH_overflow, default_error){
 
     // Given    
     int error = 0;
     char ch1 = 0, ch2 = 0;
-    printf("\n");
     
     sketch(10);
         
