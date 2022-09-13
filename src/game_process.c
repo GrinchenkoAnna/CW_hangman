@@ -8,6 +8,7 @@
 #include "input_control.h"
 #include "sketch.h"
 
+
 /*В функции используются:
 size - размер загаданного слова
 letter - для вводимого символа
