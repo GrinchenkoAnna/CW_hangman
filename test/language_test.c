@@ -48,12 +48,25 @@ CTEST(LANGUAGE_exit, 3){
     ASSERT_EQUAL(expected, result);
 }
 
-//ввод не тех цифр, что заданы в меню
 //test4
-CTEST(LANGUAGE_wrong_choice, 4Y2){
+CTEST(LANGUAGE_exit, 123){
 
     // Given 
-    freopen("test/language/wrong_choice", "r", stdin);     
+    fseek(stdin, 3+3, SEEK_SET);     
+    const unsigned int choice = language(); 
+    // When
+    const int result = choice;
+    // Then
+    const int expected = 1;
+    
+    ASSERT_EQUAL(expected, result);
+}
+
+//test5
+CTEST(LANGUAGE_exit, 2mistakes){
+
+    // Given 
+    fseek(stdin, 6+4, SEEK_SET);     
     const unsigned int choice = language(); 
     // When
     const int result = choice;
@@ -63,7 +76,37 @@ CTEST(LANGUAGE_wrong_choice, 4Y2){
     ASSERT_EQUAL(expected, result);
 }
 
-//test5
+//test6
+CTEST(LANGUAGE_exit, 3_punkt_symbols){
+
+    // Given 
+    fseek(stdin, 15+5, SEEK_SET);     
+    const unsigned int choice = language(); 
+    // When
+    const int result = choice;
+    // Then
+    const int expected = 0;
+    
+    ASSERT_EQUAL(expected, result);
+}
+
+//ввод не тех цифр, что заданы в меню
+//test7
+CTEST(LANGUAGE_wrong_choice, 8y1){
+
+    // Given 
+    freopen("test/language/wrong_choice", "r", stdin);  
+    fseek(stdin, 0, SEEK_SET);   
+    const unsigned int choice = language(); 
+    // When
+    const int result = choice;
+    // Then
+    const int expected = 1;
+    
+    ASSERT_EQUAL(expected, result);
+}
+
+//test8
 CTEST(LANGUAGE_wrong_choice, 5circumflex){
 
     // Given 
@@ -78,7 +121,7 @@ CTEST(LANGUAGE_wrong_choice, 5circumflex){
 }
 
 //ввод букв на латинице
-//test6
+//test9
 CTEST(LANGUAGE_wrong_choice, kY2){
 
     // Given 
@@ -92,7 +135,7 @@ CTEST(LANGUAGE_wrong_choice, kY2){
     ASSERT_EQUAL(expected, result);
 }
 
-//test7
+//test10
 CTEST(LANGUAGE_wrong_choice, R9){
 
     // Given 
@@ -107,7 +150,7 @@ CTEST(LANGUAGE_wrong_choice, R9){
 }
 
 //ввод букв на кириллице
-//test8 - y - на кириллице
+//test11 - y - на кириллице
 CTEST(LANGUAGE_wrong_choice, CHu){
 
     // Given 
@@ -121,7 +164,7 @@ CTEST(LANGUAGE_wrong_choice, CHu){
     ASSERT_EQUAL(expected, result);
 }
 
-//test9 - y - на латинице
+//test12 - y - на латинице
 CTEST(LANGUAGE_wrong_choice, shy1){
 
     // Given 
@@ -136,7 +179,7 @@ CTEST(LANGUAGE_wrong_choice, shy1){
 }
 
 //ввод знаков пунктуации - =, %, (
-//test10
+//test13
 CTEST(LANGUAGE_wrong_choice, equaly2){
 
     // Given 
@@ -150,7 +193,7 @@ CTEST(LANGUAGE_wrong_choice, equaly2){
     ASSERT_EQUAL(expected, result);
 }
 
-//test11
+//test14
 CTEST(LANGUAGE_wrong_choice, percentn){
 
     // Given 
@@ -164,7 +207,7 @@ CTEST(LANGUAGE_wrong_choice, percentn){
     ASSERT_EQUAL(expected, result);
 }
 
-//test12
+//test15
 CTEST(LANGUAGE_wrong_choice, parenthesisy1){
 
     // Given 
@@ -179,7 +222,7 @@ CTEST(LANGUAGE_wrong_choice, parenthesisy1){
 }
 
 //ввод пробела, табуляции и \n
-//test13
+//test16
 CTEST(LANGUAGE_wrong_choice, spacey2){
 
     // Given 
@@ -193,7 +236,7 @@ CTEST(LANGUAGE_wrong_choice, spacey2){
     ASSERT_EQUAL(expected, result);
 }
 
-//test14
+//test17
 CTEST(LANGUAGE_wrong_choice, tabY1){
 
     // Given 
@@ -207,7 +250,7 @@ CTEST(LANGUAGE_wrong_choice, tabY1){
     ASSERT_EQUAL(expected, result);
 }
 
-//test14
+//test18
 CTEST(LANGUAGE_wrong_choice, enterspace){
 
     // Given 
@@ -217,6 +260,49 @@ CTEST(LANGUAGE_wrong_choice, enterspace){
     const int result = choice;
     // Then
     const int expected = 0;
+    
+    ASSERT_EQUAL(expected, result);
+}
+
+//ввод несколько символов
+//test19
+CTEST(LANGUAGE_wrong_choice, several_numbers){
+
+    // Given 
+    fseek(stdin, 33+31, SEEK_SET);     
+    const unsigned int choice = language(); 
+    // When
+    const int result = choice;
+    // Then
+    const int expected = 1;
+    
+    ASSERT_EQUAL(expected, result);
+}
+
+//test20
+CTEST(LANGUAGE_wrong_choice, several_kir){
+
+    // Given 
+    fseek(stdin, 33+31, SEEK_SET);     
+    const unsigned int choice = language(); 
+    // When
+    const int result = choice;
+    // Then
+    const int expected = 1;
+    
+    ASSERT_EQUAL(expected, result);
+}
+
+//test21
+CTEST(LANGUAGE_wrong_choice, several_lat){
+
+    // Given 
+    fseek(stdin, 47+33, SEEK_SET);     
+    const unsigned int choice = language(); 
+    // When
+    const int result = choice;
+    // Then
+    const int expected = 2;
     
     ASSERT_EQUAL(expected, result);
 }
