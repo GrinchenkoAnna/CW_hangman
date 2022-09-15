@@ -49,7 +49,7 @@ CTEST(LANGUAGE_exit, 3){
 }
 
 //test4
-CTEST(LANGUAGE_exit, 123){
+CTEST(LANGUAGE_right_choice, 123){
 
     // Given 
     fseek(stdin, 3+3, SEEK_SET);     
@@ -63,7 +63,7 @@ CTEST(LANGUAGE_exit, 123){
 }
 
 //test5
-CTEST(LANGUAGE_exit, 2mistakes){
+CTEST(LANGUAGE_right_choice, 2mistakes){
 
     // Given 
     fseek(stdin, 6+4, SEEK_SET);     
