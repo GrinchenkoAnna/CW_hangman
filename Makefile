@@ -42,7 +42,6 @@ $(TARGET): $(DIR_OBJ)hangman.o $(DIR_OBJ)language.o $(DIR_OBJ)hidden_word.o $(DI
 	gcc $(DIR_OBJ)hangman.o $(DIR_OBJ)language.o $(DIR_OBJ)hidden_word.o $(DIR_OBJ)game_process.o $(DIR_OBJ)sketch.o $(DIR_OBJ)input_control.o -Wall -Werror -o $(TARGET)
 	
 #test
-#game_process 
 $(DIR_TEST_OBJ)main.o: $(DIR_TEST_SCR)main.c $(DIR_CTEST)ctest.h
 	gcc -I thirdparty -I test $(DIR_TEST_SCR)main.c -c -Wall -Werror -o $(DIR_TEST_OBJ)main.o
 	

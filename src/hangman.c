@@ -12,7 +12,6 @@
 
 int main(){
     setlocale(LC_ALL, "");
-    system("clear");
     
     //выбор языка
     unsigned int lang = language(); 

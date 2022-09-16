@@ -126,6 +126,5 @@ int hidden_word(unsigned int language, wchar_t *choice){
     wprintf(L"%ls\n", choice); 
     wprintf(L"Размер выбранного слова: %ld\n", wcslen(choice));
     
-    system("clear"); 
     return 0;
 }
