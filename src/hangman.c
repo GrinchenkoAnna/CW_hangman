@@ -12,10 +12,11 @@
 
 int main(){
     setlocale(LC_ALL, "");
+    system("clear");
     
     //выбор языка
     unsigned int lang = language(); 
-    if (lang == 0){ return 1; }  
+    if (lang == 0){ system("clear"); return 1; }  
                     
     //для выбора слова из файла 
     wchar_t word[15] = {0}; //загаданное слово

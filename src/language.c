@@ -13,7 +13,7 @@ unsigned int language(){
 
     while (language_choice != '1' && language_choice != '2' && language_choice != '0' && language_choice != '3'){
     
-        wprintf(L"Выберите язык:/Choose your language:\n 1. Русский/Russian\n 2. Английский/English\n 3. Выход/Exit\nи введите соответствующую цифру/and enter the corresponding number\n"); 
+        wprintf(L"Выберите язык:/Choose your language:\n 1. Русский/Russian\n 2. Английский/English\n 3. Выход/Exit\nВведите соответствующую цифру и нажмите Enter для подтверждения выбора\nEnter the corresponding number and press Enter to confirm\n"); 
         wscanf(L"%lc", &language_choice);         
         while ( (ch = getwchar()) != WEOF && ch != L'\n'){}; //очистка буфера после wscanf  
         

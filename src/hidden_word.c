@@ -50,7 +50,7 @@ int hidden_word(unsigned int language, wchar_t *choice){
             strcat(filename10, lang1);      
             strcat(filename11, lang1);     
                     
-            wprintf(L"Выберите тему:\n 1. Природа\n 2. Погода\n 3. Животные\n 4. Домашние животные\n 5. Птицы\n 6. Рептилии\n 7. Морские обитатели\n 8. Деревья\n 9. Фрукты\n10. Ягоды\n11. Все подряд\n12. Выход\n");
+            wprintf(L"Выберите тему:\n 1. Природа\n 2. Погода\n 3. Животные\n 4. Домашние животные\n 5. Птицы\n 6. Рептилии\n 7. Морские обитатели\n 8. Деревья\n 9. Фрукты\n10. Ягоды\n11. Все подряд\n12. Выход\nВведите соответствующую цифру и нажмите Enter для подтверждения выбора\n");
             wscanf(L"%u", &topic_choice);       
             while ( (ch = getwchar()) != WEOF && ch != L'\n'){}; //очистка буфера после wscanf                               
         }  
@@ -68,7 +68,7 @@ int hidden_word(unsigned int language, wchar_t *choice){
             strcat(filename10, lang2);      
             strcat(filename11, lang2);   
                 
-            wprintf(L"Choose a topic:\n 1. Nature\n 2. Weather\n 3. Animals\n 4. Pets\n 5. Birds\n 6. Reptiles\n 7. Sea creatures\n 8. Trees\n 9. Fruits\n10. Berries\n11. Mixed\n12. Exit\n");
+            wprintf(L"Choose a topic:\n 1. Nature\n 2. Weather\n 3. Animals\n 4. Pets\n 5. Birds\n 6. Reptiles\n 7. Sea creatures\n 8. Trees\n 9. Fruits\n10. Berries\n11. Mixed\n12. Exit\nEnter the corresponding number and press Enter to confirm\n");
             wscanf(L"%u", &topic_choice);       
             while ( (ch = getwchar()) != WEOF && ch != L'\n'){}; //очистка буфера после wscanf            
         }
@@ -126,5 +126,6 @@ int hidden_word(unsigned int language, wchar_t *choice){
     wprintf(L"%ls\n", choice); 
     wprintf(L"Размер выбранного слова: %ld\n", wcslen(choice));
     
+    system("clear"); 
     return 0;
 }

@@ -106,7 +106,7 @@ void game_process(unsigned int size, unsigned int language, wchar_t *player_word
         wprintf(L"Ошибок: %lu\n\n", errors);        
         sketch(errors);
         wprintf(L"\n");        
-        wprintf(L"________________\n"); 
+        wprintf(L"________________\n");        
     }
     fwprintf(statistics, stat); //запись статистики в файл
     fclose(statistics);
@@ -119,5 +119,5 @@ void game_process(unsigned int size, unsigned int language, wchar_t *player_word
     }
     else { 
         wprintf(L"Поражение...\n");    
-    } 
+    }        
 }
