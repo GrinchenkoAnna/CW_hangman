@@ -8,15 +8,15 @@
 //russian
 //test1: 0
 CTEST(HIDDEN_WORD_reading_word_ru, read_error1){
-   
+
     // Given 
-    freopen("test/hidden_word/file_selection", "r", stdin);   
+    freopen("test/hidden_word/file_selection", "r", stdin);
     wchar_t word[15] = {0};
     // When
     const int result = hidden_word(1, word);
     // Then
     const int expected = 1;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -30,7 +30,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, read_error2){
     const int result = hidden_word(1, word);
     // Then
     const int expected = 1;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -44,7 +44,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, read_error3){
     const int result = hidden_word(1, word);
     // Then
     const int expected = 1;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -58,7 +58,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success1){
     
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
@@ -69,7 +69,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success1){
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -83,7 +83,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success2){
     
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
@@ -94,7 +94,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success2){
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -108,7 +108,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success3){
     
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
@@ -119,7 +119,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success3){
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -133,7 +133,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success4){
     
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
@@ -158,7 +158,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success5){
     
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
@@ -183,7 +183,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success6){
     
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
@@ -208,7 +208,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success7){
     
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
@@ -233,7 +233,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success8){
     
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
@@ -258,7 +258,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success9){
     
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
@@ -283,7 +283,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success10){
     
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
@@ -308,7 +308,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, success11){
     
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
@@ -333,7 +333,7 @@ CTEST(HIDDEN_WORD_reading_word_ru, exit){
     const int result = hidden_word(1, word);
     // Then
     const int expected = 1;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -342,13 +342,13 @@ CTEST(HIDDEN_WORD_reading_word_ru, exit){
 CTEST(HIDDEN_WORD_reading_word_en, read_error1){
    
     // Given 
-    freopen("test/hidden_word/file_selection", "r", stdin);   
+    freopen("test/hidden_word/file_selection", "r", stdin);
     wchar_t word[15] = {0};
     // When
     const int result = hidden_word(2, word);
     // Then
     const int expected = 1;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -362,7 +362,7 @@ CTEST(HIDDEN_WORD_reading_word_en, read_error2){
     const int result = hidden_word(2, word);
     // Then
     const int expected = 1;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -387,21 +387,21 @@ CTEST(HIDDEN_WORD_reading_word_en, success1){
     fseek(stdin, 1+1, SEEK_SET);
     wchar_t word[15] = {0};
     hidden_word(2, word);
-    
+
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
         }
     }
-    
+
     // When
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -412,21 +412,21 @@ CTEST(HIDDEN_WORD_reading_word_en, success2){
     fseek(stdin, 2+2, SEEK_SET);
     wchar_t word[15] = {0};
     hidden_word(2, word);
-    
+
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
         }
     }
-    
+
     // When
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -437,21 +437,21 @@ CTEST(HIDDEN_WORD_reading_word_en, success3){
     fseek(stdin, 3+3, SEEK_SET);
     wchar_t word[15] = {0};
     hidden_word(2, word);
-    
+
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
         }
     }
-    
+
     // When
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -462,21 +462,21 @@ CTEST(HIDDEN_WORD_reading_word_en, success4){
     fseek(stdin, 4+4, SEEK_SET);
     wchar_t word[15] = {0};
     hidden_word(2, word);
-    
+
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
         }
     }
-    
+
     // When
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -487,21 +487,21 @@ CTEST(HIDDEN_WORD_reading_word_en, success5){
     fseek(stdin, 5+5, SEEK_SET);
     wchar_t word[15] = {0};
     hidden_word(2, word);
-    
+
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
         }
     }
-    
+
     // When
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -512,21 +512,21 @@ CTEST(HIDDEN_WORD_reading_word_en, success6){
     fseek(stdin, 6+6, SEEK_SET);
     wchar_t word[15] = {0};
     hidden_word(2, word);
-    
+
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
         }
     }
-    
+
     // When
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -537,21 +537,21 @@ CTEST(HIDDEN_WORD_reading_word_en, success7){
     fseek(stdin, 7+7, SEEK_SET);
     wchar_t word[15] = {0};
     hidden_word(2, word);
-    
+
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
         }
     }
-    
+
     // When
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -562,21 +562,21 @@ CTEST(HIDDEN_WORD_reading_word_en, success8){
     fseek(stdin, 8+8, SEEK_SET);
     wchar_t word[15] = {0};
     hidden_word(2, word);
-    
+
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
         }
     }
-    
+
     // When
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -587,21 +587,21 @@ CTEST(HIDDEN_WORD_reading_word_en, success9){
     fseek(stdin, 9+9, SEEK_SET);
     wchar_t word[15] = {0};
     hidden_word(2, word);
-    
+
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
         }
     }
-    
+
     // When
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -612,21 +612,21 @@ CTEST(HIDDEN_WORD_reading_word_en, success10){
     fseek(stdin, 10+10, SEEK_SET);
     wchar_t word[15] = {0};
     hidden_word(2, word);
-    
+
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
         }
     }
-    
+
     // When
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -637,21 +637,21 @@ CTEST(HIDDEN_WORD_reading_word_en, success11){
     fseek(stdin, 12+11, SEEK_SET);
     wchar_t word[15] = {0};
     hidden_word(2, word);
-    
+
     unsigned int size = wcslen(word);
     unsigned int nonempty = 0;
-    
+
     for (int i = 0; i < size; i++){
         if (word[i] != 0){
             nonempty++;
         }
     }
-    
+
     // When
     const int result = nonempty;
     // Then
     const int expected = 0;
-    
+
     ASSERT_NOT_EQUAL(expected, result);
 }
 
@@ -665,6 +665,6 @@ CTEST(HIDDEN_WORD_reading_word_en, exit){
     const int result = hidden_word(2, word);
     // Then
     const int expected = 1;
-    
+
     ASSERT_EQUAL(expected, result);
 }

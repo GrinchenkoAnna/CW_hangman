@@ -10,13 +10,13 @@
 CTEST(INPUT_CONTROL_one_symbol_ru, lat1){
 
     // Given
-    freopen("test/input_control/one_symbol_lat", "r", stdin);   
+    freopen("test/input_control/one_symbol_lat", "r", stdin);
     const wchar_t s1 = input_control(1);
     // When
     const int result = (int)s1;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -30,7 +30,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, lat2){
     const int result = (int)s2;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -38,17 +38,17 @@ CTEST(INPUT_CONTROL_one_symbol_ru, lat2){
 CTEST(INPUT_CONTROL_one_symbol_ru, kir1){
 
     // Given
-    freopen("test/input_control/one_symbol_kir", "r", stdin);    
+    freopen("test/input_control/one_symbol_kir", "r", stdin); 
     const wchar_t s3 = input_control(1);
     // When
     const int result = (int)s3;
     // Then
     const int expected = 1094;
-    
+
     ASSERT_EQUAL(expected, result);
 }
-//test4
 
+//test4
 CTEST(INPUT_CONTROL_one_symbol_ru, kir2){
 
     // Given
@@ -58,7 +58,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, kir2){
     const int result = (int)s4;
     // Then
     const int expected = 1063;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -73,7 +73,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, space){
     const int result = (int)s5;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -87,7 +87,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, tab){
     const int result = (int)s6;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -101,7 +101,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, enter){
     const int result = (int)s7;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -110,13 +110,14 @@ CTEST(INPUT_CONTROL_one_symbol_ru, enter){
 CTEST(INPUT_CONTROL_one_symbol_ru, number){
 
     // Given
-    freopen("test/input_control/one_symbol_number_and_punctuation_marks", "r", stdin);
+    freopen("test/input_control/one_symbol_number_and_punctuation_marks", "r", 
+            stdin);
     const wchar_t s8 = input_control(1);
     // When
     const int result = (int)s8;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -130,7 +131,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, tilde){
     const int result = (int)s9;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -144,7 +145,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, exclamation_mark){
     const int result = (int)s10;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -158,7 +159,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, at){
     const int result = (int)s11;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -172,7 +173,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, hash){
     const int result = (int)s12;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -186,7 +187,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, dollar){
     const int result = (int)s13;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -200,7 +201,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, percent){
     const int result = (int)s14;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -214,7 +215,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, caret){
     const int result = (int)s15;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -228,7 +229,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, ampersand){
     const int result = (int)s16;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -242,7 +243,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, asterisk){
     const int result = (int)s17;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -256,7 +257,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, left_parenthesis){
     const int result = (int)s18;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -270,7 +271,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, right_parenthesis){
     const int result = (int)s19;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -284,7 +285,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, underscore){
     const int result = (int)s20;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -298,7 +299,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, plus){
     const int result = (int)s21;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -313,7 +314,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, acute){
     const int result = (int)s22;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -327,7 +328,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, dash){
     const int result = (int)s23;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -341,7 +342,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, equals){
     const int result = (int)s24;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -355,7 +356,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, left_curly_brace){
     const int result = (int)s25;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -369,7 +370,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, right_curly_brace){
     const int result = (int)s26;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -383,7 +384,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, vertical_bar){
     const int result = (int)s27;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -397,7 +398,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, left_square_bracket){
     const int result = (int)s28;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -411,7 +412,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, check1){
     const int result = (int)check;
     // Then
     const int expected = 1049;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -425,7 +426,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, right_square_bracket){
     const int result = (int)s29;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -439,7 +440,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, backslash){
     const int result = (int)s30;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -453,7 +454,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, forward_slash){
     const int result = (int)s31;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -467,7 +468,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, colon){
     const int result = (int)s32;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -481,7 +482,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, quote){
     const int result = (int)s33;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -495,7 +496,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, semi_colon){
     const int result = (int)s34;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -509,7 +510,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, apostrophe){
     const int result = (int)s35;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -523,7 +524,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, less_than){
     const int result = (int)s36;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -537,7 +538,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, greather_than){
     const int result = (int)s37;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -551,7 +552,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, question_mark){
     const int result = (int)s38;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -565,7 +566,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, comma){
     const int result = (int)s39;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -579,7 +580,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, dot){
     const int result = (int)s40;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -593,7 +594,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, check2){
     const int result = (int)check;
     // Then
     const int expected = 1076;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -608,7 +609,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, lat_kir1){
     const int result = (int)str1;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -622,7 +623,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, lat_kir2){
     const int result = (int)str2;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -636,7 +637,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, lat_kir3){
     const int result = (int)str3;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -650,7 +651,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, lat_kir4){
     const int result = (int)str4;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -664,7 +665,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, lat_kir5){
     const int result = (int)str5;
     // Then
     const int expected = 1092;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -678,7 +679,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, lat_kir6){
     const int result = (int)str6;
     // Then
     const int expected = 1044;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -692,7 +693,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, num_lat){
     const int result = (int)str7;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -706,7 +707,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, lat_num){
     const int result = (int)str8;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -720,7 +721,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, num_kir){
     const int result = (int)str9;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -734,7 +735,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, kir_num){
     const int result = (int)str10;
     // Then
     const int expected = 1103;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -748,7 +749,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, punct_marks_kir){
     const int result = (int)str11;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -762,7 +763,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, punct_marks_lat){
     const int result = (int)str12;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -776,7 +777,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, kir_punct_marks){
     const int result = (int)str13;
     // Then
     const int expected = 1072;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -790,7 +791,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, lat_punct_marks){
     const int result = (int)str14;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -804,7 +805,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, space_kir){
     const int result = (int)str15;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -818,7 +819,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, tab_kir){
     const int result = (int)str16;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -832,7 +833,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, dot_kir){
     const int result = (int)str17;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -846,7 +847,7 @@ CTEST(INPUT_CONTROL_several_symbols_ru, 100symbols){
     const int result = (int)str18;
     // Then
     const int expected = 1068;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -860,7 +861,7 @@ CTEST(INPUT_CONTROL_one_symbol_ru, check3){
     const int result = (int)check;
     // Then
     const int expected = 1090;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -870,13 +871,13 @@ CTEST(INPUT_CONTROL_one_symbol_ru, check3){
 CTEST(INPUT_CONTROL_one_symbol_en, lat1){
 
     // Given
-    freopen("test/input_control/one_symbol_lat", "r", stdin);   
+    freopen("test/input_control/one_symbol_lat", "r", stdin);
     const wchar_t s1 = input_control(2);
     // When
     const int result = (int)s1;
     // Then
     const int expected = 119;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -890,7 +891,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, lat2){
     const int result = (int)s2;
     // Then
     const int expected = 74;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -898,13 +899,13 @@ CTEST(INPUT_CONTROL_one_symbol_en, lat2){
 CTEST(INPUT_CONTROL_one_symbol_en, kir1){
 
     // Given
-    freopen("test/input_control/one_symbol_kir", "r", stdin);    
+    freopen("test/input_control/one_symbol_kir", "r", stdin); 
     const wchar_t s3 = input_control(2);
     // When
     const int result = (int)s3;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 //test4
@@ -918,7 +919,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, kir2){
     const int result = (int)s4;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -933,7 +934,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, space){
     const int result = (int)s5;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -947,7 +948,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, tab){
     const int result = (int)s6;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -961,7 +962,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, enter){
     const int result = (int)s7;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -970,13 +971,14 @@ CTEST(INPUT_CONTROL_one_symbol_en, enter){
 CTEST(INPUT_CONTROL_one_symbol_en, number){
 
     // Given
-    freopen("test/input_control/one_symbol_number_and_punctuation_marks", "r", stdin);
+    freopen("test/input_control/one_symbol_number_and_punctuation_marks", "r", 
+            stdin);
     const wchar_t s8 = input_control(2);
     // When
     const int result = (int)s8;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -990,7 +992,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, tilde){
     const int result = (int)s9;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1004,7 +1006,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, exclamation_mark){
     const int result = (int)s10;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1018,7 +1020,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, at){
     const int result = (int)s11;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1032,7 +1034,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, hash){
     const int result = (int)s12;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1046,7 +1048,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, dollar){
     const int result = (int)s13;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1060,7 +1062,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, percent){
     const int result = (int)s14;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1074,7 +1076,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, caret){
     const int result = (int)s15;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1088,7 +1090,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, ampersand){
     const int result = (int)s16;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1102,7 +1104,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, asterisk){
     const int result = (int)s17;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1116,7 +1118,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, left_parenthesis){
     const int result = (int)s18;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1130,7 +1132,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, right_parenthesis){
     const int result = (int)s19;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1144,7 +1146,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, underscore){
     const int result = (int)s20;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1158,7 +1160,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, plus){
     const int result = (int)s21;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1173,7 +1175,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, acute){
     const int result = (int)s22;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1187,7 +1189,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, dash){
     const int result = (int)s23;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1201,7 +1203,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, equals){
     const int result = (int)s24;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1215,7 +1217,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, left_curly_brace){
     const int result = (int)s25;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1229,7 +1231,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, right_curly_brace){
     const int result = (int)s26;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1243,7 +1245,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, vertical_bar){
     const int result = (int)s27;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1257,7 +1259,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, left_square_bracket){
     const int result = (int)s28;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1271,7 +1273,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, right_square_bracket){
     const int result = (int)s29;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1285,7 +1287,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, backslash){
     const int result = (int)s30;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1299,7 +1301,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, forward_slash){
     const int result = (int)s31;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1313,7 +1315,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, colon){
     const int result = (int)s32;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1327,7 +1329,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, quote){
     const int result = (int)s33;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1341,7 +1343,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, semi_colon){
     const int result = (int)s34;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1355,7 +1357,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, apostrophe){
     const int result = (int)s35;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1369,7 +1371,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, less_than){
     const int result = (int)s36;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1383,7 +1385,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, greather_than){
     const int result = (int)s37;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1397,7 +1399,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, question_mark){
     const int result = (int)s38;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1411,7 +1413,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, comma){
     const int result = (int)s39;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1425,7 +1427,7 @@ CTEST(INPUT_CONTROL_one_symbol_en, dot){
     const int result = (int)s40;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1442,7 +1444,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, lat_kir1){
     const int result = (int)str1;
     // Then
     const int expected = 113;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1456,7 +1458,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, lat_kir2){
     const int result = (int)str2;
     // Then
     const int expected = 65;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1470,7 +1472,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, lat_kir3){
     const int result = (int)str3;
     // Then
     const int expected = 114;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1484,7 +1486,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, lat_kir4){
     const int result = (int)str4;
     // Then
     const int expected = 76;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1498,7 +1500,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, lat_kir5){
     const int result = (int)str5;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1512,7 +1514,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, lat_kir6){
     const int result = (int)str6;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1526,7 +1528,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, num_lat){
     const int result = (int)str7;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1540,7 +1542,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, lat_num){
     const int result = (int)str8;
     // Then
     const int expected = 97;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1554,7 +1556,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, num_kir){
     const int result = (int)str9;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1568,7 +1570,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, kir_num){
     const int result = (int)str10;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1582,7 +1584,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, punct_marks_kir){
     const int result = (int)str11;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1596,7 +1598,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, punct_marks_lat){
     const int result = (int)str12;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1610,7 +1612,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, kir_punct_marks){
     const int result = (int)str13;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1624,7 +1626,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, lat_punct_marks){
     const int result = (int)str14;
     // Then
     const int expected = 97;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1638,7 +1640,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, space_lat){
     const int result = (int)str15;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1652,7 +1654,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, tab_lat){
     const int result = (int)str16;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1666,7 +1668,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, dot_lat){
     const int result = (int)str17;
     // Then
     const int expected = 0;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1680,7 +1682,7 @@ CTEST(INPUT_CONTROL_several_symbols_en, 100symbols){
     const int result = (int)str18;
     // Then
     const int expected = 115;
-    
+
     ASSERT_EQUAL(expected, result);
 }
 
@@ -1694,6 +1696,6 @@ CTEST(INPUT_CONTROL_one_symbol_ru, check4){
     const int result = (int)check;
     // Then
     const int expected = 119;
-    
+
     ASSERT_EQUAL(expected, result);
 }

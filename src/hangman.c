@@ -12,31 +12,33 @@
 
 int main(){
     setlocale(LC_ALL, "");
-    
+
     //выбор языка
-    unsigned int lang = language(); 
-    if (lang == 0){ system("clear"); return 1; }  
-                    
-    //для выбора слова из файла 
+    unsigned int lang = language();
+    if (lang == 0){ return 1; }
+
+    //для выбора слова из файла
     wchar_t word[15] = {0}; //загаданное слово
-    unsigned int word_size = 0; //размер загаданного слова    
-        
-    //подключение файла   
+    unsigned int word_size = 0; //размер загаданного слова
+
+    //подключение файла
     if (hidden_word(lang, word) == 0){
-            
-        word_size = wcslen(word); 
-        wprintf(L"Размер загаданного слова: %ld\n", word_size);
-        
-        wchar_t *entered_word = (wchar_t*)calloc(word_size + 1, sizeof(wchar_t)); /*выделение памяти для массива для вводимых букв*/
-        wmemset(entered_word, L'_', word_size); //заполнение массивва для вводимых букв символами "_"
-        
+
+        word_size = wcslen(word);
+
+        /*выделение памяти для массива для вводимых букв*/
+        wchar_t *entered_word = (wchar_t*)calloc(word_size + 1,
+                sizeof(wchar_t));
+
+        wmemset(entered_word, L'_', word_size);
+
         wprintf(L"%ls\n", entered_word);
-    
-        game_process(word_size, lang, entered_word, word); 
-    
-        free(entered_word); //освобождение памяти, выделенной для массива для ввода        
+
+        game_process(word_size, lang, entered_word, word);
+
+        free(entered_word);
         entered_word = NULL;
     }
-         
+
     return 0;
 }
