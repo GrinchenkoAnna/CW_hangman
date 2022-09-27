@@ -23,7 +23,8 @@ game_exit - маркер выбора опции "Выход"*/
 /*errors - для ошибок; guessed - для угаданных букв;
 stop_game - для остановки, считает количество угаданных букв;
 flag - вспомогательный маркер; repeat - счетчик повтора букв;
-attempt_flag - маркер ошибки игрока; try - (номер попытки игрока)-1*/
+attempt_flag - маркер ошибки игрока; try - номер попытки игрока;
+accuracy - точность игрока*/
 
 void game_process(unsigned int size, unsigned int language,
         wchar_t *player_word, wchar_t *word_to_guess){
@@ -31,6 +32,7 @@ void game_process(unsigned int size, unsigned int language,
     setlocale(LC_ALL, "");
     unsigned int errors = 0, guessed = 0, stop_game = 0, flag = 0, repeat = 0,
             attempt_flag = 0, try = 0;
+    float accuracy = 0; 
     wchar_t *stat = (wchar_t*)calloc(25, sizeof(wchar_t));
     wmemset(stat, '0', 25);
 
@@ -118,13 +120,46 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ\n");
     }
     fwprintf(statistics, stat); //запись статистики в файл
     fclose(statistics);
+        
+    //результат игрока
+    if (language == 1){
+        if (errors < 9 && stop_game == size){
+            wprintf(L"Победа!\n");
+        } else {
+            wprintf(L"Поражение...\n");
+        }
+        wprintf(L"Всего попыток: %lu\n", try);
+        wprintf(L"Статистика ввода: ");
+        for (int i = 0; i < 25; i++){
+            if (stat[i] != '0'){
+                wprintf(L"%lc", stat[i]);
+            } else {
+                wprintf(L"\n"); break;
+            }
+        }
+        accuracy = (float)(try-errors)/try;
+        wprintf(L"Точность: %.4lf\n", accuracy);
+    }
+    
+    if (language == 2){
+        if (errors < 9 && stop_game == size){
+            wprintf(L"Victory!\n");
+        } else {
+            wprintf(L"Defeat...\n");
+        }
+        wprintf(L"Total attempts: %lu\n", try);
+        wprintf(L"Input statistics: ");
+        for (int i = 0; i < 25; i++){
+            if (stat[i] != '0'){
+                wprintf(L"%lc", stat[i]);
+            } else {
+                wprintf(L"\n"); break;
+            }
+        }
+        accuracy = (float)(try-errors)/try;
+        wprintf(L"Accuracy: %.4lf\n", accuracy);
+    }
+    
     free(stat);
     stat = NULL;
-
-    //результат игрока
-    if (errors < 9 && stop_game == size){
-        wprintf(L"Победа!\n");
-    } else {
-        wprintf(L"Поражение...\n");
-    }
 }
