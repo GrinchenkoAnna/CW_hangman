@@ -13,8 +13,6 @@ jobs:
     - name: main
       run: make        
     - name: unit tests
-      run: make test
-    - name: chmod
-      run: chmod 777 test/game_process
+      run: make test    
     - name: run unit tests
       run: ./unit_tests
