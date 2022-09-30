@@ -25,7 +25,8 @@ to confirm\n");
         case '1': wprintf(L"\n"); break;
         case '2': wprintf(L"\n"); break;
         case '3': language_choice = '0'; break;
-        default: wprintf(L"Необходимо ввести цифру из списка!\n");
+        default: wprintf(L"Невозможно сделать выбор: такой цифры нет в меню/\
+It is impossible to make a choice: there is no such number in the menu\n");
                 flag++; break;
         }
 

@@ -14,8 +14,10 @@ int hidden_word(unsigned int language, wchar_t *choice){
     unsigned int word_choice = 0; //номер строки с загаданным словом
     unsigned int topic_choice = UINT_MAX; //номер темы
     unsigned int flag = 0;
+    unsigned int try = 1;
+    
 
-    char filename[50] = {0};
+    char filename[50] = {'0'};
     char filename0[50] = "src/words/empty";
     char filename1[50] = "src/words/nature_";
     char filename2[50] = "src/words/weather_";
@@ -32,23 +34,26 @@ int hidden_word(unsigned int language, wchar_t *choice){
     char lang2[3] = "en";
 
     wchar_t ch = L'0';
+    wchar_t second_chance = L'0'; //для повтора ввода после ошибки    
 
     FILE* words;
 
-    while (topic_choice == UINT_MAX){
+    while (topic_choice > 12){
 
         if (language == 1){
-            strcat(filename1, lang1);
-            strcat(filename2, lang1);
-            strcat(filename3, lang1);
-            strcat(filename4, lang1);
-            strcat(filename5, lang1);
-            strcat(filename6, lang1);
-            strcat(filename7, lang1);
-            strcat(filename8, lang1);
-            strcat(filename9, lang1);
-            strcat(filename10, lang1);
-            strcat(filename11, lang1);
+            if (try == 1){
+                strcat(filename1, lang1);
+                strcat(filename2, lang1);
+                strcat(filename3, lang1);
+                strcat(filename4, lang1);
+                strcat(filename5, lang1);
+                strcat(filename6, lang1);
+                strcat(filename7, lang1);
+                strcat(filename8, lang1);
+                strcat(filename9, lang1);
+                strcat(filename10, lang1);
+                strcat(filename11, lang1);
+            }
                     
             wprintf(L"Выберите тему:\n 1. Природа\n 2. Погода\n 3. Животные\n \
 4. Домашние животные\n 5. Птицы\n 6. Рептилии\n 7. Морские обитатели\n \
@@ -59,18 +64,20 @@ int hidden_word(unsigned int language, wchar_t *choice){
         }
 
         if (language == 2){
-            strcat(filename1, lang2);
-            strcat(filename2, lang2);
-            strcat(filename3, lang2);
-            strcat(filename4, lang2);
-            strcat(filename5, lang2);
-            strcat(filename6, lang2);
-            strcat(filename7, lang2);
-            strcat(filename8, lang2);
-            strcat(filename9, lang2);
-            strcat(filename10, lang2);
-            strcat(filename11, lang2);
-                
+            if (try == 1){
+                strcat(filename1, lang2);
+                strcat(filename2, lang2);
+                strcat(filename3, lang2);
+                strcat(filename4, lang2);
+                strcat(filename5, lang2);
+                strcat(filename6, lang2);
+                strcat(filename7, lang2);
+                strcat(filename8, lang2);
+                strcat(filename9, lang2);
+                strcat(filename10, lang2);
+                strcat(filename11, lang2);
+            } 
+               
             wprintf(L"Choose a topic:\n 1. Nature\n 2. Weather\n 3. Animals\n \
 4. Pets\n 5. Birds\n 6. Reptiles\n 7. Sea creatures\n 8. Trees\n 9. Fruits\n\
 10. Berries\n11. Mixed\n12. Exit\nEnter the corresponding number and press \
@@ -93,26 +100,40 @@ Enter to confirm\n");
             case 10: strcpy(filename, filename10); break;
             case 11: strcpy(filename, filename11); break;
             case 12: return 1;
-            default: wprintf(L"Необходимо ввести цифру из списка!\n");
+            default: wprintf(L"Невозможно сделать выбор: такой цифры нет в \
+меню/It is impossible to make a choice: there is no such number in the menu\n");
                     flag++; break;
         }
+        
+        //введен неверный символ
+        if (flag != 0){
+            wprintf(L"Ошибка! Тема игры не определена/Error! The game's topic \
+is not defined\n");
+            wprintf(L"Введите 'Y' ('y'), если хотите попробовать еще раз, либо \
+любой другой символ для выхода из игры\nEnter 'Y' ('y') if you want to try \
+again or any other character to exit the game\n");
+            wscanf(L"%lc", &second_chance);
+            if (second_chance == L'\n' || (second_chance != L'Y' 
+                    && second_chance != L'y')){
+                return 1;
+            } else {
+                while ( (ch = getwchar()) != WEOF && ch != L'\n'){};
+                topic_choice = 13;
+                try++;
+            }
+        flag = 0;
+        }
     }
-    words = fopen(filename, "r, css = UTF-8");
-
-    //проверка успешного открытия файла
-    if (!(words) && flag != 0){
-        wprintf(L"Ошибка открытия файла!\n");
-        return 1;
-    }
+    words = fopen(filename, "r");
 
     //количество строк
-    while(!(feof(words))){
-         if (fgetwc(words) == '\n'){
+    while((ch = fgetwc(words)) != WEOF){
+         if (ch == L'\n'){
              number_of_words++;
          }
     }
 
-    if (number_of_words == 0 && flag == 0){
+    if (number_of_words == 0){
         wprintf(L"Открыт пустой файл!\n");
         return 1;
     }
