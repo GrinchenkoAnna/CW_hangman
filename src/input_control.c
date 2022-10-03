@@ -17,15 +17,26 @@ wchar_t input_control(unsigned int language){
     //ограничения на ввод количества символов
     wscanf(L"%lc", &symbol);
     if (symbol == L'\n'){
-        wprintf(L"Введен(ы) запрещенный(е) символ(ы)!\nОшибка! \n");
-        return '\0';
+        if (language == 1){
+            wprintf(L"Введен(ы) запрещенный(е) символ(ы)!\nОшибка!\n");
+        }
+        if (language == 2){
+            wprintf(L"The forbidden symbol(s) has been entered!\nError!\n");
+        }
+        return '\0';    
     }
+    
     while ((ch = getwchar()) != L'\n' && ch != WEOF){
         extra++;
     }
-    if (extra > 0){
+    
+    if (language == 1 && extra > 0){
         wprintf(L"Вы ввели больше одной буквы. Будет засчитан первый введенный \
 символ: %lc\n", symbol);
+    }
+    if (language == 2 && extra > 0){
+        wprintf(L"You have entered more than one symbol. The first character \
+entered will be counted: %lc\n", symbol);
     }
 
     if (language == 1){
@@ -47,7 +58,7 @@ wchar_t input_control(unsigned int language){
 
         //если введен запрещенный символ, засчитывается ошибка
         if (wrong_symbol > 63){
-            wprintf(L"Введен(ы) запрещенный(е) символ(ы)!\nОшибка! \n");
+            wprintf(L"Введен(ы) запрещенный(е) символ(ы)!\nОшибка!\n");
             return '\0';
         }
     }
@@ -69,7 +80,7 @@ wchar_t input_control(unsigned int language){
 
         //если введен запрещенный символ, засчитывается ошибка
         if (wrong_symbol > 51){
-            wprintf(L"Введен(ы) запрещенный(е) символ(ы)!\nОшибка! \n");
+            wprintf(L"The forbidden symbol(s) has been entered!\nError!\n");
             return '\0';
         }
     }
