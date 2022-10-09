@@ -150,7 +150,7 @@ again or any other character to exit the game\n");
     }
 
     fclose(words);
-    wprintf(L"%ls\n", choice);
+    //wprintf(L"%ls\n", choice);
 
     return 0;
 }
