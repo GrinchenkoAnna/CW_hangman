@@ -13,7 +13,7 @@ DIR_TEMP = ./src/temp/
 
 OBJ = $(DIR_OBJ)hangman.o $(DIR_OBJ)language.o $(DIR_OBJ)hidden_word.o \
         $(DIR_OBJ)game_process.o $(DIR_OBJ)sketch.o $(DIR_OBJ)input_control.o
-TEST_OBJ = $(DIR_TEST_OBJ)sketch.o $(DIR_TEST_OBJ)sketch_test.o \
+TEST_OBJ = $(DIR_TEST_OBJ)sketch.o \
         $(DIR_TEST_OBJ)hidden_word.o $(DIR_TEST_OBJ)hidden_word_test.o \
         $(DIR_TEST_OBJ)input_control.o $(DIR_TEST_OBJ)input_control_test.o \
         $(DIR_TEST_OBJ)game_process.o $(DIR_TEST_OBJ)game_process_test.o \
@@ -27,7 +27,7 @@ test: $(TEST)
 
 clean:
 	rm -rf $(TARGET) $(TEST) $(DIR_OBJ)*.o $(DIR_TEST_OBJ)*.o \
-	        $(DIR_TEMP)statistics $(DIR_TEMP)picture
+	        $(DIR_TEMP)statistics
 
 
 #main
@@ -78,9 +78,6 @@ $(DIR_TEST_OBJ)hidden_word_test.o: $(DIR_TEST_SCR)hidden_word_test.c
 $(DIR_TEST_OBJ)sketch.o: $(DIR_SRC)sketch.c
 	$(CC) $(CFLAGS) $< -o $@
 
-$(DIR_TEST_OBJ)sketch_test.o: $(DIR_TEST_SCR)sketch_test.c 
-	$(CC) $(CFLAGS) $< -o $@
-	
 $(DIR_TEST_OBJ)language.o: $(DIR_SRC)language.c 
 	$(CC) $(CFLAGS) $< -o $@
 	
