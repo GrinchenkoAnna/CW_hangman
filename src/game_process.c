@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "game_process.h"
 #include "input_control.h"
 #include "sketch.h"
 

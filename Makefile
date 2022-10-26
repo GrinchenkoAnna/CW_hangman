@@ -14,7 +14,7 @@ TEST = $(DIR_BIN)unit_tests
 
 OBJ = $(DIR_OBJ)language.o $(DIR_OBJ)hidden_word.o \
       $(DIR_OBJ)game_process.o $(DIR_OBJ)sketch.o $(DIR_OBJ)input_control.o
-TEST_OBJ =$(OBJ) $(DIR_TEST_OBJ)hidden_word_test.o \
+TEST_OBJ = $(DIR_TEST_OBJ)hidden_word_test.o \
 	     $(DIR_TEST_OBJ)input_control_test.o \
          $(DIR_TEST_OBJ)game_process_test.o \
          $(DIR_TEST_OBJ)language_test.o $(DIR_TEST_OBJ)main.o
@@ -28,10 +28,9 @@ clean:
 	rm -rf $(TARGET) $(TEST) $(DIR_OBJ)*.o $(DIR_TEST_OBJ)*.o \
 	        $(DIR_TEMP)statistics
 
-
 #main
-$(DIR_OBJ)hangman.o: $(DIR_SRC)hangman.c
-	$(CC) $(CFLAGS) $< -o $@
+$(DIR_OBJ)hangman.o: $(DIR_SRC)hangman.c 
+	$(CC) $(CFLAGS) $< -o $@ 
 	
 $(DIR_OBJ)language.o: $(DIR_SRC)language.c 
 	$(CC) $(CFLAGS) $< -o $@
@@ -48,8 +47,11 @@ $(DIR_OBJ)input_control.o: $(DIR_SRC)input_control.c
 $(DIR_OBJ)game_process.o: $(DIR_SRC)game_process.c 
 	$(CC) $(CFLAGS) $< -o $@
 
-$(DIR_BIN)$(TARGET): $(OBJ) $(DIR_OBJ)hangman.o
-	$(CC) $(OBJ) $(DIR_OBJ)hangman.o -Wall -Werror -o $(TARGET)
+$(DIR_OBJ)lib.a: $(OBJ)
+	ar rcs $@ $^
+
+$(DIR_BIN)$(TARGET): $(DIR_OBJ)hangman.o $(DIR_OBJ)lib.a 
+	$(CC)  -I src $(DIR_OBJ)hangman.o  $(DIR_OBJ)lib.a -Wall -Werror -o $(TARGET)
 
 	
 #test
@@ -68,5 +70,5 @@ $(DIR_TEST_OBJ)hidden_word_test.o: $(DIR_TEST_SCR)hidden_word_test.c
 $(DIR_TEST_OBJ)language_test.o: $(DIR_TEST_SCR)language_test.c
 	$(CC) -I thirdparty -I src $(CFLAGS) $< -o $@
 
-$(DIR_BIN)$(TEST): $(TEST_OBJ)
-	$(CC) $(TEST_OBJ) -Wall -Werror -o $(TEST)
+$(DIR_BIN)$(TEST): $(TEST_OBJ) $(DIR_OBJ)lib.a 
+	$(CC) $(TEST_OBJ) $(DIR_OBJ)lib.a  -Wall -Werror -o $(TEST)

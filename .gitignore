@@ -4,5 +4,7 @@
 unit_tests
 main
 
+lib.a
+
 # Temp. files
 /src/temp

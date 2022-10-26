@@ -2,6 +2,8 @@
 #include <wchar.h>
 #include <wctype.h>
 
+#include "sketch.h"
+
 void sketch(unsigned int n){
     wchar_t *sketch_string[11][80] = {
     //0

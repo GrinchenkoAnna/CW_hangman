@@ -3,6 +3,8 @@
 #include <wchar.h>
 #include <wctype.h>
 
+#include "language.h"
+
 unsigned int language(){
 
     unsigned int language_choice_int = 0; //хранит номер языка

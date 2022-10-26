@@ -1,6 +1,6 @@
 #ifndef PRINT_H
 #define PRINT_H
 
-void sketch(int n);
+void sketch(unsigned int n);
 
 #endif

@@ -7,6 +7,8 @@
 #include <limits.h>
 #include <time.h>
 
+#include "hidden_word.h"
+
 int hidden_word(unsigned int language, wchar_t *choice){
     setlocale(LC_ALL, "");
 

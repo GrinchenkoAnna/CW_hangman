@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "input_control.h"
+
 wchar_t input_control(unsigned int language){
     setlocale(LC_ALL, "");
 
