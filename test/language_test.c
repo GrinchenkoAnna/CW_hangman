@@ -3,8 +3,9 @@
 #include <wchar.h>
 #include <wctype.h>
 #include <limits.h>
-#include "../thirdparty/ctest.h"
-#include "../src/language.h"
+
+#include <ctest.h>
+#include <language.h>
 
 //test1
 CTEST(LANGUAGE_right_choice, 1){

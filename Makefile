@@ -57,16 +57,16 @@ $(DIR_TEST_OBJ)main.o: $(DIR_TEST_SCR)main.c
 	$(CC) $(CFLAGS) $< -o $@
 	
 $(DIR_TEST_OBJ)game_process_test.o: $(DIR_TEST_SCR)game_process_test.c 
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) -I thirdparty -I src $(CFLAGS) $< -o $@
 	
 $(DIR_TEST_OBJ)input_control_test.o: $(DIR_TEST_SCR)input_control_test.c 
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) -I thirdparty -I src $(CFLAGS) $< -o $@
 
 $(DIR_TEST_OBJ)hidden_word_test.o: $(DIR_TEST_SCR)hidden_word_test.c 
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) -I thirdparty -I src $(CFLAGS) $< -o $@
 	
 $(DIR_TEST_OBJ)language_test.o: $(DIR_TEST_SCR)language_test.c
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) -I thirdparty -I src $(CFLAGS) $< -o $@
 
 $(DIR_BIN)$(TEST): $(TEST_OBJ)
 	$(CC) $(TEST_OBJ) -Wall -Werror -o $(TEST)

@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <wchar.h>
 #include <wctype.h>
-#include "../thirdparty/ctest.h"
-#include "../src/input_control.h"
+
+#include <ctest.h>
+#include <input_control.h>
 
 //russian
 /*Ввод на латинице и кириллице: строчная и прописная буквы, по одному символу*/

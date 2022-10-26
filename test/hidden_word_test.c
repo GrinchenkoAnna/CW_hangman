@@ -2,8 +2,9 @@
 #include <string.h>
 #include <wchar.h>
 #include <wctype.h>
-#include "../thirdparty/ctest.h"
-#include "../src/hidden_word.h"
+
+#include <ctest.h>
+#include <hidden_word.h>
 
 //russian
 //test1: 0

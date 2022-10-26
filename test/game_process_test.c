@@ -3,10 +3,11 @@
 #include <string.h>
 #include <wchar.h>
 #include <wctype.h>
-#include "../thirdparty/ctest.h"
-#include "../src/game_process.h"
-#include "../src/input_control.h"
-#include "../src/sketch.h"
+
+#include <ctest.h>
+#include <game_process.h>
+#include <input_control.h>
+#include <sketch.h>
 
 //russian
 //test1
