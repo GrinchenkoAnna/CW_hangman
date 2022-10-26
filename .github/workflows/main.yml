@@ -15,4 +15,4 @@ jobs:
     - name: unit tests
       run: make test    
     - name: run unit tests
-      run: ./unit_tests
+      run: ./bin/unit_tests
